@@ -26,7 +26,7 @@ ProductNavigationControlMenuEntryRegistry productNavigationControlMenuEntryRegis
 <c:if test="<%= !productNavigationControlMenuCategories.isEmpty() %>">
 	<div class="control-menu control-menu-level-1 hidden-print" data-qa-id="controlMenu" id="<portlet:namespace />ControlMenu">
 		<div class="container-fluid container-fluid-max-xl">
-			<ul class="control-menu-level-1-nav control-menu-nav" data-namespace="<portlet:namespace />" data-qa-id="header" id="<portlet:namespace />controlMenu">
+			<div class="control-menu-level-1-nav control-menu-nav" data-namespace="<portlet:namespace />" data-qa-id="header" id="<portlet:namespace />controlMenu">
 
 				<%
 				Map<ProductNavigationControlMenuCategory, List<ProductNavigationControlMenuEntry>> productNavigationControlMenuEntriesMap = new LinkedHashMap<>();
@@ -34,8 +34,8 @@ ProductNavigationControlMenuEntryRegistry productNavigationControlMenuEntryRegis
 				for (ProductNavigationControlMenuCategory productNavigationControlMenuCategory : productNavigationControlMenuCategories) {
 				%>
 
-					<li class="control-menu-nav-category <%= productNavigationControlMenuCategory.getKey() %>-control-group">
-						<ul class="control-menu-nav">
+					<div class="control-menu-nav-category <%= productNavigationControlMenuCategory.getKey() %>-control-group">
+						<div class="control-menu-nav">
 
 							<%
 							List<ProductNavigationControlMenuEntry> productNavigationControlMenuEntries = productNavigationControlMenuEntryRegistry.getProductNavigationControlMenuEntries(productNavigationControlMenuCategory, request);
@@ -65,14 +65,14 @@ ProductNavigationControlMenuEntryRegistry productNavigationControlMenuEntryRegis
 							}
 							%>
 
-						</ul>
-					</li>
+						</div>
+					</div>
 
 				<%
 				}
 				%>
 
-			</ul>
+			</div>
 		</div>
 
 		<div class="control-menu-body">
