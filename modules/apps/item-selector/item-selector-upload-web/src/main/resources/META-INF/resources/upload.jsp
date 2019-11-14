@@ -42,7 +42,7 @@ context.put("uploadItemURL", uploadURL.toString());
 context.put("validExtensions", ArrayUtil.isEmpty(itemSelectorUploadViewDisplayContext.getExtensions()) ? "*" : StringUtil.merge(itemSelectorUploadViewDisplayContext.getExtensions()));
 %>
 
-<div class="container-fluid-1280 lfr-item-viewer" id="itemSelectorUploadContainer">
+<div class="container-fluid container-fluid-max-xl lfr-item-viewer" id="itemSelectorUploadContainer">
 	<div class="drop-enabled drop-zone item-selector upload-view">
 		<div id="uploadDescription">
 			<c:if test="<%= !BrowserSnifferUtil.isMobile(request) %>">

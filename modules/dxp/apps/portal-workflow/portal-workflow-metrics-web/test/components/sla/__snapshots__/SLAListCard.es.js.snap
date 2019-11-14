@@ -250,7 +250,7 @@ exports[`Should remove a item 1`] = `
           </div>
         </nav>
         <div
-          className="container-fluid-1280"
+          className="container-fluid container-fluid-max-xl"
         >
           <ListView
             emptyMessageText="sla-allows-to-define-and-measure-process-performance"
@@ -326,7 +326,7 @@ Array [
     </div>
   </nav>,
   <div
-    className="container-fluid-1280"
+    className="container-fluid container-fluid-max-xl"
   >
     <div>
       <div
@@ -390,7 +390,7 @@ Array [
     </div>
   </nav>,
   <div
-    className="container-fluid-1280"
+    className="container-fluid container-fluid-max-xl"
   >
     <div>
       <div
@@ -657,7 +657,7 @@ exports[`Should render toast with SLA saved message 1`] = `
           </div>
         </nav>
         <div
-          className="container-fluid-1280"
+          className="container-fluid container-fluid-max-xl"
         >
           <ListView
             emptyMessageText="sla-allows-to-define-and-measure-process-performance"
@@ -936,7 +936,7 @@ exports[`Should render toast with SLA updated message 1`] = `
           </div>
         </nav>
         <div
-          className="container-fluid-1280"
+          className="container-fluid container-fluid-max-xl"
         >
           <ListView
             emptyMessageText="sla-allows-to-define-and-measure-process-performance"
@@ -1215,7 +1215,7 @@ exports[`Should test props change 1`] = `
           </div>
         </nav>
         <div
-          className="container-fluid-1280"
+          className="container-fluid container-fluid-max-xl"
         >
           <ListView
             emptyMessageText="sla-allows-to-define-and-measure-process-performance"

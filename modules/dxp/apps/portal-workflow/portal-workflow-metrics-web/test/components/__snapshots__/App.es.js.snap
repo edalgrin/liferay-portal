@@ -81,7 +81,7 @@ Array [
     </nav>
     
     <div
-      className="container-fluid-1280"
+      className="container-fluid container-fluid-max-xl"
     >
       <div
         className="border-1 pb-6 pt-6 sheet"
@@ -176,7 +176,7 @@ exports[`Should render default component without custom header 1`] = `
   </nav>
   
   <div
-    className="container-fluid-1280"
+    className="container-fluid container-fluid-max-xl"
   >
     <div
       className="border-1 pb-6 pt-6 sheet"

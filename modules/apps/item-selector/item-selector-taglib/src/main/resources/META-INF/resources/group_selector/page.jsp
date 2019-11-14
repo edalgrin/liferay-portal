@@ -27,7 +27,7 @@ GroupSelectorDisplayContext groupSelectorDisplayContext = new GroupSelectorDispl
 SearchContainer searchContainer = new GroupSearch(liferayPortletRequest, groupSelectorDisplayContext.getIteratorURL());
 %>
 
-<div class="container-fluid-1280">
+<div class="container-fluid container-fluid-max-xl">
 	<div class="btn-group" role="group">
 
 		<%
@@ -43,7 +43,7 @@ SearchContainer searchContainer = new GroupSearch(liferayPortletRequest, groupSe
 	</div>
 </div>
 
-<div class="container-fluid-1280 lfr-item-viewer">
+<div class="container-fluid container-fluid-max-xl lfr-item-viewer">
 	<liferay-ui:search-container
 		searchContainer="<%= searchContainer %>"
 		total="<%= groupsCount %>"

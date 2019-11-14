@@ -65,7 +65,7 @@ portletDisplay.setURLBack(backURL);
 renderResponse.setTitle(headerTitle);
 %>
 
-<div class="container-fluid-1280">
+<div class="container-fluid container-fluid-max-xl">
 	<aui:col cssClass="lfr-asset-column lfr-asset-column-details">
 		<liferay-ui:success key='<%= workflowTaskDisplayContext.getPortletResource() + "requestProcessed" %>' message="your-request-completed-successfully" />
 

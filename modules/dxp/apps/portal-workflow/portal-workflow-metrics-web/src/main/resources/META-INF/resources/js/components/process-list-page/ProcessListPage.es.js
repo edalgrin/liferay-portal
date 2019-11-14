@@ -49,7 +49,7 @@ const ProcessListPage = ({page, pageSize, query, sort}) => {
 				totalCount={data.totalCount}
 			/>
 
-			<div className="container-fluid-1280">
+			<div className="container-fluid container-fluid-max-xl">
 				<ProcessListPage.Body data={data} search={search} />
 			</div>
 		</PromisesResolver>
