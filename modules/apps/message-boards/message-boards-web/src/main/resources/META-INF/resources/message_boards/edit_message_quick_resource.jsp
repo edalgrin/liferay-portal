@@ -62,7 +62,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 boolean showPermanentLink = GetterUtil.getBoolean(request.getAttribute("edit-message.jsp-showPermanentLink"));
 %>
 
-<div class="panel-heading">
+<div class="panel-header">
 	<div class="card-body">
 		<div class="card-col-field">
 			<div class="list-group-card-icon">

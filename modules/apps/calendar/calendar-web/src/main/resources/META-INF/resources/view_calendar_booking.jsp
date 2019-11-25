@@ -42,7 +42,7 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 	<div class="panel panel-default">
 		<liferay-ui:header
 			backURL="<%= backURL %>"
-			cssClass="panel-heading"
+			cssClass="panel-header"
 			localizeTitle="<%= false %>"
 			title="<%= calendarBooking.getTitle(locale) %>"
 		/>

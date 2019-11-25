@@ -36,7 +36,7 @@ AssetTagsSearchFacetDisplayContext assetTagsSearchFacetDisplayContext = assetTag
 	</c:when>
 	<c:otherwise>
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-header">
 				<div class="panel-title">
 					<liferay-ui:message key="tags" />
 				</div>

@@ -34,7 +34,7 @@ if (message.isAnonymous() || thread.isInTrash()) {
 <a id="<portlet:namespace />message_<%= message.getMessageId() %>"></a>
 
 <div class="card panel">
-	<div class="panel-heading">
+	<div class="panel-header">
 		<div class="card-body">
 			<div class="card-col-field">
 				<div class="list-group-card-icon">

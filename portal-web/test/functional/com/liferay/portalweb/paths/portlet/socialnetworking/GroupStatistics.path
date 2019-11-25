@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<td>SITE_STATISTICS_PANEL</td>
-	<td>//div[contains(@class,'panel-heading')]/div/span[contains(.,'Site Statistics')]</td>
+	<td>//div[contains(@class,'panel-header')]/div/span[contains(.,'Site Statistics')]</td>
 	<td></td>
 </tr>
 <tr>

@@ -26,7 +26,7 @@
 		%>
 
 			<div class="panel panel-secondary">
-				<div class="panel-header panel-heading" id="<portlet:namespace /><%= AUIUtil.normalizeId(childPanelCategory.getKey()) %>Heading" role="tab">
+				<div class="panel-header" id="<portlet:namespace /><%= AUIUtil.normalizeId(childPanelCategory.getKey()) %>Heading" role="tab">
 					<div class="panel-title">
 						<c:if test="<%= !childPanelCategory.includeHeader(request, PipingServletResponse.createPipingServletResponse(pageContext)) %>">
 

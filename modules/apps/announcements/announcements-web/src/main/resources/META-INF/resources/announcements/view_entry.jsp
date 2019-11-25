@@ -51,7 +51,7 @@ if (portletTitleBasedNavigation) {
 
 <div <%= portletTitleBasedNavigation ? "class=\"container-fluid-1280\"" : StringPool.BLANK %>>
 	<div class="main-content-card panel" id="<portlet:namespace /><%= entry.getEntryId() %>">
-		<div class="panel-heading">
+		<div class="panel-header">
 			<div class="card-row">
 				<div class="card-col-field">
 					<div class="list-group-card-icon">

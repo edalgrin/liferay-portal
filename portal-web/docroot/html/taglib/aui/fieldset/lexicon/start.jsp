@@ -46,7 +46,7 @@ else if (collapsible) {
 			</c:if>
 		</liferay-util:buffer>
 
-		<div class="panel-heading" id="<%= id %>Header" role="presentation">
+		<div class="panel-header" id="<%= id %>Header" role="presentation">
 			<div class="panel-title" id="<%= id %>Title">
 				<c:choose>
 					<c:when test="<%= collapsible %>">

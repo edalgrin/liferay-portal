@@ -271,12 +271,12 @@ announcementsPortletInstanceConfiguration = ParameterMapUtil.setParameterMap(Ann
 	if (form) {
 		var <portlet:namespace />modified = function(panel) {
 			var modifiedNotice = panel.querySelector(
-				'.panel-heading .sheet-subtitle .modified-notice'
+				'.panel-header .sheet-subtitle .modified-notice'
 			);
 
 			if (!modifiedNotice) {
 				var displayTitle = panel.querySelector(
-					'.panel-heading .sheet-subtitle'
+					'.panel-header .sheet-subtitle'
 				);
 
 				dom.append(

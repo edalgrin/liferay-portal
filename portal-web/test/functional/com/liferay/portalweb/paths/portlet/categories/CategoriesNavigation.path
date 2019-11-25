@@ -15,7 +15,7 @@
 </tr>
 <tr>
 	<td>VOCABULARY_NAME</td>
-	<td>//div[contains(@class,'asset-categories-navigation')]//div[contains(@class,'panel-heading')]//span[contains(.,'${key_vocabularyName}')]</td>
+	<td>//div[contains(@class,'asset-categories-navigation')]//div[contains(@class,'panel-header')]//span[contains(.,'${key_vocabularyName}')]</td>
 	<td></td>
 </tr>
 <tr>

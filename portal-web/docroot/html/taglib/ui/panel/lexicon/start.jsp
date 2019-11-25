@@ -34,7 +34,7 @@ if (persistState) {
 %>
 
 <div class="panel panel-default <%= cssClass %>" id="<%= id %>">
-	<div class="panel-heading" id="<%= id %>Header" role="tab">
+	<div class="panel-header" id="<%= id %>Header" role="tab">
 		<div class="h4 panel-title">
 			<c:choose>
 				<c:when test="<%= collapsible %>">

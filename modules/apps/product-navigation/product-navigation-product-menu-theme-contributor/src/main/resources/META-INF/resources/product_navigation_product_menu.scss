@@ -328,7 +328,7 @@ body {
 			margin-top: 0;
 		}
 
-		.panel-heading + .panel-collapse {
+		.panel-header + .panel-collapse {
 			> .panel-body,
 			> .list-group {
 				border-top-width: 0;
@@ -341,8 +341,7 @@ body {
 		}
 	}
 
-	.panel-header,
-	.panel-heading {
+	.panel-header {
 		border-bottom-width: 1px;
 		font-size: inherit;
 		line-height: 1.5;
@@ -397,7 +396,7 @@ body {
 			top: 50%;
 		}
 
-		&.panel-heading {
+		&.panel-header {
 			border-bottom-width: 0;
 			padding: 0;
 		}
