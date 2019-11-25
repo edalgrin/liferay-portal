@@ -66,7 +66,7 @@ JSONArray rangesJSONArray = dataJSONObject.getJSONArray("ranges");
 int index = 0;
 %>
 
-<div class="panel panel-default">
+<div class="panel panel-secondary">
 	<div class="panel-header">
 		<div class="panel-title">
 			<liferay-ui:message key="time" />

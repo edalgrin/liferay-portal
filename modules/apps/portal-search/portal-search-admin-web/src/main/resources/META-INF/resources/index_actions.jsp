@@ -67,7 +67,7 @@ portletURL.setParameter("mvcRenderCommandName", "/search_admin/view");
 		id="adminSearchAdministrationActionsPanelContainer"
 		persistState="<%= true %>"
 	>
-		<div class="panel panel-default search-admin-tabs" id="adminSearchInformationPanel">
+		<div class="panel panel-secondary search-admin-tabs" id="adminSearchInformationPanel">
 			<div class="panel-body">
 				<c:choose>
 					<c:when test="<%= !indexActionsDisplayContext.isMissingSearchEngine() %>">

@@ -149,7 +149,7 @@ function Rule({
 }) {
 	return (
 		<>
-			<div className="panel panel-default">
+			<div className="panel panel-secondary">
 				<div className="panel-body">
 					<ClayForm.Group>
 						<ClaySelectWithOption

@@ -149,7 +149,7 @@ function Rule({
 }) {
 	return (
 		<>
-			<div className="panel panel-default">
+			<div className="panel panel-secondary">
 				<div className="panel-body">
 					<ClayForm.Group>
 						<ClaySelectWithOption
@@ -308,7 +308,7 @@ function AutoField({
 
 			<ul className="timeline">
 				<li className="timeline-item">
-					<div className="panel panel-default">
+					<div className="panel panel-secondary">
 						<div className="flex-container mb-0 panel-body py-2">
 							<div className="h4 panel-title">
 								{Liferay.Language.get('rules')}

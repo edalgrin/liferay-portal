@@ -459,7 +459,7 @@
 	{@param? targetSelected: string}
 
 	<li action-index="{$index}" class="action form-builder-rule-action-container-{$index} timeline-item">
-		<div class="panel panel-default">
+		<div class="panel panel-secondary">
 			<div class="panel-body">
 				<div class="form-group-autofit">
 					<div class="form-group-item form-group-item-label form-group-item-shrink">
@@ -638,7 +638,7 @@
 	{@param? selectedOperator: string}
 
 	<li class="form-builder-rule-condition-container timeline-item" condition-index="{$index}">
-		<div class="panel panel-default">
+		<div class="panel panel-secondary">
 			<div class="flex-container panel-body">
 				<div class="form-group-autofit">
 					<div class="form-group-item form-group-item-label form-group-item-shrink">
@@ -758,7 +758,7 @@
 			</div>
 		</div>
 
-		<div class="operator panel panel-default panel-inline">
+		<div class="operator panel panel-secondary panel-inline">
 			<div class="panel-body text-uppercase">
 				{if $logicalOperator == 'and'}
 					{msg desc=""}and{/msg}
@@ -943,7 +943,7 @@
 	{@param? extraContent: html}
 
 	<li class="timeline-item">
-		<div class="panel panel-default">
+		<div class="panel panel-secondary">
 			<div class="flex-container panel-body">
 				<div class="h4 panel-title">
 					{$title}
