@@ -368,12 +368,12 @@
 <!--MINI_CALENDAR-->
 <tr>
 	<td>MINI_CALENDAR_WEEK_START_DAY_START_DATE</td>
-	<td>xpath=(//div[@class='yui3-widget-bd popover-content']//tr[@class='yui3-calendar-weekdayrow']/th[1])[1]</td>
+	<td>xpath=(//div[@class='yui3-widget-bd popover-body']//tr[@class='yui3-calendar-weekdayrow']/th[1])[1]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>MINI_CALENDAR_WEEK_START_DAY_END_DATE</td>
-	<td>xpath=(//div[@class='yui3-widget-bd popover-content']//tr[@class='yui3-calendar-weekdayrow']/th[1])[2]</td>
+	<td>xpath=(//div[@class='yui3-widget-bd popover-body']//tr[@class='yui3-calendar-weekdayrow']/th[1])[2]</td>
 	<td></td>
 </tr>
 <tr>
