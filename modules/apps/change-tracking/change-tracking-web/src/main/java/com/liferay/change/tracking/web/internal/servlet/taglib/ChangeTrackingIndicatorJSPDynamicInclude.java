@@ -81,11 +81,7 @@ public class ChangeTrackingIndicatorJSPDynamicInclude
 	@Override
 	public void register(DynamicIncludeRegistry dynamicIncludeRegistry) {
 		dynamicIncludeRegistry.register(
-			"com.liferay.product.navigation.control.menu.web#/entries" +
-				"/layout_header.jsp#pre");
-		dynamicIncludeRegistry.register(
-			"com.liferay.product.navigation.control.menu.web#/entries" +
-				"/portlet_header.jsp#pre");
+			"com.liferay.product.navigation.taglib#/page.jsp#pre");
 	}
 
 	@Override
