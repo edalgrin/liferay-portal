@@ -65,7 +65,9 @@ if (!portletName.equals(PortletKeys.SERVER_ADMIN)) {
 	<liferay-util:include page="/edit_role_tabs.jsp" servletContext="<%= application %>" />
 </c:if>
 
-<aui:container cssClass="container-fluid container-fluid-max-xl container-form-lg" id="permissionContainer">
+<clay:container
+	id="permissionContainer"
+>
 	<aui:row>
 		<c:if test="<%= !portletName.equals(PortletKeys.SERVER_ADMIN) %>">
 			<aui:col width="<%= 25 %>">
@@ -90,7 +92,7 @@ if (!portletName.equals(PortletKeys.SERVER_ADMIN)) {
 			</c:choose>
 		</aui:col>
 	</aui:row>
-</aui:container>
+</clay:container>
 
 <aui:script>
 	function <portlet:namespace />selectOrganization(
