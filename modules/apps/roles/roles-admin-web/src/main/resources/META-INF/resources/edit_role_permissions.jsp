@@ -66,6 +66,7 @@ if (!portletName.equals(PortletKeys.SERVER_ADMIN)) {
 </c:if>
 
 <clay:container
+	cssClass="c-pt-md-5"
 	id="permissionContainer"
 >
 	<aui:row>
