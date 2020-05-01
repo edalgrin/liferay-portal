@@ -68,7 +68,7 @@ if (!portletName.equals(PortletKeys.SERVER_ADMIN)) {
 <clay:container
 	id='<%= renderResponse.getNamespace() + "permissionContainer" %>'
 >
-	<aui:row>
+	<clay:row>
 		<c:if test="<%= !portletName.equals(PortletKeys.SERVER_ADMIN) %>">
 			<aui:col width="<%= 25 %>">
 				<%@ include file="/edit_role_permissions_navigation.jspf" %>
@@ -91,7 +91,7 @@ if (!portletName.equals(PortletKeys.SERVER_ADMIN)) {
 				</c:otherwise>
 			</c:choose>
 		</aui:col>
-	</aui:row>
+	</clay:row>
 </clay:container>
 
 <aui:script>
