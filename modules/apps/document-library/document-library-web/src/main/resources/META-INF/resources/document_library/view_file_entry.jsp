@@ -99,10 +99,10 @@ if (portletTitleBasedNavigation) {
 
 <c:choose>
 	<c:when test="<%= portletTitleBasedNavigation %>">
-<div class="container-fluid-1280" id="<portlet:namespace />FileEntry">
+		<clay:container id="<portlet:namespace />FileEntry">
 	</c:when>
 	<c:otherwise>
-<div class="closed container-fluid-1280 sidenav-container sidenav-right" id="<portlet:namespace />infoPanelId">
+		<clay:container className="closed sidenav-container sidenav-right" id="<portlet:namespace />infoPanelId">
 	</c:otherwise>
 </c:choose>
 
@@ -231,7 +231,7 @@ if (portletTitleBasedNavigation) {
 			</c:if>
 		</div>
 	</div>
-</div>
+</clay:container>
 
 <c:if test="<%= dlPortletInstanceSettingsHelper.isShowActions() && dlAdminDisplayContext.isVersioningStrategyOverridable() %>">
 

@@ -21,10 +21,10 @@ AppBuilderApp appBuilderApp = (AppBuilderApp)request.getAttribute(AppBuilderWebK
 %>
 
 <div class="app-builder-root">
-	<div class="container edit-entry">
+	<clay:container className="edit-entry">
 		<div id="<%= renderResponse.getNamespace() %>-control-menu"></div>
 
-		<div class="justify-content-center row">
+		<clay:row className"justify-content-center">
 			<div class="col-lg-12">
 				<div class="card card-root mb-0 mt-4 shadowless-card">
 					<div class="card-body pt-0">
@@ -75,6 +75,6 @@ AppBuilderApp appBuilderApp = (AppBuilderApp)request.getAttribute(AppBuilderWebK
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		</clay:row>
+	</clay:container>
 </div>

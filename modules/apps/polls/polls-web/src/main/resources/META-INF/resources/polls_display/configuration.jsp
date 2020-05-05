@@ -37,7 +37,7 @@ if (scopeGroupId != themeDisplay.getCompanyGroupId()) {
 	<aui:input name="redirect" type="hidden" value="<%= configurationRenderURL %>" />
 
 	<div class="portlet-configuration-body-content">
-		<div class="container-fluid-1280">
+		<clay:container>
 			<liferay-ui:error exception="<%= NoSuchQuestionException.class %>" message="the-question-could-not-be-found" />
 
 			<c:choose>
@@ -68,7 +68,7 @@ if (scopeGroupId != themeDisplay.getCompanyGroupId()) {
 					</div>
 				</c:otherwise>
 			</c:choose>
-		</div>
+		</clay:container>
 	</div>
 
 	<aui:button-row>

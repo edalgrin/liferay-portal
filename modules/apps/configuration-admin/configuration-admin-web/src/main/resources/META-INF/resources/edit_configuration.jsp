@@ -81,7 +81,7 @@ renderResponse.setTitle(categoryDisplayName);
 <portlet:actionURL name="bindConfiguration" var="bindConfigurationActionURL" />
 <portlet:actionURL name="deleteConfiguration" var="deleteConfigurationActionURL" />
 
-<div class="container-fluid container-fluid-max-xl">
+<clay:container>
 	<div class="col-12">
 		<liferay-ui:breadcrumb
 			showCurrentGroup="<%= false %>"
@@ -90,10 +90,10 @@ renderResponse.setTitle(categoryDisplayName);
 			showParentGroups="<%= false %>"
 		/>
 	</div>
-</div>
+</clay:container>
 
-<div class="container-fluid container-fluid-max-xl">
-	<div class="row">
+<clay:container>
+	<clay:row>
 		<div class="col-md-3">
 			<liferay-util:include page="/configuration_category_menu.jsp" servletContext="<%= application %>" />
 		</div>
@@ -239,5 +239,5 @@ renderResponse.setTitle(categoryDisplayName);
 				</aui:form>
 			</div>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>

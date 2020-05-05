@@ -30,9 +30,8 @@ portletDisplay.setURLBack(redirect);
 
 renderResponse.setTitle(assetListDisplayContext.getAssetListEntryTitle());
 %>
-
-<div class="container-fluid container-fluid-max-xl container-view">
-	<div class="row">
+<clay:container className="c-py-4">
+	<clay:row>
 		<div class="col-lg-3">
 			<nav class="menubar menubar-transparent menubar-vertical-expand-lg">
 				<ul class="nav nav-nested">
@@ -131,8 +130,8 @@ renderResponse.setTitle(assetListDisplayContext.getAssetListEntryTitle());
 				</c:otherwise>
 			</c:choose>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
 <script>
 	<portlet:actionURL name="/asset_list/add_asset_list_entry_variation" var="addAssetListEntryVariationURL">

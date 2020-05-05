@@ -22,7 +22,7 @@ String layoutTemplateIdPrefix = (String)request.getAttribute("liferay-ui:layout-
 List<LayoutTemplate> layoutTemplates = (List<LayoutTemplate>)request.getAttribute("liferay-ui:layout-templates-list:layoutTemplates");
 %>
 
-<div class="container-fluid lfr-page-layouts">
+<clay:container className="lfr-page-layouts">
 	<ul class="list-unstyled row">
 
 		<%
@@ -65,4 +65,4 @@ List<LayoutTemplate> layoutTemplates = (List<LayoutTemplate>)request.getAttribut
 		%>
 
 	</ul>
-</div>
+</clay:container>

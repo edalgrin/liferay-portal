@@ -23,8 +23,8 @@ String className = GetterUtil.getString(request.getAttribute("liferay-layout:lay
 LayoutClassedModelUsagesDisplayContext layoutClassedModelUsagesDisplayContext = new LayoutClassedModelUsagesDisplayContext(renderRequest, renderResponse, className, classPK);
 %>
 
-<div class="container-fluid container-fluid-max-xl container-form-lg">
-	<div class="row">
+<clay:container className="c-py-3 c-py-md-5">
+	<clay:row>
 		<div class="col-lg-3">
 			<nav class="menubar menubar-transparent menubar-vertical-expand-lg">
 				<ul class="nav nav-nested">
@@ -174,5 +174,5 @@ LayoutClassedModelUsagesDisplayContext layoutClassedModelUsagesDisplayContext = 
 				</liferay-ui:search-container>
 			</div>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>

@@ -74,7 +74,7 @@ DateFormat dateFormatDateTime = DateFormat.getDateTimeInstance(DateFormat.LONG, 
 dateFormatDateTime.setTimeZone(timeZone);
 %>
 
-<div class="container-fluid container-view">
+<clay:container className="c-py-4">
 	<h2 class="version-info">
 		<%= versionInfo %>
 	</h2>
@@ -720,4 +720,4 @@ dateFormatDateTime.setTimeZone(timeZone);
 			</c:otherwise>
 		</c:choose>
 	</form>
-</div>
+</clay:container>

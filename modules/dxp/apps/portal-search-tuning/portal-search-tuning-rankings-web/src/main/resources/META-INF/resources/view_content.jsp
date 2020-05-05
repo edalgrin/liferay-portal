@@ -51,7 +51,7 @@ rankingResultContentDisplayBuilder.setRenderResponse(renderResponse);
 RankingResultContentDisplayContext rankingResultContentDisplayContext = rankingResultContentDisplayBuilder.build();
 %>
 
-<div class="container container-no-gutters-sm-down container-view">
+<clay:container className="container-no-gutters-sm-down c-py-4">
 	<c:choose>
 		<c:when test="<%= rankingResultContentDisplayContext.isVisible() %>">
 			<div class="result-rankings-view-content-container sheet sheet-lg">
@@ -105,4 +105,4 @@ RankingResultContentDisplayContext rankingResultContentDisplayContext = rankingR
 			</div>
 		</c:otherwise>
 	</c:choose>
-</div>
+</clay:container>

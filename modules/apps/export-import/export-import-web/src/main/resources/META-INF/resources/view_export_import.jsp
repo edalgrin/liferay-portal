@@ -31,9 +31,9 @@ if (Validator.isNotNull(backURL)) {
 renderResponse.setTitle(LanguageUtil.get(request, "process-details"));
 %>
 
-<div class="container-fluid-1280" id="<portlet:namespace />exportImportProcessContainer">
+<clay:container id="<portlet:namespace />exportImportProcessContainer">
 	<liferay-util:include page="/export_import_process.jsp" servletContext="<%= application %>" />
-</div>
+</clay:container>
 
 <aui:script use="liferay-export-import-export-import">
 	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="exportImport" var="exportImportProcessURL">

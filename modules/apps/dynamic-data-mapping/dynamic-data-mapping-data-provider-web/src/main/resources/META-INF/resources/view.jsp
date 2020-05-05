@@ -35,7 +35,7 @@ renderResponse.setTitle(ddmDataProviderDisplayContext.getTitle());
 
 <liferay-util:include page="/management_bar.jsp" servletContext="<%= application %>" />
 
-<div class="container-fluid-1280" id="<portlet:namespace />formContainer">
+<clay:container id="<portlet:namespace />formContainer">
 	<aui:form action="<%= portletURL.toString() %>" method="post" name="searchContainerForm">
 		<aui:input name="redirect" type="hidden" value="<%= portletURL.toString() %>" />
 		<aui:input name="deleteDataProviderInstanceIds" type="hidden" />
@@ -107,4 +107,4 @@ renderResponse.setTitle(ddmDataProviderDisplayContext.getTitle());
 			/>
 		</liferay-ui:search-container>
 	</aui:form>
-</div>
+</clay:container>

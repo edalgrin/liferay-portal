@@ -35,7 +35,7 @@ if (liveLayout != null) {
 <c:if test="<%= themeDisplay.isShowStagingIcon() %>">
 	<c:if test="<%= liveGroup != null %>">
 		<nav class="navbar navbar-collapse-absolute navbar-expand navbar-underline navigation-bar navigation-bar-secondary staging-navbar">
-			<div class="container-fluid container-fluid-max-xl">
+			<clay:container>
 				<ul class="navbar-nav">
 					<c:choose>
 						<c:when test="<%= group.isStagingGroup() || group.isStagedRemotely() %>">
@@ -134,13 +134,13 @@ if (liveLayout != null) {
 						markupView="lexicon"
 					/>
 				</button>
-			</div>
+			</clay:container>
 		</nav>
 
 		<c:if test="<%= !layout.isSystem() || layout.isTypeControlPanel() || !Objects.equals(layout.getFriendlyURL(), PropsValues.CONTROL_PANEL_LAYOUT_FRIENDLY_URL) %>">
 			<div class="staging-bar">
-				<div class="container-fluid container-fluid-max-xl">
-					<div class="row">
+				<clay:container>
+					<clay:row>
 						<c:choose>
 							<c:when test="<%= group.isStagingGroup() || group.isStagedRemotely() %>">
 								<c:if test="<%= stagingGroup != null %>">
@@ -208,8 +208,8 @@ if (liveLayout != null) {
 								</div>
 							</c:otherwise>
 						</c:choose>
-					</div>
-				</div>
+					</clay:row>
+				</clay:container>
 			</div>
 		</c:if>
 	</c:if>
