@@ -48,7 +48,7 @@ String orderByType = ParamUtil.getString(request, "orderByType", "asc");
 			<aui:input name="redirect" type="hidden" value="<%= configurationRenderURL.toString() %>" />
 
 			<liferay-ui:section>
-				<div class="container-fluid-1280">
+				<clay:container>
 					<div class="alert alert-info">
 						<span class="displaying-help-message-holder <%= (selRecordSet == null) ? StringPool.BLANK : "hide" %>">
 							<liferay-ui:message key="please-select-a-list-entry-from-the-list-below" />
@@ -133,7 +133,7 @@ String orderByType = ParamUtil.getString(request, "orderByType", "asc");
 							</div>
 						</div>
 					</aui:fieldset>
-				</div>
+				</clay:container>
 			</liferay-ui:section>
 		</aui:form>
 
@@ -144,7 +144,7 @@ String orderByType = ParamUtil.getString(request, "orderByType", "asc");
 
 			<c:if test="<%= selRecordSet != null %>">
 				<liferay-ui:section>
-					<div class="container-fluid-1280">
+					<clay:container>
 						<div class="alert alert-info">
 							<span class="displaying-record-set-id-holder <%= (selRecordSet == null) ? "hide" : StringPool.BLANK %>">
 								<liferay-ui:message key="displaying-list" />: <span class="displaying-record-set-id"><%= (selRecordSet != null) ? HtmlUtil.escape(selRecordSet.getName(locale)) : StringPool.BLANK %></span>
@@ -226,7 +226,7 @@ String orderByType = ParamUtil.getString(request, "orderByType", "asc");
 								</div>
 							</div>
 						</aui:fieldset>
-					</div>
+					</clay:container>
 				</liferay-ui:section>
 			</c:if>
 		</aui:form>

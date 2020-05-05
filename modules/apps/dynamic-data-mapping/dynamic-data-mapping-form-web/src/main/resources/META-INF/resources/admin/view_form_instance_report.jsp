@@ -24,7 +24,7 @@ int totalItems = ddmFormViewFormInstanceRecordsDisplayContext.getTotalItems();
 
 <div class="ddm-form-report hide">
 	<div class="ddm-form-report-header">
-		<div class="container-fluid container-fluid-max-xl">
+		<clay:container>
 			<div class="align-items-center autofit-row">
 				<span class="ddm-form-report-header-title text-truncate">
 					<liferay-ui:message arguments="<%= totalItems %>" key="x-entries" />
@@ -43,7 +43,7 @@ int totalItems = ddmFormViewFormInstanceRecordsDisplayContext.getTotalItems();
 					</c:choose>
 				</span>
 			</div>
-		</div>
+		</clay:container>
 	</div>
 
 	<clay:navigation-bar

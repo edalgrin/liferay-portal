@@ -27,7 +27,7 @@ portletDisplay.setURLBack(groupFragmentEntryLinkDisplayContext.getRedirect());
 renderResponse.setTitle(LanguageUtil.format(request, "usages-and-propagation-x", fragmentEntry.getName()));
 %>
 
-<div class="container-fluid container-fluid-max-xl container-form-lg">
+<clay:container className="c-py-3 c-py-md-5">
 	<div class="sheet">
 
 		<%
@@ -79,7 +79,7 @@ renderResponse.setTitle(LanguageUtil.format(request, "usages-and-propagation-x",
 			</clay:col>
 		</clay:row>
 	</div>
-</div>
+</clay:container>
 
 <liferay-frontend:component
 	componentId="<%= groupFragmentEntryUsageManagementToolbarDisplayContext.getDefaultEventHandler() %>"

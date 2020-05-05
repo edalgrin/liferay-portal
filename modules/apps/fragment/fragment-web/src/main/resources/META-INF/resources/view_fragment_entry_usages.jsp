@@ -27,7 +27,7 @@ portletDisplay.setURLBack(fragmentEntryLinkDisplayContext.getRedirect());
 renderResponse.setTitle(LanguageUtil.format(request, "usages-and-propagation-x", fragmentEntry.getName()));
 %>
 
-<div class="container-fluid container-fluid-max-xl container-form-lg">
+<clay:container className="c-py-3 c-py-md-5">
 
 	<%
 	FragmentEntryUsageManagementToolbarDisplayContext fragmentEntryUsageManagementToolbarDisplayContext = new FragmentEntryUsageManagementToolbarDisplayContext(request, liferayPortletRequest, liferayPortletResponse, fragmentEntryLinkDisplayContext.getSearchContainer());
@@ -176,7 +176,7 @@ renderResponse.setTitle(LanguageUtil.format(request, "usages-and-propagation-x",
 			</div>
 		</clay:col>
 	</clay:row>
-</div>
+</clay:container>
 
 <liferay-frontend:component
 	componentId="<%= fragmentEntryUsageManagementToolbarDisplayContext.getDefaultEventHandler() %>"

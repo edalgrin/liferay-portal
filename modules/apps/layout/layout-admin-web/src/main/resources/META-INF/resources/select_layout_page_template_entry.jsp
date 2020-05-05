@@ -33,7 +33,7 @@ portletDisplay.setURLBack(backURL);
 renderResponse.setTitle(LanguageUtil.get(request, "select-template"));
 %>
 
-<div class="container-fluid container-fluid-max-xl container-view" id="<portlet:namespace />layoutPageTemplateEntries">
+<clay:container className="c-py-4" id="<portlet:namespace />layoutPageTemplateEntries">
 	<clay:row>
 		<clay:col
 			lg="3"
@@ -156,7 +156,7 @@ renderResponse.setTitle(LanguageUtil.get(request, "select-template"));
 			</div>
 		</clay:col>
 	</clay:row>
-</div>
+</clay:container>
 
 <aui:script require="metal-dom/src/all/dom as dom">
 	var layoutPageTemplateEntries = document.getElementById(

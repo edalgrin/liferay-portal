@@ -22,7 +22,7 @@ long sourcePlid = ParamUtil.getLong(request, "sourcePlid");
 List<SiteNavigationMenu> autoSiteNavigationMenus = layoutsAdminDisplayContext.getAutoSiteNavigationMenus();
 %>
 
-<div class="container-fluid-1280 pt-2">
+<clay:container className="pt-2">
 	<liferay-frontend:edit-form
 		action="<%= (sourcePlid <= 0) ? layoutsAdminDisplayContext.getAddLayoutURL() : layoutsAdminDisplayContext.getCopyLayoutURL(sourcePlid) %>"
 		method="post"
@@ -38,7 +38,11 @@ List<SiteNavigationMenu> autoSiteNavigationMenus = layoutsAdminDisplayContext.ge
 
 					<liferay-ui:message key="add-this-page-to-the-following-menus" />
 
+<<<<<<< HEAD
 					<div class="auto-site-navigation-menus container my-3">
+=======
+					<div class="auto-site-navigation-menus my-3">
+>>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 						<clay:row>
 
 							<%
@@ -64,11 +68,19 @@ List<SiteNavigationMenu> autoSiteNavigationMenus = layoutsAdminDisplayContext.ge
 					SiteNavigationMenu autoSiteNavigationMenu = autoSiteNavigationMenus.get(0);
 					%>
 
+<<<<<<< HEAD
 					<div class="auto-site-navigation-menus container mt-3">
 						<clay:row>
 							<aui:input id='<%= "menu_" + autoSiteNavigationMenu.getSiteNavigationMenuId() %>' label='<%= LanguageUtil.format(request, "add-this-page-to-x", HtmlUtil.escape(autoSiteNavigationMenu.getName())) %>' name="TypeSettingsProperties--siteNavigationMenuId--" type="checkbox" value="<%= autoSiteNavigationMenu.getSiteNavigationMenuId() %>" />
 						</clay:row>
 					</div>
+=======
+					<clay:container className="auto-site-navigation-menus mt-3">
+						<clay:row>
+							<aui:input id='<%= "menu_" + autoSiteNavigationMenu.getSiteNavigationMenuId() %>' label='<%= LanguageUtil.format(request, "add-this-page-to-x", HtmlUtil.escape(autoSiteNavigationMenu.getName())) %>' name="TypeSettingsProperties--siteNavigationMenuId--" type="checkbox" value="<%= autoSiteNavigationMenu.getSiteNavigationMenuId() %>" />
+						</clay:row>
+					</clay:container>
+>>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 				</c:when>
 			</c:choose>
 
@@ -106,7 +118,7 @@ List<SiteNavigationMenu> autoSiteNavigationMenus = layoutsAdminDisplayContext.ge
 			/>
 		</liferay-frontend:edit-form-footer>
 	</liferay-frontend:edit-form>
-</div>
+</clay:container>
 
 <aui:script use="liferay-alert">
 	var form = document.<portlet:namespace />fm;

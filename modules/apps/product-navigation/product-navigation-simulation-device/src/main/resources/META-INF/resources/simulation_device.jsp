@@ -18,7 +18,11 @@
 
 <div id="<portlet:namespace />simulationDeviceContainer">
 	<div class="list-group-panel">
+<<<<<<< HEAD
 		<div class="container-fluid devices">
+=======
+		<clay:container className="devices">
+>>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 			<clay:row
 				className="default-devices"
 			>
@@ -57,15 +61,23 @@
 				</button>
 			</clay:row>
 
+<<<<<<< HEAD
 			<clay:row
 				className="custom-devices d-lg-flex d-none hide"
 				id="<portlet:namespace />customDeviceContainer"
 			>
+=======
+			<clay:row className="custom-devices d-lg-flex d-none hide" id="<portlet:namespace />customDeviceContainer">
+>>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 				<aui:input cssClass="input-sm" inlineField="<%= true %>" label='<%= LanguageUtil.get(request, "height") + " (px):" %>' name="height" size="4" value="600" wrapperCssClass="col-6" />
 
 				<aui:input cssClass="input-sm" inlineField="<%= true %>" label='<%= LanguageUtil.get(request, "width") + " (px):" %>' name="width" size="4" value="600" wrapperCssClass="col-6" />
 			</clay:row>
+<<<<<<< HEAD
 		</div>
+=======
+		</clay:container>
+>>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 	</div>
 </div>
 
