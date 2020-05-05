@@ -42,7 +42,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 			</c:choose>
 		</portlet:renderURL>
 
-		<div class="container widget-mode-detail-header">
+		<clay:container className="widget-mode-detail-header">
 			<liferay-asset:asset-categories-available
 				className="<%= BlogsEntry.class.getName() %>"
 				classPK="<%= entry.getEntryId() %>"
@@ -59,7 +59,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 				</div>
 			</liferay-asset:asset-categories-available>
 
-			<div class="row">
+			<clay:row>
 				<div class="col-md-8 mx-auto">
 					<div class="autofit-row">
 						<div class="autofit-col autofit-col-expand">
@@ -146,8 +146,8 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</clay:row>
+		</clay:container>
 
 		<%
 		String coverImageURL = entry.getCoverImageURL(themeDisplay);
@@ -159,7 +159,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 
 		<!-- text resume -->
 
-		<div class="container widget-mode-detail-header" id="<portlet:namespace /><%= entry.getEntryId() %>">
+		<clay:container className="widget-mode-detail-header" id="<portlet:namespace /><%= entry.getEntryId() %>">
 			<c:if test="<%= Validator.isNotNull(coverImageURL) %>">
 
 				<%
@@ -214,10 +214,15 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 					</div>
 				</div>
 			</liferay-asset:asset-tags-available>
-		</div>
+		</clay:container>
 
+<<<<<<< HEAD
 		<div class="container">
 			<div class="row">
+=======
+		<clay:container>
+			<clay:row>
+>>>>>>> 8040b15c6817... LPS-112628 Replaces div class='container*' with clay:container in JSPs
 				<div class="col-md-8 mx-auto widget-mode-detail">
 
 					<%
@@ -248,7 +253,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 					</div>
 				</div>
 			</c:if>
-		</div>
+		</clay:container>
 	</c:when>
 	<c:otherwise>
 

@@ -82,7 +82,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 	</div>
 </aui:form>
 
-<div class="container-fluid">
+<clay:container>
 	<c:if test="<%= PropsValues.BLOGS_ENTRY_PREVIOUS_AND_NEXT_NAVIGATION_ENABLED %>">
 
 		<%
@@ -118,7 +118,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 		</c:if>
 	</c:if>
 
-	<div class="row">
+	<clay:row>
 		<div class="col-md-8 col-md-offset-2">
 			<c:if test="<%= blogsPortletInstanceConfiguration.enableComments() %>">
 
@@ -143,8 +143,8 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 				</c:if>
 			</c:if>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
 <%
 PortalUtil.setPageTitle(BlogsEntryUtil.getDisplayTitle(resourceBundle, entry), request);

@@ -33,7 +33,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(resourceBundle, "
 
 <portlet:actionURL name="/analytics/add_channel" var="addChannelURL" />
 
-<div class="container-fluid container-fluid-max-xl">
+<clay:container>
 	<div class="col-12">
 		<div id="breadcrumb">
 			<liferay-ui:breadcrumb
@@ -44,7 +44,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(resourceBundle, "
 			/>
 		</div>
 	</div>
-</div>
+</clay:container>
 
 <aui:form action="<%= addChannelURL %>" method="post" name="fm">
 	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />

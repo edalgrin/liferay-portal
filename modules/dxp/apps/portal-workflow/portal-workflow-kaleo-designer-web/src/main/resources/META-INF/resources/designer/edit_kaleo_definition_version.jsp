@@ -85,7 +85,7 @@ String successMessageKey = KaleoDesignerPortletKeys.KALEO_DESIGNER + "requestPro
 			<aui:model-context bean="<%= kaleoDefinitionVersion %>" model="<%= KaleoDefinitionVersion.class %>" />
 
 			<liferay-frontend:info-bar>
-				<div class="container-fluid-1280">
+				<clay:container>
 					<c:if test="<%= !isPreviewBeforeRestoreState %>">
 						<div class="info-bar-item">
 							<c:choose>
@@ -120,7 +120,7 @@ String successMessageKey = KaleoDesignerPortletKeys.KALEO_DESIGNER + "requestPro
 							</c:otherwise>
 						</c:choose>
 					</span>
-				</div>
+				</clay:container>
 
 				<c:if test="<%= !isPreviewBeforeRestoreState %>">
 					<liferay-frontend:info-bar-buttons>
@@ -140,13 +140,13 @@ String successMessageKey = KaleoDesignerPortletKeys.KALEO_DESIGNER + "requestPro
 					<div class="sidebar sidebar-light">
 						<div class="tbar-visible-xs">
 							<nav class="component-tbar tbar">
-								<div class="container-fluid">
+								<clay:container>
 									<ul class="tbar-nav">
 										<li class="tbar-item">
 											<aui:icon cssClass="component-action sidenav-close" image="times" markupView="lexicon" url="javascript:;" />
 										</li>
 									</ul>
-								</div>
+								</clay:container>
 							</nav>
 						</div>
 

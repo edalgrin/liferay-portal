@@ -27,8 +27,8 @@
 	}
 </style>
 
-<div class="container-fluid">
-	<div class="row">
+<clay:container>
+	<clay:row>
 		<div class="col">
 			<chart:area-spline
 				config="<%= chartSampleDisplayContext.getAreaSplineChartConfig() %>"
@@ -42,11 +42,11 @@
 				id="area-step"
 			/>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
-<div class="container-fluid">
-	<div class="row">
+<clay:container>
+	<clay:row>
 		<div class="col">
 			<chart:line
 				config="<%= chartSampleDisplayContext.getLineChartConfig() %>"
@@ -74,11 +74,11 @@
 				id="step"
 			/>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
-<div class="container-fluid">
-	<div class="row">
+<clay:container>
+	<clay:row>
 		<div class="col">
 			<chart:bar
 				config="<%= chartSampleDisplayContext.getBarChartConfig() %>"
@@ -92,11 +92,11 @@
 				id="combination"
 			/>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
-<div class="container-fluid">
-	<div class="row">
+<clay:container>
+	<clay:row>
 		<div class="col">
 			<chart:donut
 				config="<%= chartSampleDisplayContext.getDonutChartConfig() %>"
@@ -110,23 +110,22 @@
 				id="pie"
 			/>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
-<div class="container-fluid">
-		<div class="row">
-			<div class="col">
-				<chart:gauge
-					config="<%= chartSampleDisplayContext.getGaugeChartConfig() %>"
-					id="gauge"
-				/>
-			</div>
+<clay:container>
+	<clay:row>
+		<div class="col">
+			<chart:gauge
+				config="<%= chartSampleDisplayContext.getGaugeChartConfig() %>"
+				id="gauge"
+			/>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
-<div class="container-fluid">
-	<div class="row">
+<clay:container>
+	<clay:row>
 		<div class="col geomap">
 			<chart:geomap
 				config="<%= chartSampleDisplayContext.getGeomapConfig1() %>"
@@ -140,11 +139,11 @@
 				id="gemomap-custom-colors"
 			/>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
-<div class="container-fluid">
-	<div class="row">
+<clay:container>
+	<clay:row>
 		<div class="col polling-interval">
 			<chart:line
 				componentId="polling-interval-line-chart"
@@ -152,11 +151,11 @@
 				id="polling-interval-line-chart"
 			/>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
-<div class="container-fluid">
-	<div class="row">
+<clay:container>
+	<clay:row>
 		<div class="col predictive">
 			<chart:predictive
 				componentId="predictive-chart"
@@ -164,8 +163,8 @@
 				id="predictive-chart"
 			/>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
 <aui:script>
 	Liferay.componentReady('polling-interval-line-chart').then(function (chart) {
