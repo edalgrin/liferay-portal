@@ -35,7 +35,7 @@ ConfigurationScopeDisplayContext configurationScopeDisplayContext = Configuratio
 	showSearch="<%= true %>"
 />
 
-<div class="container-fluid container-fluid-max-xl container-view">
+<clay:container className="c-py-4">
 	<c:if test="<%= configurationCategorySectionDisplays.isEmpty() %>">
 		<liferay-ui:empty-result-message
 			message="no-configurations-were-found"
@@ -92,4 +92,4 @@ ConfigurationScopeDisplayContext configurationScopeDisplayContext = Configuratio
 		%>
 
 	</ul>
-</div>
+</clay:container>

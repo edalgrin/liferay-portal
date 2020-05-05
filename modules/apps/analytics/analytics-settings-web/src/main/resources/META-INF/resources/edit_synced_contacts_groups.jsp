@@ -33,7 +33,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(resourceBundle, "
 
 <portlet:actionURL name="/analytics/edit_synced_contacts" var="editSyncedContactsURL" />
 
-<div class="container-fluid container-fluid-max-xl">
+<clay:container>
 	<div class="col-12">
 		<div id="breadcrumb">
 			<liferay-ui:breadcrumb
@@ -44,7 +44,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(resourceBundle, "
 			/>
 		</div>
 	</div>
-</div>
+</clay:container>
 
 <div class="sheet sheet-lg">
 	<h2 class="autofit-row">

@@ -42,7 +42,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 			</c:choose>
 		</portlet:renderURL>
 
-		<div class="container widget-mode-detail-header">
+		<clay:container className="widget-mode-detail-header">
 			<liferay-asset:asset-categories-available
 				className="<%= BlogsEntry.class.getName() %>"
 				classPK="<%= entry.getEntryId() %>"
@@ -59,7 +59,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 				</div>
 			</liferay-asset:asset-categories-available>
 
-			<div class="row">
+			<clay:row>
 				<div class="col-md-8 mx-auto">
 					<div class="autofit-row">
 						<div class="autofit-col autofit-col-expand">
@@ -146,8 +146,8 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</clay:row>
+		</clay:container>
 
 		<%
 		String coverImageURL = entry.getCoverImageURL(themeDisplay);
@@ -159,7 +159,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 
 		<!-- text resume -->
 
-		<div class="container widget-mode-detail-header" id="<portlet:namespace /><%= entry.getEntryId() %>">
+		<clay:container className="widget-mode-detail-header" id="<portlet:namespace /><%= entry.getEntryId() %>">
 			<c:if test="<%= Validator.isNotNull(coverImageURL) %>">
 
 				<%
@@ -214,10 +214,10 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 					</div>
 				</div>
 			</liferay-asset:asset-tags-available>
-		</div>
+		</clay:container>
 
-		<div class="container">
-			<div class="row">
+		<clay:container>
+			<clay:row>
 				<div class="col-md-8 mx-auto widget-mode-detail">
 
 					<%
@@ -228,7 +228,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 						<liferay-util:param name="showFlags" value="<%= Boolean.TRUE.toString() %>" />
 					</liferay-util:include>
 				</div>
-			</div>
+			</clay:row>
 
 			<c:if test="<%= blogsPortletInstanceConfiguration.enableRelatedAssets() %>">
 				<div class="row">
@@ -248,7 +248,7 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 					</div>
 				</div>
 			</c:if>
-		</div>
+		</clay:container>
 	</c:when>
 	<c:otherwise>
 

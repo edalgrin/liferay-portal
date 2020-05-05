@@ -32,7 +32,7 @@ String clientSecret = (oAuth2Application == null) ? "" : oAuth2Application.getCl
 </portlet:actionURL>
 
 <aui:form action="<%= updateOAuth2ApplicationURL %>" id="oauth2-application-fm" method="post" name="oauth2-application-fm">
-	<div class="container-fluid container-fluid-max-xl container-view">
+	<clay:container className="c-py-4">
 		<div class="sheet">
 			<div class="row">
 				<div class="col-lg-12">
@@ -158,7 +158,7 @@ String clientSecret = (oAuth2Application == null) ? "" : oAuth2Application.getCl
 				</div>
 			</div>
 		</div>
-	</div>
+	</clay:container>
 </aui:form>
 
 <div class="hidden">

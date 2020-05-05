@@ -80,7 +80,7 @@ String searchURL = HttpUtil.removeParameter(searchBaseURL.toString(), liferayPor
 	showCreationMenu="<%= false %>"
 />
 
-<div class="container-fluid-1280 lfr-item-viewer" id="<portlet:namespace />wikiPagesSelectorContainer">
+<clay:container className="lfr-item-viewer" id="<portlet:namespace />wikiPagesSelectorContainer">
 	<liferay-ui:search-container
 		id="wikiPagesSearchContainer"
 		searchContainer="<%= wikiPagesSearchContainer %>"
@@ -143,7 +143,7 @@ String searchURL = HttpUtil.removeParameter(searchBaseURL.toString(), liferayPor
 			searchContainer="<%= wikiPagesSearchContainer %>"
 		/>
 	</liferay-ui:search-container>
-</div>
+</clay:container>
 
 <aui:script use="liferay-search-container">
 	var Util = Liferay.Util;

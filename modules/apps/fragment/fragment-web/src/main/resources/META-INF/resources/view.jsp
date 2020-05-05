@@ -24,8 +24,8 @@ List<FragmentCollection> systemFragmentCollections = (List<FragmentCollection>)r
 List<FragmentCollectionContributor> fragmentCollectionContributors = fragmentDisplayContext.getFragmentCollectionContributors(locale);
 %>
 
-<div class="container-fluid container-fluid-max-xl container-view">
-	<div class="row">
+<clay:container className="c-py-4">
+	<clay:row>
 		<div class="col-lg-3">
 			<nav class="menubar menubar-transparent menubar-vertical-expand-lg">
 				<ul class="nav nav-nested">
@@ -267,8 +267,8 @@ List<FragmentCollectionContributor> fragmentCollectionContributors = fragmentDis
 				</div>
 			</c:if>
 		</div>
-	</div>
-</div>
+	</clay:row>
+</clay:container>
 
 <aui:form cssClass="hide" name="fragmentCollectionsFm">
 </aui:form>

@@ -53,7 +53,7 @@ JournalEditArticleDisplayContext journalEditArticleDisplayContext = new JournalE
 	<aui:input name="workflowAction" type="hidden" value="<%= String.valueOf(WorkflowConstants.ACTION_SAVE_DRAFT) %>" />
 
 	<nav class="component-tbar subnav-tbar-light tbar tbar-article">
-		<div class="container-fluid container-fluid-max-xl">
+		<clay:container>
 			<ul class="tbar-nav">
 				<li class="tbar-item tbar-item-expand">
 
@@ -97,7 +97,7 @@ JournalEditArticleDisplayContext journalEditArticleDisplayContext = new JournalE
 					</div>
 				</li>
 			</ul>
-		</div>
+		</clay:container>
 	</nav>
 
 	<div class="contextual-sidebar edit-article-sidebar sidebar-light sidebar-sm" id="<portlet:namespace />contextualSidebarContainer">
@@ -138,7 +138,7 @@ JournalEditArticleDisplayContext journalEditArticleDisplayContext = new JournalE
 	</div>
 
 	<div class="contextual-sidebar-content">
-		<div class="container-fluid container-fluid-max-xl container-view">
+		<clay:container className="c-py-4">
 			<div class="sheet sheet-lg">
 				<aui:model-context bean="<%= article %>" defaultLanguageId="<%= journalEditArticleDisplayContext.getDefaultArticleLanguageId() %>" model="<%= JournalArticle.class %>" />
 
@@ -275,7 +275,7 @@ JournalEditArticleDisplayContext journalEditArticleDisplayContext = new JournalE
 					</c:choose>
 				</div>
 			</div>
-		</div>
+		</clay:container>
 	</div>
 </aui:form>
 
