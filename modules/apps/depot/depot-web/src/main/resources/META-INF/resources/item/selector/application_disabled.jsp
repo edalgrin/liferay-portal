@@ -20,7 +20,9 @@
 DepotApplicationDisplayContext depotApplicationDisplayContext = (DepotApplicationDisplayContext)request.getAttribute(DepotAdminWebKeys.DEPOT_APPLICATION_DISPLAY_CONTEXT);
 %>
 
-<clay:container className="pt-4">
+<clay:container
+	className="pt-4"
+>
 	<div class="alert alert-info">
 		<span class="alert-indicator">
 			<svg class="lexicon-icon lexicon-icon-info-circle" focusable="false" role="presentation">

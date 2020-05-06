@@ -74,7 +74,9 @@ if (layout != null) {
 	<aui:input name="redirect" type="hidden" value="<%= ddmDisplayContext.getTemplateSearchActionURL() %>" />
 	<aui:input name="deleteTemplateIds" type="hidden" />
 
-	<clay:container id="<portlet:namespace />entriesContainer">
+	<clay:container
+		id="<portlet:namespace />entriesContainer"
+	>
 		<liferay-ui:search-container
 			id="<%= ddmDisplayContext.getTemplateSearchContainerId() %>"
 			rowChecker="<%= new DDMTemplateRowChecker(renderResponse) %>"

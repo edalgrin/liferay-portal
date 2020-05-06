@@ -23,7 +23,9 @@ String className = GetterUtil.getString(request.getAttribute("liferay-asset:asse
 AssetEntryUsagesDisplayContext assetEntryUsagesDisplayContext = new AssetEntryUsagesDisplayContext(renderRequest, renderResponse, className, classPK);
 %>
 
-<clay:container className="c-pb-md-5">
+<clay:container
+	className="c-pb-md-5"
+>
 	<clay:row>
 		<clay:col
 			lg="3"

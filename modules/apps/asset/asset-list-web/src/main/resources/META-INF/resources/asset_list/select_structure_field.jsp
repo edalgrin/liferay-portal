@@ -41,7 +41,9 @@ portletURL.setParameter("eventName", eventName);
 	<span class="error-message"><liferay-ui:message key="the-field-value-is-invalid" /></span>
 </div>
 
-<clay:container id="<portlet:namespace />selectDDMStructureFieldForm">
+<clay:container
+	id="<portlet:namespace />selectDDMStructureFieldForm"
+>
 	<liferay-ui:search-container
 		iteratorURL="<%= portletURL %>"
 		total="<%= classType.getClassTypeFieldsCount() %>"

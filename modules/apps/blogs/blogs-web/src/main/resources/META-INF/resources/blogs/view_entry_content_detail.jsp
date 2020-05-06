@@ -42,7 +42,9 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 			</c:choose>
 		</portlet:renderURL>
 
-		<clay:container className="widget-mode-detail-header">
+		<clay:container
+			className="widget-mode-detail-header"
+		>
 			<liferay-asset:asset-categories-available
 				className="<%= BlogsEntry.class.getName() %>"
 				classPK="<%= entry.getEntryId() %>"
@@ -165,7 +167,10 @@ BlogsPortletInstanceConfiguration blogsPortletInstanceConfiguration = BlogsPortl
 
 		<!-- text resume -->
 
-		<clay:container className="widget-mode-detail-header" id="<portlet:namespace /><%= entry.getEntryId() %>">
+		<clay:container
+			className="widget-mode-detail-header"
+			id="<portlet:namespace /><%= entry.getEntryId() %>"
+		>
 			<c:if test="<%= Validator.isNotNull(coverImageURL) %>">
 
 				<%

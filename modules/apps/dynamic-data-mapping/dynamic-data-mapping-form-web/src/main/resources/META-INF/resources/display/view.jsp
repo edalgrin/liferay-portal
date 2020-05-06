@@ -170,7 +170,10 @@ long formInstanceId = ddmFormDisplayContext.getFormInstanceId();
 							</clay:container>
 						</div>
 
-						<clay:container className="ddm-form-builder-app ddm-form-builder-app-not-ready" id="<%= ddmFormDisplayContext.getContainerId() %>container">
+						<clay:container
+							className="ddm-form-builder-app ddm-form-builder-app-not-ready"
+							id="<%= ddmFormDisplayContext.getContainerId() %>container"
+						>
 							<%= ddmFormDisplayContext.getDDMFormHTML() %>
 
 							<aui:input name="empty" type="hidden" value="" />

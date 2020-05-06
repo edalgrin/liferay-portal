@@ -26,7 +26,9 @@ portletDisplay.setURLBack(usersAdminURL.toString());
 renderResponse.setTitle(StringBundler.concat(selectedUser.getFullName(), " - ", LanguageUtil.get(request, "personal-data-erasure")));
 %>
 
-<clay:container className="c-py-3 c-py-md-5">
+<clay:container
+	className="c-py-3 c-py-md-5"
+>
 	<liferay-ui:empty-result-message
 		message="you-have-successfully-anonymized-all-remaining-data"
 	/>

@@ -32,16 +32,18 @@ segmentsContextVocabularyConfigurationDisplayContext.addPortletBreadcrumbEntries
 </liferay-ui:error>
 
 <clay:container>
-	<clay:col
-		size="12"
-	>
-		<liferay-ui:breadcrumb
-			showCurrentGroup="<%= false %>"
-			showGuestGroup="<%= false %>"
-			showLayout="<%= false %>"
-			showParentGroups="<%= false %>"
-		/>
-	</clay:col>
+	<clay:row>
+		<clay:col
+			size="12"
+		>
+			<liferay-ui:breadcrumb
+				showCurrentGroup="<%= false %>"
+				showGuestGroup="<%= false %>"
+				showLayout="<%= false %>"
+				showParentGroups="<%= false %>"
+			/>
+		</clay:col>
+	</clay:row>
 </clay:container>
 
 <clay:container>

@@ -97,7 +97,9 @@ renderResponse.setTitle(journalEditDDMTemplateDisplayContext.getTitle());
 	</div>
 
 	<div class="contextual-sidebar-content">
-		<clay:container className="c-py-4">
+		<clay:container
+			className="c-py-4"
+		>
 			<div class="sheet">
 				<liferay-ui:error exception="<%= TemplateNameException.class %>" message="please-enter-a-valid-name" />
 				<liferay-ui:error exception="<%= TemplateScriptException.class %>" message="please-enter-a-valid-script" />

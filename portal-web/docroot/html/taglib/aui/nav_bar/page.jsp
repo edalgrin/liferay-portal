@@ -18,7 +18,7 @@
 
 <c:if test="<%= Validator.isContent(bodyContentString) %>">
 	<div class="navbar navbar-default <%= cssClass %>" id="<%= id %>" <%= AUIUtil.buildData(data) %> <%= InlineUtil.buildDynamicAttributes(dynamicAttributes) %>>
-		<clay:container>
+		<div class="container-fluid container-fluid-max-xl">
 			<c:if test="<%= Validator.isNotNull(responsiveButtons) %>">
 				<div class="navbar-header">
 					<%= responsiveButtons %>
@@ -26,6 +26,6 @@
 			</c:if>
 
 			<%= bodyContentString %>
-		</clay:container>
+		</div>
 	</div>
 </c:if>

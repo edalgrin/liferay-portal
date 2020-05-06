@@ -20,7 +20,9 @@
 long segmentsEntryId = ParamUtil.getLong(request, "segmentsEntryId");
 %>
 
-<clay:container size="sm">
+<clay:container
+	size="sm"
+>
 	<liferay-ui:search-container
 		emptyResultsMessage="no-users-have-been-assigned-to-this-segment"
 		iteratorURL="<%= currentURLObj %>"

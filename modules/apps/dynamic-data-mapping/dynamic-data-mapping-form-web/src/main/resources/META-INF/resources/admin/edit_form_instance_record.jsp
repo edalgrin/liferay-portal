@@ -39,7 +39,9 @@ renderResponse.setTitle(GetterUtil.get(title, LanguageUtil.get(request, "view-fo
 	</div>
 </div>
 
-<clay:container className="ddm-form-builder-app editing-form-entry">
+<clay:container
+	className="ddm-form-builder-app editing-form-entry"
+>
 	<portlet:actionURL name="addFormInstanceRecord" var="editFormInstanceRecordActionURL" />
 
 	<aui:form action="<%= editFormInstanceRecordActionURL %>" data-DDMFormInstanceId="<%= ddmFormInstanceRecordVersion.getFormInstanceId() %>" data-senna-off="true" method="post" name="fm">

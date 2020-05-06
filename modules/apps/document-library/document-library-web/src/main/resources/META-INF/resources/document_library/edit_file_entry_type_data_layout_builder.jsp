@@ -78,7 +78,9 @@ renderResponse.setTitle((fileEntryType == null) ? LanguageUtil.get(request, "new
 		</clay:container>
 	</nav>
 
-	<clay:container className="c-py-4">
+	<clay:container
+		className="c-py-4"
+	>
 
 		<%
 		DLEditFileEntryTypeDisplayContext dlEditFileEntryTypeDisplayContext = (DLEditFileEntryTypeDisplayContext)request.getAttribute(DLWebKeys.DOCUMENT_LIBRARY_EDIT_EDIT_FILE_ENTRY_TYPE_DISPLAY_CONTEXT);

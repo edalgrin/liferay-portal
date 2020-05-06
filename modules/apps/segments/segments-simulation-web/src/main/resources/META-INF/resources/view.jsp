@@ -20,7 +20,10 @@
 SegmentsSimulationDisplayContext segmentsSimulationDisplayContext = new SegmentsSimulationDisplayContext(request, renderResponse);
 %>
 
-<clay:container className="segments-simulation" id="<portlet:namespace />segmentsSimulationContainer">
+<clay:container
+	className="segments-simulation"
+	id="<portlet:namespace />segmentsSimulationContainer"
+>
 	<c:choose>
 		<c:when test="<%= segmentsSimulationDisplayContext.isShowEmptyMessage() %>">
 			<p class="mb-4 mt-1 small">

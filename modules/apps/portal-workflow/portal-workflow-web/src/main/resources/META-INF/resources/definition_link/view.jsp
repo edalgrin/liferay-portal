@@ -24,7 +24,10 @@ boolean showStripeMessage = workflowDefinitionLinkDisplayContext.showStripeMessa
 
 <liferay-util:include page="/definition_link/management_bar.jsp" servletContext="<%= application %>" />
 
-<clay:container className="workflow-definition-link-container" id="<portlet:namespace />Container">
+<clay:container
+	className="workflow-definition-link-container"
+	id="<portlet:namespace />Container"
+>
 	<c:if test="<%= showStripeMessage %>">
 		<clay:alert
 			closeable="true"

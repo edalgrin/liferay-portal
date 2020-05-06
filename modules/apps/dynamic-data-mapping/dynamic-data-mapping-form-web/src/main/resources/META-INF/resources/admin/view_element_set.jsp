@@ -26,7 +26,9 @@ portletURL.setParameter("displayStyle", displayStyle);
 FieldSetPermissionCheckerHelper fieldSetPermissionCheckerHelper = ddmFormAdminDisplayContext.getPermissionCheckerHelper();
 %>
 
-<clay:container id="<portlet:namespace />formContainer">
+<clay:container
+	id="<portlet:namespace />formContainer"
+>
 	<aui:form action="<%= portletURL.toString() %>" method="post" name="searchContainerForm">
 		<aui:input name="redirect" type="hidden" value="<%= portletURL.toString() %>" />
 		<aui:input name="deleteStructureIds" type="hidden" />

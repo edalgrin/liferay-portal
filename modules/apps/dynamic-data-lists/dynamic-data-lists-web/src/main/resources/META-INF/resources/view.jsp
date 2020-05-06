@@ -26,7 +26,9 @@ String displayStyle = ddlDisplayContext.getDisplayStyle();
 
 <liferay-util:include page="/management_bar.jsp" servletContext="<%= application %>" />
 
-<clay:container id="<portlet:namespace />formContainer">
+<clay:container
+	id="<portlet:namespace />formContainer"
+>
 	<aui:form action="<%= portletURL.toString() %>" method="post" name="fm">
 		<aui:input name="redirect" type="hidden" value="<%= portletURL.toString() %>" />
 		<aui:input name="recordSetIds" type="hidden" />

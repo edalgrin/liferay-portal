@@ -49,7 +49,9 @@ renderResponse.setTitle((ddmDataProviderInstance == null) ? LanguageUtil.get(req
 
 	<%@ include file="/exceptions.jspf" %>
 
-	<clay:container className="lfr-ddm-edit-data-provider">
+	<clay:container
+		className="lfr-ddm-edit-data-provider"
+	>
 		<aui:fieldset-group markupView="lexicon">
 			<aui:fieldset>
 				<liferay-util:buffer

@@ -54,7 +54,10 @@ if (!ddlDisplayContext.isAdminPortlet()) {
 	sortingURL="<%= ddlViewRecordsDisplayContext.getSortingURL() %>"
 />
 
-<clay:container className="view-records-container" id="<portlet:namespace />formContainer">
+<clay:container
+	className="view-records-container"
+	id="<portlet:namespace />formContainer"
+>
 	<aui:form action="<%= portletURL.toString() %>" method="post" name="fm">
 		<aui:input name="recordIds" type="hidden" />
 

@@ -37,7 +37,10 @@ if (group != null) {
 	displayContext="<%= siteAdminManagementToolbarDisplayContext %>"
 />
 
-<clay:container className="closed sidenav-container sidenav-right" id="<portlet:namespace />infoPanelId">
+<clay:container
+	className="closed sidenav-container sidenav-right"
+	id="<portlet:namespace />infoPanelId"
+>
 	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="/site/info_panel" var="sidebarPanelURL" />
 
 	<liferay-frontend:sidebar-panel

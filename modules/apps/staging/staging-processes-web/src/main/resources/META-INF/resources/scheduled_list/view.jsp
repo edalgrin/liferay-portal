@@ -16,6 +16,8 @@
 
 <%@ include file="/init.jsp" %>
 
-<clay:container id="<portlet:namespace />scheduledProcessesContainer">
+<clay:container
+	id="<portlet:namespace />scheduledProcessesContainer"
+>
 	<liferay-util:include page="/scheduled_list/scheduled_publish_processes.jsp" servletContext="<%= application %>" />
 </clay:container>

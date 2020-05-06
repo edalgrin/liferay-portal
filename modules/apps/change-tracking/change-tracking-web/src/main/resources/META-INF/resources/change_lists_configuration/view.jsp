@@ -21,7 +21,9 @@
 	navigationItems="<%= changeListsConfigurationDisplayContext.getViewNavigationItems() %>"
 />
 
-<clay:container className="c-py-3 c-py-md-5">
+<clay:container
+	className="c-py-3 c-py-md-5"
+>
 	<aui:form action="<%= changeListsConfigurationDisplayContext.getActionURL() %>" method="post" name="fm">
 		<aui:input name="navigation" type="hidden" value="<%= changeListsConfigurationDisplayContext.getNavigation() %>" />
 		<aui:input name="redirectToOverview" type="hidden" value="<%= false %>" />

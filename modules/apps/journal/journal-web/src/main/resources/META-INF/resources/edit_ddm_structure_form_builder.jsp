@@ -100,7 +100,9 @@ editDDMStructureURL.setParameter("mvcPath", "/edit_ddm_structure.jsp");
 	</div>
 
 	<div class="contextual-sidebar-content">
-		<clay:container className="c-py-4">
+		<clay:container
+			className="c-py-4"
+		>
 			<liferay-ui:error exception="<%= DDMFormLayoutValidationException.class %>" message="please-enter-a-valid-form-layout" />
 
 			<liferay-ui:error exception="<%= DDMFormLayoutValidationException.MustNotDuplicateFieldName.class %>">

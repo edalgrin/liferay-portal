@@ -37,7 +37,9 @@ renderResponse.setTitle(StringBundler.concat(selectedUser.getFullName(), " - ", 
 
 <liferay-util:include page="/uad_data_navigation_bar.jsp" servletContext="<%= application %>" />
 
-<clay:container className="c-py-3 c-py-md-5">
+<clay:container
+	className="c-py-3 c-py-md-5"
+>
 	<clay:row>
 		<clay:col
 			lg="3"

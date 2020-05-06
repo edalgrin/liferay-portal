@@ -99,10 +99,15 @@ if (portletTitleBasedNavigation) {
 
 <c:choose>
 	<c:when test="<%= portletTitleBasedNavigation %>">
-		<clay:container id="<portlet:namespace />FileEntry">
+		<clay:container
+			id="<portlet:namespace />FileEntry"
+		>
 	</c:when>
 	<c:otherwise>
-		<clay:container className="closed sidenav-container sidenav-right" id="<portlet:namespace />infoPanelId">
+		<clay:container
+			className="closed sidenav-container sidenav-right"
+			id="<portlet:namespace />infoPanelId"
+		>
 	</c:otherwise>
 </c:choose>
 

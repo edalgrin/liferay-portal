@@ -96,7 +96,10 @@ else {
 	/>
 </c:if>
 
-<clay:container className="closed sidenav-container sidenav-right" id="<portlet:namespace />infoPanelId">
+<clay:container
+	className="closed sidenav-container sidenav-right"
+	id="<portlet:namespace />infoPanelId"
+>
 	<c:if test="<%= recordVersion != null %>">
 		<div class="sidenav-menu-slider">
 			<div class="sidebar sidebar-default sidenav-menu">

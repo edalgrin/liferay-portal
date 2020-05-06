@@ -225,7 +225,9 @@ for (String childrenItemId : childrenItemIds) {
 <<<<<<< HEAD
 					<div class="container-fluid p-0">
 =======
-					<clay:container className="p-0">
+					<clay:container
+						className="p-0"
+					>
 >>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 						<clay:row
 							className='<%= !rowLayoutStructureItem.isGutters() ? "no-gutters" : StringPool.BLANK %>'

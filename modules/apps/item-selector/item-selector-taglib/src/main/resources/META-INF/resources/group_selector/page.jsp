@@ -40,7 +40,9 @@ Set<String> groupTypes = groupSelectorDisplayContext.getGroupTypes();
 	</clay:container>
 </c:if>
 
-<clay:container className="lfr-item-viewer">
+<clay:container
+	className="lfr-item-viewer"
+>
 	<liferay-ui:search-container
 		searchContainer="<%= groupSelectorDisplayContext.getSearchContainer() %>"
 		var="listSearchContainer"

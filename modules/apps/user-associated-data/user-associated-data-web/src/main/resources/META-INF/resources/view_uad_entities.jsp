@@ -70,7 +70,10 @@ long[] groupIds = viewUADEntitiesDisplay.getGroupIds();
 		</c:otherwise>
 	</c:choose>
 
-	<clay:container className="closed sidenav-container sidenav-right" id="<portlet:namespace />infoPanelId">
+	<clay:container
+		className="closed sidenav-container sidenav-right"
+		id="<portlet:namespace />infoPanelId"
+	>
 		<div id="breadcrumb">
 			<liferay-ui:breadcrumb
 				showCurrentGroup="<%= false %>"

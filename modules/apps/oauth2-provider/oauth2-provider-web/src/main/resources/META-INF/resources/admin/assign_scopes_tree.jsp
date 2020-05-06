@@ -32,7 +32,9 @@ pageContext.setAttribute("assignedScopeAliases", assignedScopeAliases);
 pageContext.setAttribute("scopeAliasesDescriptionsMap", scopeAliasesDescriptionsMap);
 %>
 
-<clay:container className="c-py-4">
+<clay:container
+	className="c-py-4"
+>
 	<div class="sheet">
 		<div class="sheet-header">
 			<h2 class="sheet-title"><liferay-ui:message key="scopes" /></h2>

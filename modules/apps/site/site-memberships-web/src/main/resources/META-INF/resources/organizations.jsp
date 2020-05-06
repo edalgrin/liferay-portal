@@ -31,7 +31,10 @@ OrganizationsManagementToolbarDisplayContext organizationsManagementToolbarDispl
 	displayContext="<%= organizationsManagementToolbarDisplayContext %>"
 />
 
-<clay:container className="closed sidenav-container sidenav-right" id="<portlet:namespace />infoPanelId">
+<clay:container
+	className="closed sidenav-container sidenav-right"
+	id="<portlet:namespace />infoPanelId"
+>
 	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="/organization/info_panel" var="sidebarPanelURL">
 		<portlet:param name="groupId" value="<%= String.valueOf(siteMembershipsDisplayContext.getGroupId()) %>" />
 	</liferay-portlet:resourceURL>

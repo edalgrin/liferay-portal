@@ -35,7 +35,9 @@ SearchEngineDisplayContext
 	searchEngineDisplayContext = (SearchEngineDisplayContext)request.getAttribute(SearchAdminWebKeys.SEARCH_ENGINE_DISPLAY_CONTEXT);
 %>
 
-<clay:container className="c-py-3 c-py-md-5 search-engine-page-container">
+<clay:container
+	className="c-py-3 c-py-md-5 search-engine-page-container"
+>
 	<c:choose>
 		<c:when test="<%= searchEngineDisplayContext.isMissingSearchEngine() %>">
 			<div class="alert alert-warning">

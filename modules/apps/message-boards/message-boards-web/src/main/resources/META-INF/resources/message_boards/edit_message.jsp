@@ -112,7 +112,9 @@ if (portletTitleBasedNavigation) {
 }
 %>
 
-<clay:container id="<%= renderResponse.getNamespace() + "mbEditPageContainer" %>">
+<clay:container
+	id='<%= renderResponse.getNamespace() + "mbEditPageContainer" %>'
+>
 	<c:if test="<%= !portletTitleBasedNavigation %>">
 		<h3><%= headerTitle %></h3>
 	</c:if>

@@ -50,7 +50,9 @@ renderResponse.setTitle(title);
 		md="12"
 	>
 =======
-<clay:container className="main-content-body">
+<clay:container
+	className="main-content-body"
+>
 	<div class="col-md-12 lfr-asset-column lfr-asset-column-details">
 >>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 		<div class="card-horizontal main-content-card">

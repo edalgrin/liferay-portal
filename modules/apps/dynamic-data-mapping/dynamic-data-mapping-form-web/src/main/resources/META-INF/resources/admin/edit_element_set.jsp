@@ -47,7 +47,9 @@ renderResponse.setTitle((structure == null) ? LanguageUtil.get(request, "new-ele
 	/>
 
 	<nav class="management-bar management-bar-light navbar navbar-expand-md toolbar-group-field">
-		<clay:container className="toolbar">
+		<clay:container
+			className="toolbar"
+		>
 			<ul class="navbar-nav toolbar-group-field"></ul>
 			<ul class="navbar-nav toolbar-group-field">
 				<li class="nav-item">
@@ -61,7 +63,9 @@ renderResponse.setTitle((structure == null) ? LanguageUtil.get(request, "new-ele
 		</clay:container>
 	</nav>
 
-	<clay:container className="ddm-translation-manager">
+	<clay:container
+		className="ddm-translation-manager"
+	>
 		<liferay-frontend:translation-manager
 			availableLocales="<%= ddmFormAdminDisplayContext.getAvailableLocales() %>"
 			changeableDefaultLanguage="<%= false %>"

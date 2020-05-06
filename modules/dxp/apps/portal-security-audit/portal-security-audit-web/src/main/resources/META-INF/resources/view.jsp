@@ -18,7 +18,9 @@
 
 <liferay-portlet:renderURL varImpl="searchURL" />
 
-<clay:container className="c-py-4">
+<clay:container
+	className="c-py-4"
+>
 	<aui:form action="<%= searchURL %>" method="get" name="fm">
 		<liferay-portlet:renderURLParams varImpl="searchURL" />
 

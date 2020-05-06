@@ -33,7 +33,9 @@ portletDisplay.setURLBack(redirect);
 renderResponse.setTitle(assetListDisplayContext.getAssetListEntryTitle());
 %>
 
-<clay:container className="c-pt-mb-5">
+<clay:container
+	className="c-pt-mb-5"
+>
 	<clay:row>
 		<clay:col
 			lg="3"

@@ -47,7 +47,9 @@ renderResponse.setTitle(LanguageUtil.get(request, "search-results"));
 	showSearch="<%= true %>"
 />
 
-<clay:container className="c-py-4">
+<clay:container
+	className="c-py-4"
+>
 	<liferay-ui:search-container
 		emptyResultsMessage="no-configurations-were-found"
 		iteratorURL="<%= searchURL %>"

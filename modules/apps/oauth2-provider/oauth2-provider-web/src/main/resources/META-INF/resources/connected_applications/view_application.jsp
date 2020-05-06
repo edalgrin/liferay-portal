@@ -30,7 +30,9 @@ OAuth2Application oAuth2Application = oAuth2ConnectedApplicationsPortletDisplayC
 renderResponse.setTitle(oAuth2Application.getName());
 %>
 
-<clay:container className="view-application">
+<clay:container
+	className="view-application"
+>
 	<portlet:actionURL name="/connected_applications/revoke_oauth2_authorizations" var="revokeOAuth2AuthorizationURL" />
 
 	<aui:form action="<%= revokeOAuth2AuthorizationURL %>" method="post" name="fm">

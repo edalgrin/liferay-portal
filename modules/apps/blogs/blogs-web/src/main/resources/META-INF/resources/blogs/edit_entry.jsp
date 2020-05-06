@@ -56,7 +56,9 @@ renderResponse.setTitle((entry != null) ? BlogsEntryUtil.getDisplayTitle(resourc
 
 <portlet:actionURL name="/blogs/edit_entry" var="editEntryURL" />
 
-<clay:container className="entry-body">
+<clay:container
+	className="entry-body"
+>
 	<aui:form action="<%= editEntryURL %>" cssClass="edit-entry" enctype="multipart/form-data" method="post" name="fm" onSubmit="event.preventDefault();">
 		<aui:input name="<%= Constants.CMD %>" type="hidden" />
 		<aui:input name="redirect" type="hidden" value="<%= redirect %>" />

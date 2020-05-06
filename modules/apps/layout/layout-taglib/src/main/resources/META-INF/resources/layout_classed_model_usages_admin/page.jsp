@@ -23,7 +23,9 @@ String className = GetterUtil.getString(request.getAttribute("liferay-layout:lay
 LayoutClassedModelUsagesDisplayContext layoutClassedModelUsagesDisplayContext = new LayoutClassedModelUsagesDisplayContext(renderRequest, renderResponse, className, classPK);
 %>
 
-<clay:container className="c-py-3 c-py-md-5">
+<clay:container
+	className="c-py-3 c-py-md-5"
+>
 	<clay:row>
 		<clay:col
 			lg="3"

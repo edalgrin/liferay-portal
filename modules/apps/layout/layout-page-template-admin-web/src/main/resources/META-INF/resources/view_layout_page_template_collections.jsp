@@ -29,7 +29,9 @@ List<LayoutPageTemplateCollection> layoutPageTemplateCollections = layoutPageTem
 
 <liferay-ui:success key="layoutPageTemplatePublished" message="the-page-template-was-published-succesfully" />
 
-<clay:container className="c-py-4">
+<clay:container
+	className="c-py-4"
+>
 	<clay:row>
 		<clay:col
 			lg="3"

@@ -70,7 +70,9 @@ else {
 	<div class="staging-bar-level-3-message">
 		<div class="staging-bar-level-3-message-container">
 			<div class="alert alert-fluid alert-info" role="alert">
-				<clay:container className="staging-alert-container">
+				<clay:container
+					className="staging-alert-container"
+				>
 					<span class="alert-indicator">
 						<svg aria-hidden="true" class="lexicon-icon lexicon-icon-info-circle">
 							<use xlink:href="<%= themeDisplay.getPathThemeImages() %>/lexicon/icons.svg#info-circle" />

@@ -54,7 +54,9 @@ renderResponse.setTitle((formInstance == null) ? LanguageUtil.get(request, "new-
 	/>
 
 	<nav class="management-bar management-bar-light navbar navbar-expand-md toolbar-group-field" id="<portlet:namespace />managementToolbar">
-		<clay:container className="autosave-bar toolbar">
+		<clay:container
+			className="autosave-bar toolbar"
+		>
 			<div class="navbar-form navbar-form-autofit navbar-overlay toolbar-group-content">
 				<span class="autosave-feedback management-bar-text" id="<portlet:namespace />autosaveMessage"></span>
 			</div>
@@ -78,7 +80,9 @@ renderResponse.setTitle((formInstance == null) ? LanguageUtil.get(request, "new-
 		</clay:container>
 	</nav>
 
-	<clay:container className="ddm-translation-manager">
+	<clay:container
+		className="ddm-translation-manager"
+	>
 		<liferay-frontend:translation-manager
 			availableLocales="<%= ddmFormAdminDisplayContext.getAvailableLocales() %>"
 			changeableDefaultLanguage="<%= false %>"
@@ -130,7 +134,10 @@ renderResponse.setTitle((formInstance == null) ? LanguageUtil.get(request, "new-
 		<div id="<portlet:namespace />-container"></div>
 	</aui:form>
 
-	<clay:container className="ddm-form-instance-settings hide" id="<portlet:namespace />settings">
+	<clay:container
+		className="ddm-form-instance-settings hide"
+		id="<portlet:namespace />settings"
+	>
 		<%= ddmFormAdminDisplayContext.serializeSettingsForm(pageContext) %>
 	</clay:container>
 </div>

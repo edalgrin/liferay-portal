@@ -33,7 +33,9 @@ portletDisplay.setShowBackIcon(true);
 portletDisplay.setURLBack(backURL);
 %>
 
-<clay:container className="c-py-3 c-py-md-5">
+<clay:container
+	className="c-py-3 c-py-md-5"
+>
 	<div class="sheet-lg table-responsive">
 		<table class="change-lists-conflicts-table table table-autofit table-list">
 			<tr>

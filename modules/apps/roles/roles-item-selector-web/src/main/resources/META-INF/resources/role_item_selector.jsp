@@ -24,7 +24,10 @@ RoleItemSelectorViewDisplayContext roleItemSelectorViewDisplayContext = (RoleIte
 	displayContext="<%= roleItemSelectorViewDisplayContext %>"
 />
 
-<clay:container className="c-py-3 c-py-md-5" id="<portlet:namespace />roleSelectorWrapper">
+<clay:container
+	className="c-py-3 c-py-md-5"
+	id="<portlet:namespace />roleSelectorWrapper"
+>
 	<liferay-ui:search-container
 		searchContainer="<%= roleItemSelectorViewDisplayContext.getSearchContainer() %>"
 	>

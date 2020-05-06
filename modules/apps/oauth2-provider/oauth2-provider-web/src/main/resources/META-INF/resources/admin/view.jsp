@@ -40,7 +40,9 @@ String displayStyle = oAuth2ApplicationsManagementToolbarDisplayContext.getDispl
 	viewTypeItems="<%= oAuth2ApplicationsManagementToolbarDisplayContext.getViewTypes() %>"
 />
 
-<clay:container className="closed">
+<clay:container
+	className="closed"
+>
 	<aui:form action="<%= currentURLObj %>" method="get" name="fm">
 		<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 		<aui:input name="oAuth2ApplicationIds" type="hidden" />

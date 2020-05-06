@@ -31,7 +31,9 @@ portletDisplay.setURLBack(redirect);
 renderResponse.setTitle(assetListDisplayContext.getAssetListEntryTitle());
 %>
 
-<clay:container className="c-py-4">
+<clay:container
+	className="c-py-4"
+>
 	<clay:row>
 		<clay:col
 			lg="3"

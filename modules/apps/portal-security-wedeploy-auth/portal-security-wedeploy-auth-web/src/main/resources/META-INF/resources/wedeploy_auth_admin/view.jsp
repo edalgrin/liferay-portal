@@ -36,7 +36,9 @@ weDeployAuthAppsSearchContainer.setResults(weDeployAuthApps);
 	displayContext="<%= new WeDeployAuthAppsManagementToolbarDisplayContext(request, liferayPortletRequest, liferayPortletResponse, weDeployAuthAppsSearchContainer) %>"
 />
 
-<clay:container className="c-py-4">
+<clay:container
+	className="c-py-4"
+>
 	<liferay-ui:search-container
 		id="weDeployAuthApps"
 		searchContainer="<%= weDeployAuthAppsSearchContainer %>"

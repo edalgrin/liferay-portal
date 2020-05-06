@@ -76,7 +76,9 @@ editDDMStructureURL.setParameter("mvcPath", "/edit_ddm_structure.jsp");
 		</clay:container>
 	</nav>
 
-	<clay:container className="c-py-4">
+	<clay:container
+		className="c-py-4"
+	>
 		<c:if test="<%= (ddmStructure != null) && (DDMStorageLinkLocalServiceUtil.getStructureStorageLinksCount(journalEditDDMStructuresDisplayContext.getDDMStructureId()) > 0) %>">
 			<div class="alert alert-warning">
 				<liferay-ui:message key="there-are-content-references-to-this-structure.-you-may-lose-data-if-a-field-name-is-renamed-or-removed" />

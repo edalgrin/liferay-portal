@@ -16,7 +16,9 @@
 
 <%@ include file="/init.jsp" %>
 
-<clay:container className="pt-3">
+<clay:container
+	className="pt-3"
+>
 	<liferay-ui:search-container
 		id="assetEntries"
 		searchContainer="<%= assetListDisplayContext.getAssetListContentSearchContainer() %>"

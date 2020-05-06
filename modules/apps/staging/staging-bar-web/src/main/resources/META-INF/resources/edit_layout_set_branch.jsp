@@ -63,7 +63,8 @@ if (layoutSetBranch != null) {
 	<liferay-util:param name="navigationName" value="<%= title %>" />
 </liferay-util:include>
 
-<clay:container className="c-py-4" data-namespace="<portlet:namespace />" id="<portlet:namespace /><%= (layoutSetBranch != null) ? "updateBranch" : "addBranch" %>">
+<%-- <clay:container className="c-py-4" data-namespace="<portlet:namespace />" id='<portlet:namespace /><%= (layoutSetBranch != null) ? "updateBranch" : "addBranch" %>'> --%>
+<div class="c-py-4 container-fluid container-fluid-max-xl"
 	<aui:model-context bean="<%= layoutSetBranch %>" model="<%= LayoutSetBranch.class %>" />
 
 	<portlet:actionURL name="editLayoutSetBranch" var="editLayoutSetBranchURL">
@@ -112,4 +113,5 @@ if (layoutSetBranch != null) {
 			<aui:button href="<%= redirect %>" value="cancel" />
 		</aui:button-row>
 	</aui:form>
-</clay:container>
+</div>
+<%-- </clay:container> --%>

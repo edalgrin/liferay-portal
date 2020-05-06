@@ -33,7 +33,10 @@ portletDisplay.setURLBack(importProcessesURL.toString());
 renderResponse.setTitle(LanguageUtil.get(request, "new-import-process"));
 %>
 
-<clay:container className="c-py-4" id="<portlet:namespace />exportImportOptions">
+<clay:container
+	className="c-py-4"
+	id="<portlet:namespace />exportImportOptions"
+>
 
 	<%
 	int incompleteBackgroundTaskCount = BackgroundTaskManagerUtil.getBackgroundTasksCount(groupId, BackgroundTaskExecutorNames.LAYOUT_IMPORT_BACKGROUND_TASK_EXECUTOR, false);

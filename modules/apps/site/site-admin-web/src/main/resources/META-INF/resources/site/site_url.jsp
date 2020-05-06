@@ -156,7 +156,9 @@ if (privateVirtualHostnames.isEmpty()) {
 <<<<<<< HEAD
 			<div class="container-fluid lfr-form-row">
 =======
-			<clay:container className="lfr-form-row">
+			<clay:container
+				className="lfr-form-row"
+			>
 >>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 				<clay:row>
 					<aui:input inlineField="<%= true %>" label="public-pages" maxlength="200" name="publicVirtualHostname[]" placeholder="virtual-host" type="text" value="<%= virtualHostname %>" wrapperCssClass="col-sm-6" />
@@ -201,7 +203,9 @@ if (privateVirtualHostnames.isEmpty()) {
 <<<<<<< HEAD
 			<div class="container-fluid lfr-form-row">
 =======
-			<clay:container className="lfr-form-row">
+			<clay:container
+				className="lfr-form-row"
+			>
 >>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 				<clay:row>
 					<aui:input inlineField="<%= true %>" label="private-pages" maxlength="200" name="privateVirtualHostname[]" placeholder="virtual-host" type="text" value="<%= virtualHostname %>" wrapperCssClass="col-sm-6" />
@@ -260,7 +264,9 @@ if (privateVirtualHostnames.isEmpty()) {
 <<<<<<< HEAD
 				<div class="container-fluid lfr-form-row">
 =======
-				<clay:container className="lfr-form-row">
+				<clay:container
+					className="lfr-form-row"
+				>
 >>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 					<clay:row>
 						<aui:input inlineField="<%= true %>" label="staging-public-pages" maxlength="200" name="stagingPublicVirtualHostname[]" placeholder="virtual-host" type="text" value="<%= virtualHostname %>" wrapperCssClass="col-sm-6" />
@@ -317,7 +323,9 @@ if (privateVirtualHostnames.isEmpty()) {
 <<<<<<< HEAD
 				<div class="container-fluid lfr-form-row">
 =======
-				<clay:container className="lfr-form-row">
+				<clay:container
+					className="lfr-form-row"
+				>
 >>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 					<clay:row>
 						<aui:input inlineField="<%= true %>" label="staging-private-pages" maxlength="200" name="stagingPrivateVirtualHostname[]" placeholder="virtual-host" type="text" value="<%= virtualHostname %>" wrapperCssClass="col-sm-6" />

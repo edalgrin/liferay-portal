@@ -55,7 +55,9 @@ PortletURL portletURL = organizationItemSelectorViewDisplayContext.getPortletURL
 	</liferay-frontend:management-bar-filters>
 </liferay-frontend:management-bar>
 
-<clay:container id="<portlet:namespace />organizationSelectorWrapper">
+<clay:container
+	id="<portlet:namespace />organizationSelectorWrapper"
+>
 	<liferay-ui:search-container
 		id="organizations"
 		searchContainer="<%= organizationItemSelectorViewDisplayContext.getSearchContainer() %>"

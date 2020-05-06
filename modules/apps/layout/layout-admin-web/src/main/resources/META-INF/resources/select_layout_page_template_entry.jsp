@@ -33,7 +33,10 @@ portletDisplay.setURLBack(backURL);
 renderResponse.setTitle(LanguageUtil.get(request, "select-template"));
 %>
 
-<clay:container className="c-py-4" id="<portlet:namespace />layoutPageTemplateEntries">
+<clay:container
+	className="c-py-4"
+	id="<portlet:namespace />layoutPageTemplateEntries"
+>
 	<clay:row>
 		<clay:col
 			lg="3"

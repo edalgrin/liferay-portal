@@ -54,7 +54,9 @@ advancedPublishURL.setParameter("selPlid", String.valueOf(selPlid));
 advancedPublishURL.setParameter("privateLayout", String.valueOf(privateLayout));
 %>
 
-<clay:container className="mt-2 publish-navbar text-right">
+<clay:container
+	className="mt-2 publish-navbar text-right"
+>
 	<clay:link
 		buttonStyle="link"
 		elementClasses="btn-sm"

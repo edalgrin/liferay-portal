@@ -20,7 +20,9 @@
 JournalArticleDisplay articleDisplay = journalDisplayContext.getArticleDisplay();
 %>
 
-<clay:container className="mt-2">
+<clay:container
+	className="mt-2"
+>
 	<%= articleDisplay.getContent() %>
 </clay:container>
 

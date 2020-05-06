@@ -16,98 +16,50 @@
 
 <%@ include file="/process_info/init.jsp" %>
 
-<<<<<<< HEAD
-<div class="container text-secondary">
-	<clay:row>
-		<clay:col
-			sm=""
-		>
-=======
-<clay:container className="text-secondary">
-	<clay:row>
+<div class="container-fluid container-fluid-max-xl text-secondary">
+	<div class="row">
 		<div class="col-sm">
->>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 			<liferay-staging:process-title
 				backgroundTask="<%= backgroundTask %>"
 				listView="<%= false %>"
 			/>
-<<<<<<< HEAD
-		</clay:col>
-	</clay:row>
-
-	<clay:row>
-		<clay:col
-			sm=""
-		>
-			<%= HtmlUtil.escape(userName) %>
-		</clay:col>
-
-		<clay:col
-			sm=""
-		>
-=======
 		</div>
-	<clay:row>
+	</div>
 
-	<clay:row>
+	<div class="row">
 		<div class="col-sm"><%= HtmlUtil.escape(userName) %></div>
 		<div class="col-sm">
->>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 			<liferay-staging:process-date
 				date="<%= backgroundTask.getCreateDate() %>"
 				labelKey="start-date"
 				listView="<%= false %>"
 			/>
-		</clay:col>
+		</div>
 
-		<clay:col
-			sm=""
-		>
+		<div class="col-sm">
 			<liferay-staging:process-date
 				date="<%= backgroundTask.getCompletionDate() %>"
 				labelKey="completion-date"
 				listView="<%= false %>"
 			/>
-<<<<<<< HEAD
-		</clay:col>
-	</clay:row>
-
-	<clay:row>
-		<clay:col>
-=======
 		</div>
-	</clay:row>
+	</div>
 
-	<clay:row>
+	<div class="row">
 		<div class="col">
->>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 			<liferay-staging:process-in-progress
 				backgroundTask="<%= backgroundTask %>"
 				listView="<%= false %>"
 			/>
-<<<<<<< HEAD
-		</clay:col>
-	</clay:row>
-
-	<clay:row>
-		<clay:col>
-=======
 		</div>
-	</clay:row>
+	</div>
 
-	<clay:row>
+	<div class="row">
 		<div class="col">
->>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
 			<liferay-staging:process-status
 				backgroundTaskStatus="<%= backgroundTask.getStatus() %>"
 				backgroundTaskStatusLabel="<%= backgroundTask.getStatusLabel() %>"
 			/>
-<<<<<<< HEAD
-		</clay:col>
-	</clay:row>
-</div>
-=======
 		</div>
-	</clay:row>
-</clay:container>
->>>>>>> LPS-112628 Replaces div class='container*' with clay:container in JSPs
+	</div>
+</div>

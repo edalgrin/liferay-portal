@@ -24,7 +24,9 @@ List<FragmentCollection> systemFragmentCollections = (List<FragmentCollection>)r
 List<FragmentCollectionContributor> fragmentCollectionContributors = fragmentDisplayContext.getFragmentCollectionContributors(locale);
 %>
 
-<clay:container className="c-py-4">
+<clay:container
+	className="c-py-4"
+>
 	<clay:row>
 		<clay:col
 			lg="3"

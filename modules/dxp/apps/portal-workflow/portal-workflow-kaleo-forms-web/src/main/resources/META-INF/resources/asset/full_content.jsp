@@ -26,7 +26,9 @@ DDLRecordVersion ddlRecordVersion = (DDLRecordVersion)request.getAttribute(DDLWe
 KaleoProcessLink kaleoProcessLink = (KaleoProcessLink)request.getAttribute(KaleoFormsWebKeys.KALEO_PROCESS_LINK);
 %>
 
-<clay:container className="main-content-body">
+<clay:container
+	className="main-content-body"
+>
 	<aui:fieldset>
 
 		<%

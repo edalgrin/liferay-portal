@@ -36,7 +36,9 @@ portletDisplay.setURLBack(redirect);
 renderResponse.setTitle(LanguageUtil.get(request, "select-master-page"));
 %>
 
-<clay:container className="mt-4">
+<clay:container
+	className="mt-4"
+>
 	<div class="lfr-search-container-wrapper">
 		<ul class="card-page card-page-equal-height">
 

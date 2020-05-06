@@ -138,7 +138,9 @@ JournalEditArticleDisplayContext journalEditArticleDisplayContext = new JournalE
 	</div>
 
 	<div class="contextual-sidebar-content">
-		<clay:container className="c-py-4">
+		<clay:container
+			className="c-py-4"
+		>
 			<div class="sheet sheet-lg">
 				<aui:model-context bean="<%= article %>" defaultLanguageId="<%= journalEditArticleDisplayContext.getDefaultArticleLanguageId() %>" model="<%= JournalArticle.class %>" />
 
