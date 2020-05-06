@@ -56,7 +56,7 @@ PortletURL portletURL = userItemSelectorViewDisplayContext.getPortletURL();
 </liferay-frontend:management-bar>
 
 <clay:container
-	id="<portlet:namespace />userSelectorWrapper"
+	id='<%= renderResponse.getNamespace() + "userSelectorWrapper" %>'
 >
 	<liferay-ui:search-container
 		id="users"

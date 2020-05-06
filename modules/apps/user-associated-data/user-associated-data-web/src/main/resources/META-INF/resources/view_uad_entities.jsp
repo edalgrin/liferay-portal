@@ -72,7 +72,7 @@ long[] groupIds = viewUADEntitiesDisplay.getGroupIds();
 
 	<clay:container
 		className="closed sidenav-container sidenav-right"
-		id="<portlet:namespace />infoPanelId"
+		id='<%= renderResponse.getNamespace() + "infoPanelId" %>'
 	>
 		<div id="breadcrumb">
 			<liferay-ui:breadcrumb

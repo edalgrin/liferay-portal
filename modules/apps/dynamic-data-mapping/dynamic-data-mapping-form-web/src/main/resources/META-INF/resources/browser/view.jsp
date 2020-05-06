@@ -35,7 +35,7 @@
 />
 
 <clay:container
-	id="<portlet:namespace />formContainer"
+	id='<%= renderResponse.getNamespace() + "formContainer" %>'
 >
 	<aui:form action="<%= String.valueOf(ddmFormBrowserDisplayContext.getPortletURL()) %>" method="post" name="selectDDMFormFm">
 		<liferay-ui:search-container

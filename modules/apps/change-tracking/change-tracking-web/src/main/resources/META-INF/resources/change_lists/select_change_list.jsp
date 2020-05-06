@@ -37,7 +37,7 @@ SelectChangeListManagementToolbarDisplayContext selectChangeListManagementToolba
 </c:if>
 
 <clay:container
-	id="<portlet:namespace />selectChangeListContainer"
+	id='<%= renderResponse.getNamespace() + "selectChangeListContainer" %>'
 >
 	<div class="table-responsive">
 		<table class="change-lists-table select-change-list-table table table-autofit">

@@ -42,7 +42,7 @@ portletURL.setParameter("eventName", eventName);
 </div>
 
 <clay:container
-	id="<portlet:namespace />selectDDMStructureFieldForm"
+	id='<%= renderResponse.getNamespace() + "selectDDMStructureFieldForm" %>'
 >
 	<liferay-ui:search-container
 		iteratorURL="<%= portletURL %>"

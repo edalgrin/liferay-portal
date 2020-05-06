@@ -26,7 +26,7 @@ JournalArticleItemSelectorViewDisplayContext journalArticleItemSelectorViewDispl
 
 <clay:container
 	className="item-selector lfr-item-viewer"
-	id="<portlet:namespace />articlesContainer"
+	id='<%= renderResponse.getNamespace() + "articlesContainer" %>'
 >
 	<liferay-site-navigation:breadcrumb
 		breadcrumbEntries="<%= journalArticleItemSelectorViewDisplayContext.getPortletBreadcrumbEntries() %>"

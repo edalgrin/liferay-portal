@@ -32,7 +32,7 @@ renderResponse.setTitle(LanguageUtil.get(request, "process-details"));
 %>
 
 <clay:container
-	id="<portlet:namespace />exportImportProcessContainer"
+	id='<%= renderResponse.getNamespace() + "exportImportProcessContainer" %>'
 >
 	<liferay-util:include page="/export_import_process.jsp" servletContext="<%= application %>" />
 </clay:container>

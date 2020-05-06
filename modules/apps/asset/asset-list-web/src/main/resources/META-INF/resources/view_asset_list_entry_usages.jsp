@@ -34,7 +34,7 @@ renderResponse.setTitle(assetListDisplayContext.getAssetListEntryTitle());
 %>
 
 <clay:container
-	className="c-pt-mb-5"
+	className="c-py-3 c-py-md-5"
 >
 	<clay:row>
 		<clay:col

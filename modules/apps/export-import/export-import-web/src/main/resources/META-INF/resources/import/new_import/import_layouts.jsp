@@ -35,7 +35,7 @@ renderResponse.setTitle(LanguageUtil.get(request, "new-import-process"));
 
 <clay:container
 	className="c-py-4"
-	id="<portlet:namespace />exportImportOptions"
+	id='<%= renderResponse.getNamespace() + "exportImportOptions" %>'
 >
 
 	<%

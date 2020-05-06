@@ -22,7 +22,7 @@ SegmentsSimulationDisplayContext segmentsSimulationDisplayContext = new Segments
 
 <clay:container
 	className="segments-simulation"
-	id="<portlet:namespace />segmentsSimulationContainer"
+	id='<%= renderResponse.getNamespace() + "segmentsSimulationContainer" %>'
 >
 	<c:choose>
 		<c:when test="<%= segmentsSimulationDisplayContext.isShowEmptyMessage() %>">

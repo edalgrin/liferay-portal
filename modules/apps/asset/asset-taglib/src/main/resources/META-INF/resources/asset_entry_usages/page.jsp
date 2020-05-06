@@ -24,7 +24,7 @@ AssetEntryUsagesDisplayContext assetEntryUsagesDisplayContext = new AssetEntryUs
 %>
 
 <clay:container
-	className="c-pb-md-5"
+	className="c-py-3 c-py-md-5"
 >
 	<clay:row>
 		<clay:col

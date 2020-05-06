@@ -62,7 +62,7 @@ if (Validator.isNotNull(title)) {
 
 <clay:container
 	className="closed sidenav-container sidenav-right"
-	id="<portlet:namespace />infoPanelId"
+	id='<%= renderResponse.getNamespace() + "infoPanelId" %>'
 >
 	<c:if test="<%= journalDisplayContext.isShowInfoButton() %>">
 		<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="/journal/info_panel" var="sidebarPanelURL">

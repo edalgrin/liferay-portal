@@ -56,7 +56,7 @@ if (!ddlDisplayContext.isAdminPortlet()) {
 
 <clay:container
 	className="view-records-container"
-	id="<portlet:namespace />formContainer"
+	id='<%= renderResponse.getNamespace() + "formContainer" %>'
 >
 	<aui:form action="<%= portletURL.toString() %>" method="post" name="fm">
 		<aui:input name="recordIds" type="hidden" />

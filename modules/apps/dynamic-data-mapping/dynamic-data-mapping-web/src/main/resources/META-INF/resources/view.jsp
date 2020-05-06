@@ -54,7 +54,7 @@ List<DDMDisplayTabItem> ddmDisplayTabItems = ddmDisplay.getTabItems();
 	<aui:input name="deleteStructureIds" type="hidden" />
 
 	<clay:container
-		id="<portlet:namespace />entriesContainer"
+		id='<%= renderResponse.getNamespace() + "entriesContainer" %>'
 	>
 		<liferay-ui:search-container
 			id="ddmStructures"

@@ -35,7 +35,7 @@ renderResponse.setTitle(LanguageUtil.get(request, "select-template"));
 
 <clay:container
 	className="c-py-4"
-	id="<portlet:namespace />layoutPageTemplateEntries"
+	id='<%= renderResponse.getNamespace() + "layoutPageTemplateEntries" %>'
 >
 	<clay:row>
 		<clay:col

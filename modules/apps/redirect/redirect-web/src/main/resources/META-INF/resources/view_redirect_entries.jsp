@@ -30,7 +30,7 @@ RedirectManagementToolbarDisplayContext redirectManagementToolbarDisplayContext 
 
 <clay:container
 	className="closed redirect-entries sidenav-container sidenav-right"
-	id="<portlet:namespace />infoPanelId"
+	id='<%= renderResponse.getNamespace() + "infoPanelId" %>'
 >
 	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="/redirect/info_panel" var="sidebarPanelURL" />
 
@@ -57,14 +57,17 @@ RedirectManagementToolbarDisplayContext redirectManagementToolbarDisplayContext 
 
 					<%
 					row.setData(HashMapBuilder.<String, Object>put("actions", redirectManagementToolbarDisplayContext.getAvailableActions(redirectEntry)).build());
-
-					String sourceURL = RedirectUtil.getGroupBaseURL(themeDisplay) + StringPool.SLASH + redirectEntry.getSourceURL();
 					%>
 
 					<liferay-ui:search-container-column-text
 						cssClass="table-cell-content"
 						name="source-url"
 					>
+
+						<%
+						String sourceURL = RedirectUtil.getGroupBaseURL(themeDisplay) + StringPool.SLASH + redirectEntry.getSourceURL();
+						%>
+
 						<span data-title="<%= sourceURL %>">
 							<%= HtmlUtil.escape(sourceURL) %>
 						</span>
@@ -79,7 +82,7 @@ RedirectManagementToolbarDisplayContext redirectManagementToolbarDisplayContext 
 						String destinationUrl = HtmlUtil.escape(redirectEntry.getDestinationURL());
 
 						Map<String, String> data = HashMapBuilder.put(
-							"href", sourceURL
+							"href", destinationUrl
 						).build();
 						%>
 

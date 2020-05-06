@@ -173,7 +173,7 @@ BookmarksUtil.addPortletBreadcrumbEntries(folder, request, renderResponse);
 
 <clay:container
 	className="closed sidenav-container sidenav-right"
-	id="<portlet:namespace />infoPanelId"
+	id='<%= renderResponse.getNamespace() + "infoPanelId" %>'
 >
 	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="/bookmarks/info_panel" var="sidebarPanelURL">
 		<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />

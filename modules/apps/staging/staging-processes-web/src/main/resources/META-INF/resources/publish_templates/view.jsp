@@ -67,7 +67,7 @@ StagingProcessesWebPublishTemplatesToolbarDisplayContext stagingProcessesWebPubl
 
 <clay:container
 	className="closed sidenav-container sidenav-right"
-	id="<portlet:namespace />infoPanelId"
+	id='<%= renderResponse.getNamespace() + "infoPanelId" %>'
 >
 	<aui:form action="<%= portletURL %>">
 		<liferay-ui:search-container
