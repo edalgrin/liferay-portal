@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
 <%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+taglib uri="http://liferay.com/tld/clay" prefix="clay" %><%@
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
@@ -17,7 +18,7 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <div class="list-group-panel" id="<portlet:namespace />simulationOptionsContainer">
 	<p class="text-center"><liferay-ui:message key="simulation-description" /></p>
 
-	<div class="container-fluid default-devices flex-container">
+	<clay:container className="default-devices flex-container">
 		<div class="flex-item-expand d-none d-md-block lfr-device-item selected text-center" data-option="option-1">
 			<aui:icon cssClass="icon icon-monospaced" image="calendar" markupView="lexicon" />
 
@@ -41,7 +42,7 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 			<small><%= LanguageUtil.get(resourceBundle, "option-4") %></small>
 		</div>
-	</div>
+	</clay:container>
 </div>
 
 <aui:script use="aui-base">

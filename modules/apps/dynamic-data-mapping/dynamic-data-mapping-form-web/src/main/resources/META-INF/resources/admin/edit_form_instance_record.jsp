@@ -31,15 +31,17 @@ renderResponse.setTitle(GetterUtil.get(title, LanguageUtil.get(request, "view-fo
 
 <div class="portlet-forms">
 	<div class="ddm-form-basic-info ddm-form-success-page">
-		<div class="container-fluid-1280">
+		<clay:container>
 			<h1 class="ddm-form-name"><%= ddmFormAdminDisplayContext.getFormName() %></h1>
 
 			<h5 class="ddm-form-description"><%= ddmFormAdminDisplayContext.getFormDescription() %></h5>
-		</div>
+		</clay:container>
 	</div>
 </div>
 
-<div class="container-fluid-1280 ddm-form-builder-app editing-form-entry">
+<clay:container
+	className="ddm-form-builder-app editing-form-entry"
+>
 	<portlet:actionURL name="addFormInstanceRecord" var="editFormInstanceRecordActionURL" />
 
 	<aui:form action="<%= editFormInstanceRecordActionURL %>" data-DDMFormInstanceId="<%= ddmFormInstanceRecordVersion.getFormInstanceId() %>" data-senna-off="true" method="post" name="fm">
@@ -49,4 +51,4 @@ renderResponse.setTitle(GetterUtil.get(title, LanguageUtil.get(request, "view-fo
 
 		<%= ddmFormAdminDisplayContext.getDDMFormHTML(renderRequest) %>
 	</aui:form>
-</div>
+</clay:container>

@@ -19,7 +19,7 @@
 <div class="pt-0" id="wrapper">
 	<header class="mb-4" id="banner">
 		<div class="mb-4 navbar navbar-classic navbar-top py-3">
-			<div class="container">
+			<div class="container-fluid container-fluid-max-xl">
 				<div class="align-items-center d-inline-flex logo">
 
 					<%
@@ -36,7 +36,7 @@
 		</div>
 	</header>
 
-	<div class="container" id="content">
+	<div class="container-fluid container-fluid-max-xl" id="content">
 		<div class="sheet sheet-lg" id="main-content">
 			<h2 class="sheet-title" title="<liferay-ui:message key="basic-configuration" />">
 				<liferay-ui:message key="basic-configuration" />
@@ -473,7 +473,7 @@
 	</div>
 
 	<footer id="footer" role="contentinfo">
-		<div class="container">
+		<div class="container-fluid container-fluid-max-xl">
 			<div class="row">
 				<div class="col-md-12 text-center text-md-left">
 					<liferay-ui:message key="powered-by" /> <a class="text-white" href="http://www.liferay.com" rel="external">Liferay</a>

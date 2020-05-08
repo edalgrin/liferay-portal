@@ -38,7 +38,7 @@ renderResponse.setTitle(kaleoDefinitionVersion.getTitle(locale));
 <aui:model-context bean="<%= kaleoDefinitionVersion %>" model="<%= KaleoDefinitionVersion.class %>" />
 
 <liferay-frontend:info-bar>
-	<div class="container-fluid-1280">
+	<clay:container>
 		<div class="info-bar-item">
 			<c:choose>
 				<c:when test="<%= (kaleoDefinition != null) && kaleoDefinition.isActive() %>">
@@ -68,7 +68,7 @@ renderResponse.setTitle(kaleoDefinitionVersion.getTitle(locale));
 				</c:otherwise>
 			</c:choose>
 		</span>
-	</div>
+	</clay:container>
 </liferay-frontend:info-bar>
 
 <aui:input name="content" type="hidden" value="<%= content %>" />

@@ -63,7 +63,7 @@ portletDisplay.setURLBack(redirect);
 renderResponse.setTitle(headerTitle);
 %>
 
-<div class="container-fluid-1280">
+<clay:container>
 	<liferay-util:buffer
 		var="removeFileEntryTypeIcon"
 	>
@@ -307,7 +307,7 @@ renderResponse.setTitle(headerTitle);
 			<aui:button href="<%= redirect %>" type="cancel" />
 		</aui:button-row>
 	</aui:form>
-</div>
+</clay:container>
 
 <liferay-util:buffer
 	var="workflowDefinitionsBuffer"

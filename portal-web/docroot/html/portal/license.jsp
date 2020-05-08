@@ -74,7 +74,7 @@ DateFormat dateFormatDateTime = DateFormat.getDateTimeInstance(DateFormat.LONG, 
 dateFormatDateTime.setTimeZone(timeZone);
 %>
 
-<div class="container-fluid container-view">
+<div class="container-fluid container-fluid-max-xl container-view">
 	<h2 class="version-info">
 		<%= versionInfo %>
 	</h2>
