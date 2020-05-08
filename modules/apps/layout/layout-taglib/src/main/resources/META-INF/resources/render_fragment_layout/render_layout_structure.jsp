@@ -222,7 +222,9 @@ for (String childrenItemId : childrenItemIds) {
 
 			<c:choose>
 				<c:when test="<%= includeContainer %>">
-					<div class="container-fluid p-0">
+					<clay:container
+						className="p-0"
+					>
 						<clay:row
 							className='<%= !rowLayoutStructureItem.isGutters() ? "no-gutters" : StringPool.BLANK %>'
 						>
@@ -233,7 +235,7 @@ for (String childrenItemId : childrenItemIds) {
 
 							<liferay-util:include page="/render_fragment_layout/render_layout_structure.jsp" servletContext="<%= application %>" />
 						</clay:row>
-					</div>
+					</clay:container>
 				</c:when>
 				<c:otherwise>
 					<clay:row
