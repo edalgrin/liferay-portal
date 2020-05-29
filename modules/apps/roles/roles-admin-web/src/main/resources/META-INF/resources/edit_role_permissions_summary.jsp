@@ -16,12 +16,12 @@
 
 <%@ include file="/init.jsp" %>
 
-<div class="sheet">
-	<div class="sheet-header">
+<clay:sheet>
+	<clay:sheet-header>
 		<h3 class="sheet-title"><liferay-ui:message key="summary" /></h3>
-	</div>
+	</clay:sheet-header>
 
-	<div class="sheet-section">
+	<clay:sheet-section>
 
 		<%
 		String redirect = ParamUtil.getString(request, "redirect");
@@ -244,14 +244,21 @@
 			searchContainer="<%= searchContainer %>"
 			searchResultCssClass="show-quick-actions-on-hover table table-autofit"
 		/>
+	</clay:sheet-section>
 
-		<c:if test="<%= searchContainer.getTotal() > 0 %>">
-			<div class="autofit-col sheet-footer taglib-search-iterator-page-iterator-bottom">
-				<liferay-ui:search-paginator
-					markupView="lexicon"
-					searchContainer="<%= searchContainer %>"
-				/>
-			</div>
-		</c:if>
-	</div>
-</div>
+	<c:if test="<%= searchContainer.getTotal() > 0 %>">
+		<clay:sheet-footer>
+			<clay:content-row>
+				<clay:content-col
+					className="taglib-search-iterator-page-iterator-bottom"
+					expand="true"
+				>
+					<liferay-ui:search-paginator
+						markupView="lexicon"
+						searchContainer="<%= searchContainer %>"
+					/>
+				</clay:content-col>
+			</clay:content-row>
+		</clay:sheet-footer>
+	</c:if>
+</clay:sheet>
