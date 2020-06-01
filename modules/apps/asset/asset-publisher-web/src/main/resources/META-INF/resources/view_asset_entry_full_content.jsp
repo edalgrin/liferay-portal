@@ -105,19 +105,27 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 	<span class="asset-anchor lfr-asset-anchor" id="<%= assetEntry.getEntryId() %>"></span>
 
 	<c:if test="<%= assetPublisherDisplayContext.isShowAuthor() || (assetPublisherDisplayContext.isShowCreateDate() && (assetEntry.getCreateDate() != null)) || (assetPublisherDisplayContext.isShowPublishDate() && (assetEntry.getPublishDate() != null)) || (assetPublisherDisplayContext.isShowExpirationDate() && (assetEntry.getExpirationDate() != null)) || (assetPublisherDisplayContext.isShowModifiedDate() && (assetEntry.getModifiedDate() != null)) || assetPublisherDisplayContext.isShowViewCount() %>">
-		<div class="autofit-row mb-4 metadata-author">
+		<clay:content-row
+			cssClass="mb-4 metadata-author"
+		>
 			<c:if test="<%= assetPublisherDisplayContext.isShowAuthor() %>">
-				<div class="asset-avatar autofit-col inline-item-before mr-3 pt-1">
+				<clay:content-col
+					cssClass="asset-avatar inline-item-before mr-3 pt-1"
+				>
 					<liferay-ui:user-portrait
 						size="lg"
 						userId="<%= assetRenderer.getUserId() %>"
 					/>
-				</div>
+				</clay:content-col>
 			</c:if>
 
-			<div class="autofit-col autofit-col-expand">
-				<div class="autofit-row">
-					<div class="autofit-col autofit-col-expand">
+			<clay:content-col
+				expand="true"
+			>
+				<clay:content-row>
+					<clay:content-col
+						expand="true"
+					>
 						<c:if test="<%= assetPublisherDisplayContext.isShowAuthor() %>">
 							<div class="text-truncate-inline">
 								<span class="text-truncate user-info"><strong><%= HtmlUtil.escape(AssetRendererUtil.getAssetRendererUserFullName(assetRenderer, request)) %></strong></span>
@@ -169,10 +177,10 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 								<span class="view-count-info"><%= assetEntry.getViewCount() %> <liferay-ui:message key='<%= (assetEntry.getViewCount() == 1) ? "view" : "views" %>' /></span>
 							</div>
 						</c:if>
-					</div>
-				</div>
-			</div>
-		</div>
+					</clay:content-col>
+				</clay:content-row>
+			</clay:content-col>
+		</clay:content-row>
 	</c:if>
 
 	<div class="asset-content mb-3">
@@ -240,20 +248,28 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 	<c:if test="<%= showContextLink || showRatings || assetPublisherDisplayContext.isEnableFlags() || assetPublisherDisplayContext.isEnablePrint() || Validator.isNotNull(assetPublisherDisplayContext.getSocialBookmarksTypes()) %>">
 		<div class="separator"><!-- --></div>
 
-		<div class="asset-details autofit-float autofit-row autofit-row-center">
+		<clay:content-row
+			cssClass="asset-details"
+			floatElements="true"
+			verticaAlign="center"
+		>
 			<c:if test="<%= showContextLink %>">
-				<div class="asset-more autofit-col mr-3">
+				<clay:content-col
+					cssClass="asset-more mr-3"
+				>
 					<a href="<%= viewInContextURL %>"><liferay-ui:message key="<%= assetRenderer.getViewInContextMessage() %>" /> &raquo;</a>
-				</div>
+				</clay:content-col>
 			</c:if>
 
 			<c:if test="<%= showRatings %>">
-				<div class="asset-ratings autofit-col mr-3">
+				<clay:content-col
+					cssClass="asset-ratings mr-3"
+				>
 					<liferay-ratings:ratings
 						className="<%= assetEntry.getClassName() %>"
 						classPK="<%= assetEntry.getClassPK() %>"
 					/>
-				</div>
+				</clay:content-col>
 			</c:if>
 
 			<c:if test="<%= assetPublisherDisplayContext.isEnableFlags() %>">
@@ -264,7 +280,9 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 				boolean inTrash = trashHandler.isInTrash(assetEntry.getClassPK());
 				%>
 
-				<div class="asset-flag autofit-col mr-3">
+				<clay:content-col
+					cssClass="asset-flag mr-3"
+				>
 					<liferay-flags:flags
 						className="<%= assetEntry.getClassName() %>"
 						classPK="<%= assetEntry.getClassPK() %>"
@@ -274,11 +292,13 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 						message='<%= inTrash ? "flags-are-disabled-because-this-entry-is-in-the-recycle-bin" : null %>'
 						reportedUserId="<%= assetRenderer.getUserId() %>"
 					/>
-				</div>
+				</clay:content-col>
 			</c:if>
 
 			<c:if test="<%= assetPublisherDisplayContext.isEnablePrint() %>">
-				<div class="autofit-col component-subtitle mr-3 print-action">
+				<clay:content-col
+					cssClass="component-subtitle mr-3 print-action"
+				>
 					<c:choose>
 						<c:when test="<%= print %>">
 							<liferay-ui:icon
@@ -329,11 +349,11 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 							</aui:script>
 						</c:otherwise>
 					</c:choose>
-				</div>
+				</clay:content-col>
 			</c:if>
 
 			<c:if test="<%= Validator.isNotNull(assetPublisherDisplayContext.getSocialBookmarksTypes()) %>">
-				<div class="autofit-col">
+				<clay:content-col>
 					<liferay-social-bookmarks:bookmarks
 						className="<%= assetEntry.getClassName() %>"
 						classPK="<%= assetEntry.getClassPK() %>"
@@ -343,9 +363,9 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 						types="<%= assetPublisherDisplayContext.getSocialBookmarksTypes() %>"
 						urlImpl="<%= viewFullContentURL %>"
 					/>
-				</div>
+				</clay:content-col>
 			</c:if>
-		</div>
+		</clay:content-row>
 	</c:if>
 
 	<%
@@ -356,7 +376,11 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 	<c:if test="<%= showConversions || showLocalization %>">
 		<div class="separator"><!-- --></div>
 
-		<div class="asset-details autofit-float autofit-row autofit-row-center">
+		<clay:content-row
+			cssClass="asset-details"
+			floatElements="true"
+			verticaAlign="center"
+		>
 			<c:if test="<%= showLocalization %>">
 
 				<%
@@ -397,16 +421,18 @@ Map<String, Object> fragmentsEditorData = HashMapBuilder.<String, Object>put(
 					).build();
 				%>
 
-					<div class="autofit-col component-subtitle export-action">
+					<clay:content-col
+						cssClass="component-subtitle export-action"
+					>
 						<aui:a cssClass="btn btn-outline-borderless btn-outline-secondary btn-sm" data="<%= data %>" href="<%= exportAssetURL.toString() %>" label='<%= LanguageUtil.format(request, "x-convert-x-to-x", new Object[] {"hide-accessible", title, StringUtil.toUpperCase(HtmlUtil.escape(extension))}, false) %>' />
-					</div>
+					</clay:content-col>
 
 				<%
 				}
 				%>
 
 			</c:if>
-		</div>
+		</clay:content-row>
 	</c:if>
 
 	<c:if test="<%= assetPublisherDisplayContext.isEnableComments() && assetRenderer.isCommentable() %>">
