@@ -13,6 +13,7 @@
  */
 
 import ClayIcon from '@clayui/icon';
+import ClayLayout from '@clayui/layout';
 import {Treeview} from 'frontend-js-components-web';
 import React, {useCallback, useRef, useState} from 'react';
 
@@ -87,7 +88,7 @@ function SelectCategory({
 	return (
 		<div className="select-category">
 			<form className="select-category-filter" role="search">
-				<div className="container-fluid-1280">
+				<ClayLayout.ContainerFluid>
 					<div className="input-group">
 						<div className="input-group-item">
 							<input
@@ -102,7 +103,7 @@ function SelectCategory({
 							</div>
 						</div>
 					</div>
-				</div>
+				</ClayLayout.ContainerFluid>
 			</form>
 
 			<form name={`${namespace}selectCategoryFm`}>
