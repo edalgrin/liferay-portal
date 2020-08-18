@@ -1,0 +1,4 @@
+Bundle-Name: Liferay Frontend CSS Custom Properties Sample Web
+Bundle-SymbolicName: com.liferay.frontend.css.custom.properties.sample.web
+Bundle-Version: 1.0.0
+Web-ContextPath: /frontend-css-custom-properties-sample-web

@@ -1,0 +1,145 @@
+// @import 'atlas-variables';
+
+/* ---------- CCP MISSINGS ---------- */
+
+.bg-white {
+	background-color: var(--white) !important;
+}
+
+.bg-gray-100 {
+	background-color: var(--gray-100);
+}
+
+.bg-gray-200 {
+	background-color: var(--gray-200);
+}
+
+.bg-gray-300 {
+	background-color: var(--gray-300);
+}
+
+.bg-gray-400 {
+	background-color: var(--gray-400);
+}
+
+.bg-gray-500 {
+	background-color: var(--gray-500);
+}
+
+.bg-gray-600 {
+	background-color: var(--gray-600);
+}
+
+.bg-gray-700 {
+	background-color: var(--gray-700);
+}
+
+.bg-gray-800 {
+	background-color: var(--gray-800);
+}
+
+.bg-gray-900 {
+	background-color: var(--gray-900);
+}
+
+.bg-black {
+	background-color: var(--black);
+}
+
+.bg-transparent {
+	background-color: var(--transparent) !important;
+}
+
+.font-family-sans-serif {
+	font-family: var(--font-family-sans-serif);
+}
+
+.font-family-monospace {
+	font-family: var(--font-family-monospace);
+}
+
+.font-family-base {
+	font-family: var(--font-family-base);
+}
+
+/* ---------- CCP ---------- */
+
+.ccp-group {
+	margin-top: 3rem;
+}
+
+.ccp-item {
+	margin-top: 0.5rem;
+}
+
+.ccp-sample {
+	border: 1px solid;
+	display: inline-block;
+	margin-right: 0.725rem;
+	vertical-align: middle;
+}
+
+.ccp-group-colors .ccp-items {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ccp-group-colors .ccp-sample {
+	height: 3rem;
+	margin-right: 0;
+	width: 3rem;
+}
+
+.ccp-group-colors .ccp-label {
+	display: block;
+	min-width: 5rem;
+}
+
+.ccp-group-rounded .ccp-sample {
+	height: 3rem;
+	width: 6rem;
+}
+
+.ccp-group-shadow .ccp-sample {
+	border: none;
+	height: 3rem;
+	width: 3rem;
+}
+
+.ccp-group-font .ccp-sample {
+	display: block;
+	margin-right: 0;
+	padding: 0.5rem;
+}
+
+.ccp-group-aspect .ccp-sample {
+	width: 6rem;
+}
+
+.ccp-group-transition .ccp-sample {
+	border: none;
+	height: 3rem;
+	width: 3rem;
+}
+
+.ccp-group-transition .fade,
+.ccp-group-transition .collapsing {
+	border: 1px solid;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.ccp-group-transition .collapsing:not(.show) {
+	height: 0%;
+}
+
+.ccp-group-transition .ccp-label {
+	margin-right: 0.5rem;
+}
+
+.ccp-group-separator .ccp-sample {
+	border: none;
+	display: block;
+	margin-right: 0;
+}
