@@ -288,7 +288,7 @@ hr {
 		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
 		@each $prop, $abbrev in (margin: m, padding: p) {
-			@each $size, $length in $spacers-cp {
+			@each $size, $length in $custom-properties-spacers {
 				.#{$abbrev}#{$infix}-#{$size} {
 					#{$prop}: $length !important;
 				}
@@ -311,7 +311,7 @@ hr {
 			}
 		}
 
-		@each $size, $length in $spacers-cp {
+		@each $size, $length in $custom-properties-spacers {
 			@if $size != 0 {
 				.m#{$infix}-n#{$size} {
 					margin: calc(#{$length} * -1) !important;
