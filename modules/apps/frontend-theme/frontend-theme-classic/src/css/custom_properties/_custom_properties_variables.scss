@@ -1,7 +1,7 @@
 // Spacers map copy
 
-$spacers-cp: ();
-$spacers-cp: map-deep-merge(
+$custom-properties-spacers: ();
+$custom-properties-spacers: map-merge(
 	(
 		0: var(--spacer-0),
 		1: var(--spacer-1),
@@ -15,26 +15,24 @@ $spacers-cp: map-deep-merge(
 		9: var(--spacer-9),
 		10: var(--spacer-10),
 	),
-	$spacers-cp
+	$custom-properties-spacers
 );
 
 // Theme colors
 
-$theme-colors-cp: ();
-$theme-colors-cp: map-deep-merge(
+$custom-properties-theme-colors: ();
+$custom-properties-theme-colors: map-merge(
 	(
 		danger: var(--danger),
 		dark: var(--dark),
-		gray-dark: var(--gray-800),
 		info: var(--info),
 		light: var(--light),
-		lighter: var(--gray-100),
 		primary: var(--primary),
 		secondary: var(--secondary),
 		success: var(--success),
 		warning: var(--warning),
 	),
-	$theme-colors-cp
+	$custom-properties-theme-colors
 );
 
 :root {
@@ -83,19 +81,18 @@ $theme-colors-cp: map-deep-merge(
 		--#{$key}: #{$value};
 	}
 
-	--danger-l1: #{$danger-l1};
-	--danger-l2: #{$danger-l2};
-	--info-l1: #{$info-l1};
-	--info-l2: #{$info-l2};
-	--primary-d1: #{$primary-d1};
-	--primary-l1: #{$primary-l1};
-	--primary-l3: #{$primary-l3};
-	--secondary-d1: var(--gray-800);
-	--success-d1: #{$success-d1};
-	--success-l1: #{$success-l1};
-	--success-l2: #{$success-l2};
-	--warning-l1: #{$warning-l1};
-	--warning-l2: #{$warning-l2};
+	--btn-primary-background-color: map-get($btn-primary, background-color);
+	--btn-primary-border-color: map-get($btn-primary, border-color);
+	--btn-primary-color: map-get($btn-primary, color);
+	--btn-primary-hover-background-color: map-get($btn-primary, hover-bg);
+	--btn-primary-hover-border-color: map-get($btn-primary, hover-border-color);
+	--btn-primary-hover-color: map-get(map-get($btn-primary, hover), color);
+	--btn-primary-focus-background-color: map-get($btn-primary, focus-bg);
+	--btn-primary-focus-border-color: map-get(map-get($btn-primary, focus), border-color);
+	--btn-primary-focus-color: map-get(map-get($btn-primary, focus), color);
+	--btn-primary-active-background-color: map-get($btn-primary, active-bg);
+	--btn-primary-active-border-color: map-get( $btn-primary, active-border-color);
+	--btn-primary-active-color: map-get(map-get($btn-primary, active), color);
 
 	// Container max
 
