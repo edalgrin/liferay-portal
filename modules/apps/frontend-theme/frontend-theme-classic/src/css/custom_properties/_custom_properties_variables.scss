@@ -79,20 +79,44 @@ $custom-properties-theme-colors: map-merge(
 
 	@each $key, $value in $theme-colors {
 		--#{$key}: #{$value};
-	}
 
-	--btn-primary-background-color: map-get($btn-primary, background-color);
-	--btn-primary-border-color: map-get($btn-primary, border-color);
-	--btn-primary-color: map-get($btn-primary, color);
-	--btn-primary-hover-background-color: map-get($btn-primary, hover-bg);
-	--btn-primary-hover-border-color: map-get($btn-primary, hover-border-color);
-	--btn-primary-hover-color: map-get(map-get($btn-primary, hover), color);
-	--btn-primary-focus-background-color: map-get($btn-primary, focus-bg);
-	--btn-primary-focus-border-color: map-get(map-get($btn-primary, focus), border-color);
-	--btn-primary-focus-color: map-get(map-get($btn-primary, focus), color);
-	--btn-primary-active-background-color: map-get($btn-primary, active-bg);
-	--btn-primary-active-border-color: map-get( $btn-primary, active-border-color);
-	--btn-primary-active-color: map-get(map-get($btn-primary, active), color);
+		// $btn-map: nth(#{'$btn-' + $key}, 1);
+		// $btn-map: #{'$btn-' + $key};
+		// $btn-map: ();
+		// $btn-map: map-merge($btn-map, #{'$btn-' + $key});
+		
+		// @warn nth($btn-map, 1);
+		@warn $btn-#{$key};
+
+		@each $status in (normal, hover, focus, active, disable) {
+			$prefix: '-' + $status;
+
+			@if ($status == normal) {
+				$prefix: '';
+			}
+
+			@each $prop in (background-color, border-color, color) {
+				$alias: $prefix + $prop;
+
+				@if ($prop == background) {
+					$alias: $prefix + 'bg';
+				}
+
+				@if (map-has-key($btn-map, #{$alias})) {
+					$btn-variable: map-get($btn-map, #{$alias});
+				} @else if($status == normal) {
+					$btn-variable: map-get($btn-map, #{$prop});
+				} @else {
+					$btn-variable: map-get(
+						map-get($btn-map, #{$status}),
+						#{$prop}
+					);
+				}
+
+				--btn-#{$key}-#{$prefix}#{$prop}: #{$btn-variable};
+			}
+		}
+	}
 
 	// Container max
 

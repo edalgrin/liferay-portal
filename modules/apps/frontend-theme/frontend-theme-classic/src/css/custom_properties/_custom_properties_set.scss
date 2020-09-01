@@ -92,29 +92,31 @@ body,
 	);
 }
 
-.btn-primary {
-	@include clay-button-variant(
-		(
-			background-color: var(--btn-primary-background-color),
-			border-color: var(--btn-primary-border-color),
-			color: var(--btn-primary-color),
-			hover: (
-				background-color: var(--btn-primary-hover-background-color),
-				border-color: var(--btn-primary-hover-border-color),
-				color: var(--btn-primary-hover-color),
-			),
-			focus: (
-				background-color: var(--btn-primary-focus-background-color),
-				border-color: var(--btn-primary-focus-border-color),
-				color: var(--btn-primary-focus-color),
-			),
-			active: (
-				background-color: var(--btn-primary-active-background-color),
-				border-color: var(--btn-primary-active-border-color),
-				color: var(--btn-primary-active-color),
-			),
-		)
-	);
+@each $key, $value in $custom-properties-theme-colors {
+	.btn-#{$key} {
+		@include clay-button-variant(
+			(
+				background-color: var(--btn-#{$key}-background-color),
+				border-color: var(--btn-#{$key}-border-color),
+				color: var(--btn-#{$key}-color),
+				hover: (
+					background-color: var(--btn-#{$key}-hover-background-color),
+					border-color: var(--btn-#{$key}-hover-border-color),
+					color: var(--btn-#{$key}-hover-color),
+				),
+				focus: (
+					background-color: var(--btn-#{$key}-focus-background-color),
+					border-color: var(--btn-#{$key}-focus-border-color),
+					color: var(--btn-#{$key}-focus-color),
+				),
+				active: (
+					background-color: var(--btn-#{$key}-active-background-color),
+					border-color: var(--btn-#{$key}-active-border-color),
+					color: var(--btn-#{$key}-active-color),
+				),
+			)
+		);
+	}
 }
 
 // Container max
