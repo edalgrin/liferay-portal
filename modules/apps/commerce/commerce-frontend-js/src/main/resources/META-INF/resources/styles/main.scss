@@ -50,19 +50,14 @@
 		}
 	}
 
-	.separator-left {
-		margin-left: 36px;
-		padding-left: 16px;
-
-		&:before {
-			background-color: $border-color;
-			content: '';
-			height: 24px;
-			left: 0;
-			position: absolute;
-			top: 12px;
-			width: 1px;
-		}
+	.separator-left::before {
+		border-left: 1px solid $border-color;
+		content: '';
+		height: 20px;
+		left: 0;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 }
 
