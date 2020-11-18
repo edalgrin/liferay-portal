@@ -75,7 +75,7 @@ PortletURL portletURL = mdrActionDisplayContext.getPortletURL();
 			<portlet:param name="ruleGroupInstanceId" value="<%= String.valueOf(mdrActionDisplayContext.getRuleGroupInstanceId()) %>" />
 		</liferay-portlet:renderURL>
 
-		<div class="button-holder text-center">
+		<div class="c-my-3 d-flex text-center">
 			<aui:button href="<%= addURL.toString() %>" value="add-action" />
 		</div>
 	</c:if>

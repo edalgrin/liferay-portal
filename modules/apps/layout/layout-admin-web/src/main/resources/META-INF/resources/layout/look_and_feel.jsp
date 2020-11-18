@@ -72,9 +72,9 @@ if ((layoutPageTemplateEntry == null) || !Objects.equals(layoutPageTemplateEntry
 			<b><liferay-ui:message key="master-name" />:</b> <span id="<portlet:namespace />masterLayoutName"><%= (masterLayoutPageTemplateEntry != null) ? masterLayoutPageTemplateEntry.getName() : LanguageUtil.get(request, "blank") %></span>
 		</p>
 
-		<div class="button-holder">
+		<div class="c-my-3 d-flex">
 			<clay:button
-				cssClass='<%= (masterLayoutPageTemplateEntry == null) ? "hide" : StringPool.BLANK %>'
+				cssClass='<%= (masterLayoutPageTemplateEntry == null) ? "hide" : "c-mr-3" %>'
 				displayType="secondary"
 				id='<%= liferayPortletResponse.getNamespace() + "editMasterLayoutButton" %>'
 				label="edit-master"
@@ -112,7 +112,7 @@ if (hasStyleBooks && (selLayout.getStyleBookEntryId() > 0)) {
 		<b><liferay-ui:message key="style-book-name" />:</b> <span id="<portlet:namespace />styleBookName"><%= (styleBookEntry != null) ? styleBookEntry.getName() : LanguageUtil.get(request, "inherited") %></span>
 	</p>
 
-	<div class="button-holder">
+	<div class="c-my-3 d-flex">
 		<clay:button
 			displaytype="secondary"
 			id='<%= liferayPortletResponse.getNamespace() + "changeStyleBookButton" %>'

@@ -31,7 +31,7 @@ portletURL.setParameter("tabs1", announcementsRequestHelper.getTabs1());
 </c:if>
 
 <c:if test="<%= PortletPermissionUtil.hasControlPanelAccessPermission(permissionChecker, scopeGroupId, AnnouncementsPortletKeys.ANNOUNCEMENTS_ADMIN) %>">
-	<div class="button-holder">
+	<div class="c-my-3 d-flex">
 		<portlet:renderURL var="addEntryURL">
 			<portlet:param name="mvcRenderCommandName" value="/announcements/edit_entry" />
 			<portlet:param name="redirect" value="<%= currentURL %>" />

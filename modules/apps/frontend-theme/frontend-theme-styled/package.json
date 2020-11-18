@@ -2,7 +2,8 @@
 	"name": "liferay-frontend-theme-styled",
 	"scripts": {
 		"checkFormat": "liferay-npm-scripts check",
-		"format": "liferay-npm-scripts fix"
+		"format": "liferay-npm-scripts fix",
+		"test": "liferay-npm-scripts test"
 	},
 	"version": "6.0.0"
 }

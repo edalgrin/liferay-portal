@@ -480,9 +480,9 @@ class Form extends Component {
 
 				<div class="container-fluid-1280">
 					{!this.isFormBuilderView() && (
-						<div class="button-holder ddm-form-builder-buttons">
+						<div class="c-my-3 d-flex ddm-form-builder-buttons">
 							<button
-								class="btn btn-primary ddm-button"
+								class="btn btn-primary c-mr-3 ddm-button"
 								data-onclick="_handleSaveButtonClicked"
 								ref="saveFieldSetButton"
 							>

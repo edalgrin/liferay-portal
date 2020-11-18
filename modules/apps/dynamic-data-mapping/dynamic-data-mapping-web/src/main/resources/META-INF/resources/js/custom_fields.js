@@ -98,7 +98,7 @@ AUI.add(
 		var TPL_INPUT_BUTTON =
 			'<div class="form-group">' +
 			'<input class="field form-control" type="text" value="" readonly="readonly">' +
-			'<div class="button-holder">' +
+			'<div class="c-my-3 d-flex">' +
 			'<button class="btn btn-secondary select-button" type="button">' +
 			'<span class="lfr-btn-label">' +
 			A.Escape.html(Liferay.Language.get('select')) +
@@ -134,7 +134,7 @@ AUI.add(
 		var TPL_WCM_IMAGE =
 			'<div class="form-group">' +
 			'<input class="field form-control" type="text" value="" readonly="readonly">' +
-			'<div class="button-holder">' +
+			'<div class="c-my-3 d-flex">' +
 			'<button class="btn btn-secondary select-button" type="button">' +
 			'<span class="lfr-btn-label">' +
 			A.Escape.html(Liferay.Language.get('select')) +

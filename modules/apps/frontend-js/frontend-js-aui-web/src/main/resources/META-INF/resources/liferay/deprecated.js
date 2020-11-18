@@ -396,7 +396,7 @@
 					}
 
 					if (!diff) {
-						var buttonRow = pageBody.one('.button-holder');
+						var buttonRow = pageBody.one('.c-my-3.d-flex');
 						var templateEditor = pageBody.one(
 							'.lfr-template-editor'
 						);

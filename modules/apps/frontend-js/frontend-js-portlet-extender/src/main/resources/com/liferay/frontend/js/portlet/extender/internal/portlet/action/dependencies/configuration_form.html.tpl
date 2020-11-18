@@ -11,7 +11,7 @@
 		</div>
 	</div>
 
-	<div class="button-holder dialog-footer">
+	<div class="c-my-3 d-flex dialog-footer">
 		<button class="btn btn-primary" id="form-button-submit" type="submit">
 			<span class="lfr-btn-label">
 				[$SAVE_LABEL$]

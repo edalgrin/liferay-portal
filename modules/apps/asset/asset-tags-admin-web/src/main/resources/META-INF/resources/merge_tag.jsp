@@ -47,7 +47,7 @@ renderResponse.setTitle(LanguageUtil.get(request, "merge-tags"));
 	<liferay-frontend:edit-form-body>
 		<liferay-frontend:fieldset-group>
 			<liferay-frontend:fieldset>
-				<div class="button-holder">
+				<div class="c-my-3 d-flex">
 					<liferay-asset:asset-tags-selector
 						addCallback="onAddTag"
 						allowAddEntry="<%= false %>"

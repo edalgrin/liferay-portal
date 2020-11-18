@@ -1089,7 +1089,7 @@
 
 			if (
 				lfrFormContent &&
-				iframeBody.one('.button-holder.dialog-footer')
+				iframeBody.one('.c-my-3.d-flex.dialog-footer')
 			) {
 				iframeBody.addClass('dialog-with-footer');
 

@@ -60,7 +60,7 @@
 
 	</ul>
 
-	<div class="button-holder">
+	<div class="c-my-3 d-flex">
 		<aui:button cssClass="select-button" name='<%= id + "selectButton" %>' value="select" />
 	</div>
 </div>

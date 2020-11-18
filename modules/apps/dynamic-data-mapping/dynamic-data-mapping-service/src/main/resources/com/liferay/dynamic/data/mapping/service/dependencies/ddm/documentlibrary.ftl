@@ -53,9 +53,9 @@
 			<div class="form-feedback-item" id="${portletNamespace}${namespacedFieldName}Message">${message}</div>
 		</#if>
 
-		<div class="button-holder">
+		<div class="c-my-3 d-flex">
 			<@liferay_aui.button
-				cssClass="select-button"
+				cssClass="c-mr-3 select-button"
 				id="${namespacedFieldName}SelectButton"
 				value="select"
 			/>

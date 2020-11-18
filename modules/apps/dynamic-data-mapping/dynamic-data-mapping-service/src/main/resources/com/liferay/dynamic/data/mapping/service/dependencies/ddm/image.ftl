@@ -62,15 +62,15 @@
 			<div class="form-feedback-item" id="${portletNamespace}${namespacedFieldName}Message">${message}</div>
 		</#if>
 
-		<div class="button-holder">
+		<div class="c-my-3 d-flex">
 			<@liferay_aui.button
-				cssClass="select-button"
+				cssClass="c-mr-3 select-button"
 				id="${namespacedFieldName}SelectButton"
 				value="select"
 			/>
 
 			<@liferay_aui.button
-				cssClass="clear-button ${(imageData?has_content)?string('', 'hide')}"
+				cssClass="c-mr-3 clear-button ${(imageData?has_content)?string('', 'hide')}"
 				id="${namespacedFieldName}ClearButton"
 				value="clear"
 			/>

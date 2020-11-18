@@ -172,8 +172,8 @@ OAuth2Application oAuth2Application = oAuth2AdminPortletDisplayContext.getOAuth2
 						</c:otherwise>
 					</c:choose>
 
-					<div class="btn-group button-holder">
-						<aui:button id="selectUserButton" value="select" />
+					<div class="btn-group c-my-3 d-flex">
+						<aui:button id="selectUserButton" value="select" class="c-mr-3" />
 
 						<aui:button id="useSignedInUserButton" value="use-signed-in-user" />
 					</div>
