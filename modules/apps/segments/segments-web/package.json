@@ -8,6 +8,7 @@
 		"@clayui/layout": "3.2.0",
 		"@clayui/link": "3.2.0",
 		"@clayui/loading-indicator": "3.2.0",
+		"@clayui/panel": "3.3.2",
 		"classnames": "2.2.6",
 		"date-fns": "^1.30.1",
 		"formik": "2.1.4",

@@ -14,6 +14,7 @@
 
 import ClayBadge from '@clayui/badge';
 import ClayIcon from '@clayui/icon';
+import ClayPanel from '@clayui/panel';
 import getCN from 'classnames';
 import dateFns from 'date-fns';
 import PropTypes from 'prop-types';
@@ -38,30 +39,23 @@ function getDefaultValue(property) {
 
 	if (type === PROPERTY_TYPES.STRING && options && options.length) {
 		defaultValue = options[0].value;
-	}
-	else if (type === PROPERTY_TYPES.DATE) {
+	} else if (type === PROPERTY_TYPES.DATE) {
 		defaultValue = jsDatetoYYYYMMDD(new Date());
-	}
-	else if (type === PROPERTY_TYPES.DATE_TIME) {
+	} else if (type === PROPERTY_TYPES.DATE_TIME) {
 		const simpleDate = jsDatetoYYYYMMDD(new Date());
 
 		defaultValue = dateFns
 			.parse(simpleDate, INPUT_DATE_FORMAT)
 			.toISOString();
-	}
-	else if (type === PROPERTY_TYPES.BOOLEAN) {
+	} else if (type === PROPERTY_TYPES.BOOLEAN) {
 		defaultValue = 'true';
-	}
-	else if (type === PROPERTY_TYPES.INTEGER && options && options.length) {
+	} else if (type === PROPERTY_TYPES.INTEGER && options && options.length) {
 		defaultValue = options[0].value;
-	}
-	else if (type === PROPERTY_TYPES.INTEGER) {
+	} else if (type === PROPERTY_TYPES.INTEGER) {
 		defaultValue = 0;
-	}
-	else if (type === PROPERTY_TYPES.DOUBLE && options && options.length) {
+	} else if (type === PROPERTY_TYPES.DOUBLE && options && options.length) {
 		defaultValue = options[0].value;
-	}
-	else if (type === PROPERTY_TYPES.DOUBLE) {
+	} else if (type === PROPERTY_TYPES.DOUBLE) {
 		defaultValue = '0.00';
 	}
 
@@ -88,94 +82,87 @@ const CriteriaSidebarCollapse = ({
 	const _handleClick = (key, editing) => () => onCollapseClick(key, editing);
 
 	return (
-		<ul className="list-unstyled sidebar-collapse-groups">
-			{propertyGroups.map((propertyGroup) => {
-				const key = propertyGroup.propertyKey;
+		<>
+			<ClayPanel.Group>
+				{propertyGroups.map((propertyGroup) => {
+					const key = propertyGroup.propertyKey;
 
-				const active = key === propertyKey;
-				const properties = propertyGroup
-					? propertyGroup.properties
-					: [];
+					const active = key === propertyKey;
 
-				const filteredProperties = searchValue
-					? filterProperties(properties, searchValue)
-					: properties;
+					const properties = propertyGroup
+						? propertyGroup.properties
+						: [];
 
-				const activeClasses = getCN({
-					active,
-				});
+					const filteredProperties = searchValue
+						? filterProperties(properties, searchValue)
+						: properties;
 
-				const propertyListClasses = getCN(
-					'properties-list',
-					activeClasses
-				);
+					const title = searchValue ? (
+						<ClayBadge
+							className="ml-auto mr-2"
+							displayType="secondary"
+							label={filteredProperties.length}
+						/>
+					) : (
+						propertyGroup.name
+					);
 
-				return (
-					<li
-						className={`sidebar-collapse-${propertyGroup.propertyKey}`}
-						key={key}
-					>
-						<div
-							className="sidebar-collapse-header-root"
-							onClick={_handleClick(key, active)}
+					return (
+						<ClayPanel
+							collapsable
+							displayTitle={title}
+							displayType="secondary"
+							key={key}
+							showCollapseIcon
+							//onChange={_handleClick(key, active)}
+							//spritemap={spritemap}
 						>
-							<a className="d-flex justify-content-between sidebar-collapse-header">
-								{propertyGroup.name}
+							<ClayPanel.Body>
+								<ul className="properties-list">
+									{active &&
+										filteredProperties.length === 0 && (
+											<li className="empty-message">
+												{Liferay.Language.get(
+													'no-results-were-found'
+												)}
+											</li>
+										)}
 
-								{searchValue && (
-									<ClayBadge
-										className="ml-auto mr-2"
-										displayType="secondary"
-										label={filteredProperties.length}
-									/>
-								)}
+									{active &&
+										filteredProperties.length > 0 &&
+										filteredProperties.map(
+											({label, name, options, type}) => {
+												const defaultValue = getDefaultValue(
+													{
+														label,
+														name,
+														options,
+														type,
+													}
+												);
 
-								<span className="collapse-icon">
-									<ClayIcon
-										className={activeClasses}
-										symbol="angle-right"
-									/>
-								</span>
-							</a>
-						</div>
-						<ul className={propertyListClasses}>
-							{active && filteredProperties.length === 0 && (
-								<li className="empty-message">
-									{Liferay.Language.get(
-										'no-results-were-found'
-									)}
-								</li>
-							)}
-
-							{active &&
-								filteredProperties.length > 0 &&
-								filteredProperties.map(
-									({label, name, options, type}) => {
-										const defaultValue = getDefaultValue({
-											label,
-											name,
-											options,
-											type,
-										});
-
-										return (
-											<CriteriaSidebarItem
-												className={`color--${key}`}
-												defaultValue={defaultValue}
-												key={name}
-												label={label}
-												name={name}
-												propertyKey={key}
-												type={type}
-											/>
-										);
-									}
-								)}
-						</ul>
-					</li>
-				);
-			})}
-		</ul>
+												return (
+													<CriteriaSidebarItem
+														className={`color--${key}`}
+														defaultValue={
+															defaultValue
+														}
+														key={name}
+														label={label}
+														name={name}
+														propertyKey={key}
+														type={type}
+													/>
+												);
+											}
+										)}
+								</ul>
+							</ClayPanel.Body>
+						</ClayPanel>
+					);
+				})}
+			</ClayPanel.Group>
+		</>
 	);
 };
 
