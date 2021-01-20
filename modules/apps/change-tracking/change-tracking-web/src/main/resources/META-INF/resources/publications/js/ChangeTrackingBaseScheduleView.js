@@ -108,26 +108,13 @@ class ChangeTrackingBaseScheduleView extends React.Component {
 	}
 
 	getDateHelpText() {
-		if (this.state.validationError) {
-			return (
-				<div className="help-block">
-					<div className="required" role="alert">
-						{this.state.validationError}
-					</div>
+		return (
+			(this.state.validationError || this.state.dateError) && (
+				<div className="form-feedback-item">
+					{this.state.validationError || this.state.dateError}
 				</div>
-			);
-		}
-		else if (this.state.dateError) {
-			return (
-				<div className="help-block">
-					<div className="required" role="alert">
-						{this.state.dateError}
-					</div>
-				</div>
-			);
-		}
-
-		return '';
+			)
+		);
 	}
 
 	getPublishDate(date, time) {
@@ -169,17 +156,13 @@ class ChangeTrackingBaseScheduleView extends React.Component {
 	}
 
 	getTimeHelpText() {
-		if (this.state.timeError) {
-			return (
-				<div className="help-block">
-					<div className="required" role="alert">
-						{this.state.timeError}
-					</div>
+		return (
+			this.state.timeError && (
+				<div className="form-feedback-item">
+					{this.state.timeError}
 				</div>
-			);
-		}
-
-		return '';
+			)
+		);
 	}
 
 	handleDateChange(date) {

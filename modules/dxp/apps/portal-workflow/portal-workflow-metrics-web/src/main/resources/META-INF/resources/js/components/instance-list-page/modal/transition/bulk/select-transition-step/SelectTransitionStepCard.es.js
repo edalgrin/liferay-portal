@@ -174,9 +174,9 @@ const Card = ({cardIndex, nextTransitions = [], tasks}) => {
 					</ClaySelect>
 
 					{errors[cardIndex] && onGoing && (
-						<label className="help-block">
+						<label className="form-feedback-item">
 							<ClayIcon
-								className="mr-1"
+								className="form-feedback-indicator inline-item-before"
 								symbol="exclamation-full"
 							/>
 

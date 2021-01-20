@@ -49,9 +49,9 @@ AUI.add(
 		]);
 
 		var TPL_DUPLICATE_ALERT =
-			'<div class="help-block">{duplicate} {tag}: {tagName}</div>';
+			'<div class="form-feedback-item">{duplicate} {tag}: {tagName}</div>';
 
-		var TPL_MAX_LENGTH_ALERT = '<div class="help-block">{message}</div>';
+		var TPL_MAX_LENGTH_ALERT = '<div class="form-feedback-item">{message}</div>';
 
 		/**
 		 * OPTIONS
