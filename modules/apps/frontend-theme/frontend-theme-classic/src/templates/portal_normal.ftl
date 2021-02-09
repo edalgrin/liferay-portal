@@ -25,7 +25,7 @@
 		<#if show_header>
 			<header id="banner">
 				<div class="navbar navbar-classic navbar-top py-3">
-					<div class="container user-personal-bar">
+					<div class="container-fluid container-fluid-max-xl">
 						<div class="align-items-center autofit-row">
 							<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
 								<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
@@ -85,7 +85,7 @@
 		</section>
 
 		<#if show_footer>
-			<footer id="footer" role="contentinfo">
+			<footer id="footer" role="contentinfo" class="bg-dark text-white py-5 mt-3">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 text-center text-md-left">
