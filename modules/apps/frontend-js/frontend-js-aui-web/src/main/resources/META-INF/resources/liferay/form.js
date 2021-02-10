@@ -493,6 +493,12 @@ AUI.add(
 							stackErrorContainer:
 								'<div class="form-feedback-item form-validator-stack help-block"></div>',
 							validateOnBlur: instance.get('validateOnBlur'),
+							stackErrorContainer: {
+								getter: function(val) {
+									return A.Node.create(val).clone();
+								},
+								value: "eedu",
+							},
 						});
 
 						A.Do.before(

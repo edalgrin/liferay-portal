@@ -122,6 +122,13 @@ AUI.add(
 					validator: Lang.isString,
 				},
 
+				stackErrorContainer: {
+					getter: function(val) {
+						return A.Node.create(val).clone();
+					},
+					value: "eedu",
+				},
+
 				translatedLanguages: {
 					setter(val) {
 						var set = new A.Set();
