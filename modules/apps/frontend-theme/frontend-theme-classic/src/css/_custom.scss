@@ -5,7 +5,6 @@
 // @import 'components/sidebar'; // To Verify
 // @import 'components/table'; // To Verify
 // @import 'components/widget'; // To Verify
-// @import 'portlet/portlet'; // To Verify
 // @import 'portlet/portlet_hello_world'; // To Verify
 
 // @import 'custom_properties'; // Temporary disabled
@@ -42,13 +41,76 @@
 }
 
 /*
-* Move to portlet module
+* Move to Styled then to Portlet module (it doesn't exist yet)
 */
-.portlet {
-	margin-bottom: 0;
+.portlet .container-fluid-max-xl {
+	padding-left: 0;
+	padding-right: 0;
+}
 
-	&:hover {
-		z-index: 1034;
+.portlet-topper {
+	align-items: center;
+	padding: 0;
+
+	// Need the .portlet parent for specifity of Styled
+	.portlet & {
+		@include media-breakpoint-up(sm) {
+			right: auto;
+		}
+	}
+
+	.portlet-title-default {
+		line-height: initial;
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
+	// This design requirement is creating an accessibility issue
+	.icon-monospaced {
+		height: 1.5rem;
+		line-height: 1.5rem;
+		width: 1.5rem;
+
+		.lexicon-icon {
+			height: 0.875rem;
+			width: 0.875rem;
+		}
+	}
+
+	.controls-visible .portlet:hover &,
+	.controls-visible .portlet.open &,
+	.controls-visible .portlet.focus & {
+		z-index: $zindex-fixed + 4; // 1034
+	}
+}
+
+/*
+* If title without .portlet-layout doesn't exist
+* Move to Styled then to Portlet module (it doesn't exist yet)
+*/
+.portlet-title-text {
+	color: $secondary;
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 2.2;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
+/*
+* Move to Fragments?
+*/
+.portlet-dropzone {
+	box-shadow: 0 0 0 1px transparent inset;
+	transition: box-shadow 300ms ease-in-out;
+	will-change: box-shadow;
+
+	.yui3-dd-drop-active-valid & {
+		box-shadow: 0 0 0 1px rgba($primary-d2, 0.2) inset;
+	}
+
+	.yui3-dd-drop-over & {
+		box-shadow: 0 0 0 4px $primary-d2 inset;
 	}
 }
 
