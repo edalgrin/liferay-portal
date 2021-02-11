@@ -120,15 +120,19 @@
 */
 .portlet-hello-world {
 	.portlet-content {
-		background: #6f5245 url(../images/portlet_hello_world_bg.jpg) bottom
-			left;
+		background: linear-gradient(
+				130deg,
+				rgba($primary-d2, 0.7) 30%,
+				transparent
+			),
+			#6f5245 url(../images/portlet_hello_world_bg.jpg) bottom left;
 		background-clip: padding-box;
 		background-size: cover;
 		color: $white;
 		min-height: 24rem; // Do we need this?
 
 		@include media-breakpoint-up(sm) {
-			padding: 1.875rem 3.125rem;
+			padding: 3.125rem;
 		}
 	}
 
