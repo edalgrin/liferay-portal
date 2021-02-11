@@ -24,10 +24,10 @@
 	<div class="d-flex flex-column flex-fill" id="wrapper">
 		<#if show_header>
 			<header id="banner">
-				<div class="navbar navbar-classic py-3">
+				<div class="navbar navbar-classic navigation-bar-light py-3">
 					<div class="container-fluid container-fluid-max-xl">
 						<div class="align-items-center autofit-row">
-							<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
+							<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md text-decoration-none" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
 								<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
 
 								<#if show_site_name>
@@ -39,7 +39,7 @@
 
 							<div class="autofit-col autofit-col-expand">
 								<#if show_header_search>
-									<div class="justify-content-md-end mr-4 navbar-form" role="search">
+									<div class="justify-content-md-end mr-4 p-0 navbar-form" role="search">
 										<@liferay.search_bar default_preferences="${preferences}" />
 									</div>
 								</#if>
@@ -52,9 +52,9 @@
 					</div>
 				</div>
 
-				<div class="navbar navbar-classic navbar-expand-md navbar-light pb-3">
+				<div class="border-bottom border-light navbar navbar-classic navigation-bar-light navbar-expand-md pb-3">
 					<div class="container">
-						<a class="${logo_css_class} align-items-center d-inline-flex d-md-none logo-xs" href="${site_default_url}" rel="nofollow">
+						<a class="${logo_css_class} align-items-center d-inline-flex d-md-none logo-xs text-decoration-none" href="${site_default_url}" rel="nofollow">
 							<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
 
 							<#if show_site_name>
