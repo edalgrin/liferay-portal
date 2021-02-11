@@ -14,7 +14,7 @@
 	/>
 
 	<div id="${navbarId}">
-		<ul aria-label="<@liferay.language key="site-pages" />" class="navbar-blank navbar-nav navbar-site" role="menubar">
+		<ul aria-label="<@liferay.language key="site-pages" />" class="navbar-nav navbar-site" role="menubar">
 			<#assign navItems = entries />
 
 			<#list navItems as navItem>
@@ -35,6 +35,7 @@
 						<#assign nav_item_caret>
 							<span class="lfr-nav-child-toggle">
 								<@liferay_aui.icon
+									className="lexicon-icon-sm"
 									image="angle-down"
 									markupView="lexicon"
 								/>

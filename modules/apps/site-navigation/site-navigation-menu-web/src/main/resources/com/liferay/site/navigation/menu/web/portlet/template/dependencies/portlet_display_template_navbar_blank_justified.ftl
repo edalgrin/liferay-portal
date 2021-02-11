@@ -14,7 +14,7 @@
 	/>
 
 	<div id="${navbarId}">
-		<ul aria-label="<@liferay.language key="site-pages" />" class="nav nav-justified navbar-blank navbar-nav navbar-site" role="menubar">
+		<ul aria-label="<@liferay.language key="site-pages" />" class="nav nav-justified navbar-nav navbar-site" role="menubar">
 			<#assign navItems = entries />
 
 			<#list navItems as navItem>
@@ -33,7 +33,7 @@
 						<#assign nav_item_attr_has_popup = "aria-haspopup='true'" />
 						<#assign nav_item_caret>
 							<span class="lfr-nav-child-toggle">
-								<@clay["icon"] symbol="angle-down" />
+								<@clay["icon"] className="lexicon-icon-sm" symbol="angle-down" />
 							</span>
 						</#assign>
 						<#assign
