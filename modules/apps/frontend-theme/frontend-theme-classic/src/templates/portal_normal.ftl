@@ -24,7 +24,7 @@
 	<div class="d-flex flex-column flex-fill" id="wrapper">
 		<#if show_header>
 			<header id="banner">
-				<div class="navbar navbar-classic navbar-top py-3">
+				<div class="navbar navbar-classic py-3">
 					<div class="container-fluid container-fluid-max-xl">
 						<div class="align-items-center autofit-row">
 							<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
