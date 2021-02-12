@@ -163,9 +163,20 @@
 }
 
 /*
-* Update the taglib liferay.navigation_menu in navigation.ftl
+* Update the taglib liferay.navigation_menu in portal_normal.ftl
 * Removing .active from nav-item and assign it to nav-link
 */
-.navbar-classic .nav-item.active .nav-link {
+.theme-classic .nav-item.active .nav-link {
 	color: $dark;
+}
+
+
+/*
+* Move to Clay?
+*/
+.navbar-toggler {
+	&.collapsed .lexicon-icon-times,
+	&:not(.collapsed) .lexicon-icon-bars {
+		display: none;
+	}
 }
