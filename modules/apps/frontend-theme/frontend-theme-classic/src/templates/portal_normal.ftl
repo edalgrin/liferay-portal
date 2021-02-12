@@ -23,7 +23,7 @@
 
 	<div class="d-flex flex-column flex-fill" id="wrapper">
 		<#if show_header>
-			<header id="banner">
+			<header id="banner" class="portlet-container-no-margin">
 				<div class="navbar navbar-classic navigation-bar-light py-3">
 					<div class="container-fluid container-fluid-max-xl">
 						<div class="align-items-center autofit-row">

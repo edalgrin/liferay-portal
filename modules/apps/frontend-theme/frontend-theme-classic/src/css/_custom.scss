@@ -37,6 +37,12 @@
 /*
 * Move to Styled then to Portlet module (it doesn't exist yet)
 */
+.portlet {
+	.portlet-container-no-margin & {
+		margin-bottom: 0;
+	}
+}
+
 .portlet .container-fluid-max-xl {
 	padding-left: 0;
 	padding-right: 0;
