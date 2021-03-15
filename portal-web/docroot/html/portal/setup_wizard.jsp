@@ -18,7 +18,7 @@
 
 <div class="pt-0" id="wrapper">
 	<header class="mb-4" id="banner">
-		<div class="mb-4 navbar navbar-classic navbar-top py-3">
+		<div class="mb-4 navbar navigation-bar-light py-3">
 			<div class="container">
 				<div class="align-items-center d-inline-flex logo">
 

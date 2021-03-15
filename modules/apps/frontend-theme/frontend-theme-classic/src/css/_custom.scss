@@ -1,105 +1,179 @@
-@import 'components/breadcrumb';
-@import 'components/color';
-@import 'components/group-item';
-@import 'components/info-panel';
-@import 'components/navbars';
-@import 'components/sidebar';
-@import 'components/table';
-@import 'components/widget';
-@import 'portlet/portlet';
-@import 'portlet/portlet_decorators';
-@import 'portlet/portlet_hello_world';
+// @import 'custom_properties'; // Temporary disabled
 
-@import 'custom_properties';
+/*
+* The element is used in several place
+* but we don't have it as a component
+*/
+.user-avatar-link {
+	display: block;
+	position: relative;
 
-body {
-	header {
-		.field-wrapper {
-			position: absolute;
-			right: 4px;
-			top: 2px;
-
-			a {
-				color: #fff;
-			}
-		}
-
-		.field-wrapper,
-		.form-group {
-			margin-bottom: 0;
-		}
-
-		.portlet {
-			margin-bottom: 0;
-
-			&:hover {
-				z-index: 1034;
-			}
-		}
-
-		.search-input {
-			font-size: 0.88rem;
-			padding: 0.28rem 2rem 0.28rem 1rem;
-		}
-
-		.text-default {
-			color: #6b6c7e;
-			font-weight: 600;
-		}
-
-		.user-personal-bar {
-			.fieldset {
-				position: relative;
-			}
-
-			.user-avatar-link .panel-notifications-count {
-				right: calc(100% - 0.75rem);
-				top: -0.35rem;
-			}
-		}
-	}
-
-	.user-avatar-link {
+	.panel-notifications-count {
 		display: block;
-		position: relative;
+		margin: 0;
+		max-width: none;
+		position: absolute;
+		right: calc(100% - 0.7rem);
+		top: -0.4rem;
+	}
 
-		.panel-notifications-count {
-			display: block;
-			margin: 0;
-			max-width: none;
-			position: absolute;
-			right: calc(100% - 0.7rem);
-			top: -0.4rem;
-		}
+	.text-default {
+		align-items: center;
+		display: flex;
 
-		.text-default {
-			align-items: center;
-			display: flex;
+		.user-full-name {
+			margin-left: 0.5rem;
 
-			.user-full-name {
-				margin-left: 0.5rem;
-
-				@include media-breakpoint-down(xs) {
-					display: none;
-				}
+			@include media-breakpoint-down(xs) {
+				display: none;
 			}
 		}
 	}
 }
 
-.btn-group + .info-panel {
-	@include media-breakpoint-up(sm) {
-		top: auto;
+/*
+* Move to Styled then to Portlet module (it doesn't exist yet)
+*/
+.portlet {
+	.portlet-container-no-margin & {
+		margin-bottom: 0;
 	}
 }
 
-#footer {
-	background-color: $complementary-color;
-	color: #fff;
-	margin-top: 1rem;
+.portlet .container-fluid-max-xl {
+	padding-left: 0;
+	padding-right: 0;
+}
 
-	> .container {
-		padding-bottom: 3rem;
-		padding-top: 3rem;
+.portlet-topper {
+	align-items: center;
+	padding: 0;
+
+	// Need the .portlet parent for specifity of Styled
+	.portlet & {
+		@include media-breakpoint-up(sm) {
+			right: auto;
+		}
+	}
+
+	.portlet-title-default {
+		line-height: initial;
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
+	// This design requirement is creating an accessibility issue
+	.icon-monospaced {
+		height: 1.5rem;
+		line-height: 1.5rem;
+		width: 1.5rem;
+
+		.lexicon-icon {
+			height: 0.875rem;
+			width: 0.875rem;
+		}
+	}
+
+	.controls-visible .portlet:hover &,
+	.controls-visible .portlet.open &,
+	.controls-visible .portlet.focus & {
+		z-index: $zindex-fixed + 4; // 1034
+	}
+}
+
+/*
+* If title without .portlet-layout doesn't exist
+* Move to Styled then to Portlet module (it doesn't exist yet)
+*/
+.portlet-title-text {
+	color: $secondary;
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 2.2;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
+/*
+* Move to Fragments?
+*/
+.portlet-dropzone {
+	box-shadow: 0 0 0 1px transparent inset;
+	transition: box-shadow 300ms ease-in-out;
+	will-change: box-shadow;
+
+	.yui3-dd-drop-active-valid & {
+		box-shadow: 0 0 0 1px rgba($primary-d2, 0.2) inset;
+	}
+
+	.yui3-dd-drop-over & {
+		box-shadow: 0 0 0 4px $primary-d2 inset;
+	}
+}
+
+/*
+* Move to Hello-World module
+* Remember the export the image too
+* Use property class not the portlet's one
+*/
+.portlet-hello-world {
+	.portlet-content {
+		background: linear-gradient(
+				130deg,
+				rgba($primary-d2, 0.7) 30%,
+				transparent
+			),
+			#6f5245 url(../images/portlet_hello_world_bg.jpg) bottom left;
+		background-clip: padding-box;
+		background-size: cover;
+		color: $white;
+		min-height: 24rem; // Do we need this?
+
+		@include media-breakpoint-up(sm) {
+			padding: 3.125rem;
+		}
+	}
+
+	.portlet-title-text {
+		color: inherit;
+		font-size: 2rem;
+		font-weight: 700;
+		text-transform: none;
+		line-height: initial;
+	}
+
+	.portlet-body {
+		width: 70%;
+
+		@include media-breakpoint-up(sm) {
+			width: 40%;
+		}
+	}
+}
+
+/*
+* Replace with text-secondary
+*/
+.text-default {
+	color: #6b6c7e;
+	font-weight: 600;
+}
+
+/*
+* Update the taglib liferay.navigation_menu in portal_normal.ftl
+* Removing .active from nav-item and assign it to nav-link
+*/
+.theme-classic .nav-item.active .nav-link {
+	color: $dark;
+}
+
+
+/*
+* Move to Clay?
+*/
+.navbar-toggler {
+	&.collapsed .lexicon-icon-times,
+	&:not(.collapsed) .lexicon-icon-bars {
+		display: none;
 	}
 }
