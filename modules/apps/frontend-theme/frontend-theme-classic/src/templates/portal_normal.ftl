@@ -104,6 +104,16 @@
 
 <@liferay_util["include"] page=bottom_include />
 
+<script type="text/javascript">
+	window.addEventListener('load', (event) => {
+		const clayrest = document.createElement("link");
+		clayrest.href="http://localhost:8080/o/classic-theme/css/clay-rest.css";
+		clayrest.rel="stylesheet";
+		clayrest.type="text/css"
+		document.querySelector("head").append(clayrest);
+	});
+</script>
+
 </body>
 
 </html>
