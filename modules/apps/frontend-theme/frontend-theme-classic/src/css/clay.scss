@@ -4,6 +4,8 @@
 
 @import 'clay/functions/_global-functions';
 
+@import "_clay_variables";
+
 @import 'clay/atlas/_variables';
 
 @import 'clay/_variables';
@@ -47,7 +49,7 @@
 @import 'clay/components/_stickers';
 
 // @import 'clay/components/_cards';
-// @import 'clay/components/_dropdowns';
+@import 'clay/components/_dropdowns';
 
 // @import 'clay/components/_drilldown';
 @import 'clay/components/_forms';
@@ -92,7 +94,7 @@
 // @import 'clay/components/_toggle-switch';
 // @import 'clay/components/_tooltip';
 
-// @import 'clay/components/_utilities';
+@import 'clay/components/_utilities';
 @import 'clay/components/_utilities-functional-important';
 
 @import 'clay/components/_loaders';
