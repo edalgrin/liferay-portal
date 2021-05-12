@@ -39,15 +39,15 @@ const getOpenMenuTooltip = (keyLabel) =>
 
 const SitesPanel = ({portletNamespace, sites, virtualInstance}) => {
 	return (
-		<div className="applications-menu-sites c-p-3 c-px-md-4">
-			<h2 className="applications-menu-sites-label c-mt-2 c-mt-md-0 text-uppercase">
+		<div className="applications-menu-sites p-3 px-md-4">
+			<h2 className="applications-menu-sites-label mt-2 mt-md-0 text-uppercase">
 				{Liferay.Language.get('sites')}
 			</h2>
 
-			<div className="c-mt-2">
-				<ul className="c-mb-0 list-unstyled">
+			<div className="mt-2">
+				<ul className="list-unstyled mb-0">
 					{virtualInstance && (
-						<li className="applications-menu-virtual-instance c-mt-2">
+						<li className="applications-menu-virtual-instance mt-2">
 							<a
 								className="applications-menu-nav-link"
 								href={virtualInstance.url}
@@ -63,7 +63,7 @@ const SitesPanel = ({portletNamespace, sites, virtualInstance}) => {
 										</ClaySticker>
 									</ClayLayout.ContentCol>
 
-									<ClayLayout.ContentCol className="applications-menu-shrink c-ml-2">
+									<ClayLayout.ContentCol className="applications-menu-shrink ml-2">
 										<span className="text-truncate">
 											{virtualInstance.label}
 										</span>
@@ -75,9 +75,9 @@ const SitesPanel = ({portletNamespace, sites, virtualInstance}) => {
 				</ul>
 			</div>
 
-			<div className="applications-menu-nav-divider c-my-3"></div>
+			<div className="applications-menu-nav-divider my-3"></div>
 
-			<div className="applications-menu-sites c-my-2">
+			<div className="applications-menu-sites my-2">
 				<ul className="list-unstyled">
 					{sites && (
 						<Sites
@@ -95,7 +95,7 @@ const SitesPanel = ({portletNamespace, sites, virtualInstance}) => {
 
 const Site = ({current, label, logoURL, url}) => {
 	return (
-		<li className="c-mt-3">
+		<li className="mt-3">
 			<a className="applications-menu-nav-link" href={url}>
 				<ClayLayout.ContentRow verticalAlign="center">
 					<ClayLayout.ContentCol>
@@ -108,12 +108,12 @@ const Site = ({current, label, logoURL, url}) => {
 						</ClaySticker>
 					</ClayLayout.ContentCol>
 
-					<ClayLayout.ContentCol className="applications-menu-shrink c-ml-2">
+					<ClayLayout.ContentCol className="applications-menu-shrink ml-2">
 						<span className="text-truncate">{label}</span>
 					</ClayLayout.ContentCol>
 
 					{current && (
-						<ClayLayout.ContentCol className="c-ml-2">
+						<ClayLayout.ContentCol className="ml-2">
 							<ClayLabel displayType="info">
 								{Liferay.Language.get('current')}
 							</ClayLabel>
@@ -140,7 +140,7 @@ const Sites = ({mySites, portletNamespace, recentSites, viewAllURL}) => {
 				))}
 
 			{recentSites?.length > 0 && mySites?.length > 0 && (
-				<li className="applications-menu-nav-divider c-mt-3"></li>
+				<li className="applications-menu-nav-divider mt-3"></li>
 			)}
 
 			{mySites?.length > 0 &&
@@ -155,9 +155,9 @@ const Sites = ({mySites, portletNamespace, recentSites, viewAllURL}) => {
 				))}
 
 			{viewAllURL && (
-				<li className="c-mt-3">
+				<li className="mt-3">
 					<ClayButton
-						className="applications-menu-btn btn-unstyled c-mb-0 c-mt-3"
+						className="applications-menu-btn btn-unstyled mb-0 mt-3"
 						displayType="link"
 						onClick={() => {
 							openSelectionModal({
@@ -262,7 +262,7 @@ const AppsPanel = ({
 										aria-labelledby={`${portletNamespace}tab_${index}`}
 										key={`tabPane-${index}`}
 									>
-										<div className="applications-menu-nav-columns c-mt-md-3 c-my-2">
+										<div className="applications-menu-nav-columns mt-md-3 my-2">
 											{childCategories.map(
 												({key, label, panelApps}) => (
 													<ClayLayout.Col
@@ -270,7 +270,7 @@ const AppsPanel = ({
 														md
 													>
 														<ul className="list-unstyled">
-															<li className="c-my-3">
+															<li className="my-3">
 																<h2 className="applications-menu-nav-header">
 																	{label}
 																</h2>
@@ -283,7 +283,7 @@ const AppsPanel = ({
 																	url,
 																}) => (
 																	<li
-																		className="c-mt-2"
+																		className="mt-2"
 																		key={
 																			portletId
 																		}
@@ -323,11 +323,7 @@ const AppsPanel = ({
 							</ClayTabs.Content>
 						</ClayLayout.Col>
 
-						<ClayLayout.Col
-							className="c-pl-md-2 c-px-0"
-							lg="3"
-							md="4"
-						>
+						<ClayLayout.Col className="pl-md-2 px-0" lg="3" md="4">
 							<SitesPanel
 								portletNamespace={portletNamespace}
 								sites={sites}
@@ -343,7 +339,7 @@ const AppsPanel = ({
 					<ClayLayout.Row>
 						<ClayLayout.Col lg="9" md="8">
 							<ClayLayout.ContentRow
-								className="applications-menu-border-top c-py-3"
+								className="applications-menu-border-top py-3"
 								verticalAlign="center"
 							>
 								<ClayLayout.ContentCol expand>
@@ -358,8 +354,8 @@ const AppsPanel = ({
 											</ClaySticker>
 										</ClayLayout.ContentCol>
 
-										<ClayLayout.ContentCol className="c-ml-2">
-											<div className="applications-menu-company c-mb-0">
+										<ClayLayout.ContentCol className="ml-2">
+											<div className="applications-menu-company mb-0">
 												{liferayName}
 											</div>
 										</ClayLayout.ContentCol>
@@ -369,7 +365,7 @@ const AppsPanel = ({
 						</ClayLayout.Col>
 
 						<ClayLayout.Col
-							className="c-pl-md-2 c-px-0 d-md-block d-none"
+							className="d-md-block d-none pl-md-2 px-0"
 							lg="3"
 							md="4"
 						>
