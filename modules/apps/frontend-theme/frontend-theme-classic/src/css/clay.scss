@@ -1,1 +1,102 @@
-@import 'clay/atlas';
+// @import 'clay/atlas';
+
+@import 'clay/_license-text';
+
+@import 'clay/functions/_global-functions';
+
+@import "_clay_variables";
+
+@import 'clay/atlas/_variables';
+
+@import 'clay/_variables';
+
+@import 'clay/_mixins';
+
+// @import 'clay/_components';
+
+@if ($font-import-url) {
+	@import url($font-import-url);
+}
+
+@import 'clay/components/_root';
+
+@import 'clay/components/_reboot';
+@import 'clay/components/_type';
+
+// @import 'clay/components/_code';
+// @import 'clay/components/_images';
+
+// @import 'clay/components/_carousel';
+// @import 'clay/components/_jumbotron';
+// @import 'clay/components/_spinners';
+// @import 'clay/components/_toasts';
+
+@import 'clay/components/_icons';
+
+@import 'clay/components/_aspect-ratio';
+@import 'clay/components/_buttons';
+@import 'clay/components/_transitions';
+
+@import 'clay/components/_grid';
+
+// @import 'clay/components/_alerts';
+// @import 'clay/components/_badges';
+// @import 'clay/components/_breadcrumbs';
+@import 'clay/components/_button-groups';
+@import 'clay/components/_empty-state';
+// @import 'clay/components/_labels';
+// @import 'clay/components/_media';
+@import 'clay/components/_stickers';
+
+// @import 'clay/components/_cards';
+@import 'clay/components/_dropdowns';
+
+// @import 'clay/components/_drilldown';
+@import 'clay/components/_forms';
+// @import 'clay/components/_links';
+
+// @import 'clay/components/_range';
+// @import 'clay/components/_reorder';
+
+// @import 'clay/components/_clay-color';
+// @import 'clay/components/_custom-forms';
+// @import 'clay/components/_time';
+
+// @import 'clay/components/_date-picker';
+// @import 'clay/components/_dual-listbox';
+// @import 'clay/components/_form-validation';
+@import 'clay/components/_input-groups';
+// @import 'clay/components/_list-group';
+// @import 'clay/components/_modals';
+// @import 'clay/components/_multi-step-nav';
+
+@import 'clay/components/_navs';
+
+// @import 'clay/components/_menubar';
+@import 'clay/components/_navbar';
+
+// @import 'clay/components/_application-bar';
+@import 'clay/components/_management-bar';
+@import 'clay/components/_navigation-bar';
+
+// @import 'clay/components/_pagination';
+// @import 'clay/components/_panels';
+// @import 'clay/components/_popovers';
+// @import 'clay/components/_progress-bars';
+// @import 'clay/components/_quick-action';
+@import 'clay/components/_sheets';
+@import 'clay/components/_side-navigation';
+@import 'clay/components/_sidebar';
+// @import 'clay/components/_slideout';
+// @import 'clay/components/_tables';
+// @import 'clay/components/_tbar';
+// @import 'clay/components/_timelines';
+// @import 'clay/components/_toggle-switch';
+// @import 'clay/components/_tooltip';
+
+@import 'clay/components/_utilities';
+@import 'clay/components/_utilities-functional-important';
+
+@import 'clay/components/_loaders';
+
+// @import 'clay/components/_print';
