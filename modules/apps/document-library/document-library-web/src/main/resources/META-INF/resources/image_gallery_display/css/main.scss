@@ -97,3 +97,30 @@
 		@include text-truncate();
 	}
 }
+
+.lfr-preview-file {
+	position: relative;
+}
+
+.lfr-preview-file-content {
+	border-bottom: 1px solid transparent;
+	padding: 0 0 40px 135px;
+	position: relative;
+}
+
+.lfr-preview-audio-content,
+.lfr-preview-video-content {
+	padding-left: 0;
+}
+
+.lfr-preview-video-content {
+	.video-node {
+		max-height: 440px;
+		max-width: 100%;
+	}
+
+	.video-content {
+		text-align: center;
+		vertical-align: middle;
+	}
+}
