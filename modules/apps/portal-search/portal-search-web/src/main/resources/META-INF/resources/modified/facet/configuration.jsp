@@ -132,3 +132,5 @@ JSONArray rangesJSONArray = modifiedFacetPortletPreferences.getRangesJSONArray()
 		A.one(document.<portlet:namespace />fm)
 	);
 </aui:script>
+
+<liferay-frontend:stylesheet bundle="com.liferay.portal.settings.web" css="css/auto_row.css" />

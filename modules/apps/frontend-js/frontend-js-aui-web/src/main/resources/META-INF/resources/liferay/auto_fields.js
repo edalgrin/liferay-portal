@@ -734,3 +734,15 @@ AUI.add(
 		],
 	}
 );
+
+/*
+
+TEMP: Load a CSS file in frontend-js-aui-web with
+
+.lfr-autorow-controls {
+	bottom: 5px;
+	position: absolute;
+	right: 5px;
+}
+
+*/

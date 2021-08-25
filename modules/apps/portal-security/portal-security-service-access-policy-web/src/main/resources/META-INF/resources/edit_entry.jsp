@@ -381,3 +381,5 @@ renderResponse.setTitle((sapEntry == null) ? LanguageUtil.get(request, "new-serv
 		updateFriendlyModeInputs
 	);
 </aui:script>
+
+<liferay-frontend:stylesheet bundle="com.liferay.portal.settings.web" css="css/auto_row.css" />
