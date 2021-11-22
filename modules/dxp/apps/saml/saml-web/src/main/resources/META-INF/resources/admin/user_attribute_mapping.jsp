@@ -188,3 +188,5 @@ String userIdentifierExpression = attributeMappingDisplayContext.getUserIdentifi
 		.querySelectorAll('.user-attribute-mapping-row')
 		.forEach((row) => <portlet:namespace />evaluateAttributeMappingRow(row));
 </script>
+
+<liferay-frontend:stylesheet bundle="com.liferay.portal.settings.web" css="css/auto_row.css" />

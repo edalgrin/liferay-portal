@@ -58,3 +58,5 @@ JSONArray rangesJSONArray = dataJSONObject.getJSONArray("ranges");
 		namespace: '<portlet:namespace />',
 	}).render();
 </aui:script>
+
+<liferay-frontend:stylesheet bundle="com.liferay.portal.settings.web" css="css/auto_row.css" />

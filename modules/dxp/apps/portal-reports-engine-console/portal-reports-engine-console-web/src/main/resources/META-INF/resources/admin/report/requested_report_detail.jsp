@@ -231,3 +231,5 @@ renderResponse.setTitle(definition.getName(locale));
 		</aui:fieldset>
 	</aui:fieldset-group>
 </clay:container-fluid>
+
+<liferay-frontend:stylesheet bundle="com.liferay.portal.workflow.task.web" css="css/asset_column.css" /> 

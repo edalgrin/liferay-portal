@@ -81,3 +81,5 @@ renderResponse.setTitle(assetRenderer.getTitle(workflowTaskDisplayContext.getTas
 		</div>
 	</clay:col>
 </clay:container-fluid>
+
+<liferay-frontend:stylesheet bundle="com.liferay.portal.workflow.task.web" css="css/asset_column.css" /> 
