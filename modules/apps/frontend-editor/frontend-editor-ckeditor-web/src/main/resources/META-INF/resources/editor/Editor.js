@@ -15,6 +15,8 @@
 import CKEditor from 'ckeditor4-react';
 import React, {useEffect} from 'react';
 
+import '../css/editor.scss';
+
 const BASEPATH = '/o/frontend-editor-ckeditor-web/ckeditor/';
 
 const Editor = React.forwardRef((props, ref) => {
