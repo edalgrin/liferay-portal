@@ -280,6 +280,19 @@ html#{$cadmin-selector} {
 			padding: 12px;
 		}
 
+		// Lfr Portlet Controls
+
+		.controls-hidden {
+			.lfr-meta-actions,
+			.lfr-configurator-visibility {
+				display: none;
+			}
+
+			.portlet-topper-toolbar {
+				display: none !important;
+			}
+		}
+
 		// Lfr Source Editor
 
 		&.lfr-fullscreen-source-editor-header {
@@ -418,6 +431,11 @@ html#{$cadmin-selector} {
 				.lexicon-icon {
 					height: 12px;
 				}
+			}
+
+			.lfr-button {
+				background: no-repeat 0 50%;
+				padding: 2px 0 2px 20px;
 			}
 
 			.delete-button {
@@ -850,5 +868,10 @@ html#{$cadmin-selector} {
 			.portlet-configuration-body-content {
 			bottom: 0;
 		}
+	}
+
+	.overlay-content .open > .dropdown-menu.cadmin {
+		display: block;
+		position: static;
 	}
 }

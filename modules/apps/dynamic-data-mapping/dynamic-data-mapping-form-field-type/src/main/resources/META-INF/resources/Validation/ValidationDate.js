@@ -200,7 +200,7 @@ export default function ValidationDate({
 							{selectedParameter.length > 1 && (
 								<>
 									<label>{title.toUpperCase()}</label>
-									<div className="separator" />
+									<hr />
 								</>
 							)}
 
