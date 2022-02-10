@@ -295,6 +295,12 @@ $productMenuWidth: 320px;
 			color: #008000;
 		}
 	}
+
+	.entry-thumbnail .label {
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
 }
 
 .datepicker-popover-content .popover-content {

@@ -152,3 +152,12 @@ html#{$cadmin-selector} {
 .portlet-column-content.empty {
 	padding: $portlet-column-content-empty-padding;
 }
+
+.portlet-boundary.yui3-dd-dragging {
+	transform: scale(0.8);
+	transition: transform 0.3s ease;
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}
