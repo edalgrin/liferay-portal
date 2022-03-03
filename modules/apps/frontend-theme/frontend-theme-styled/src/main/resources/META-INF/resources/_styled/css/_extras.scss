@@ -151,6 +151,11 @@
 	}
 }
 
-.form-group.form-inline.input-checkbox-wrapper label {
-	gap: 0.3125rem; // 5px
+.form-group.form-inline {
+	&.input-boolean-wrapper,
+	&.input-checkbox-wrapper {
+		label {
+			gap: 0.3125rem; // 5px
+		}
+	}
 }
