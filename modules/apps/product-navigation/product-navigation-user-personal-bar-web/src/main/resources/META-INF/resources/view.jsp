@@ -18,7 +18,7 @@
 
 <c:choose>
 	<c:when test="<%= themeDisplay.isSignedIn() %>">
-		<span class="user-avatar-link">
+		<span class="cadmin user-avatar-link">
 			<liferay-product-navigation:personal-menu
 				size="lg"
 				user="<%= user %>"
