@@ -85,7 +85,7 @@
 		</section>
 
 		<#if show_footer>
-			<footer id="footer" role="contentinfo">
+			<footer class="bg-dark py-5 text-white" id="footer" role="contentinfo">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 text-center text-md-left">
