@@ -61,7 +61,7 @@ public class ThemeFaviconCETImplFactoryImpl
 	}
 
 	@Override
-	public void validate(
+	public ThemeFaviconCET validate(
 			UnicodeProperties newTypeSettingsUnicodeProperties,
 			UnicodeProperties oldTypeSettingsUnicodeProperties)
 		throws PortalException {
@@ -73,6 +73,8 @@ public class ThemeFaviconCETImplFactoryImpl
 			throw new ClientExtensionEntryTypeSettingsException(
 				"please-enter-a-valid-url");
 		}
+
+		return newThemeFaviconCET;
 	}
 
 }

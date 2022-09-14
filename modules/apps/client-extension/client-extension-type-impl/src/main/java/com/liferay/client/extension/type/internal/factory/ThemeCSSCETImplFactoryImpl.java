@@ -60,7 +60,7 @@ public class ThemeCSSCETImplFactoryImpl implements CETImplFactory<ThemeCSSCET> {
 	}
 
 	@Override
-	public void validate(
+	public ThemeCSSCET validate(
 			UnicodeProperties newTypeSettingsUnicodeProperties,
 			UnicodeProperties oldTypeSettingsUnicodeProperties)
 		throws PortalException {
@@ -88,6 +88,8 @@ public class ThemeCSSCETImplFactoryImpl implements CETImplFactory<ThemeCSSCET> {
 			throw new ClientExtensionEntryTypeSettingsException(
 				"please-enter-a-valid-main-url");
 		}
+
+		return newThemeCSSCET;
 	}
 
 }

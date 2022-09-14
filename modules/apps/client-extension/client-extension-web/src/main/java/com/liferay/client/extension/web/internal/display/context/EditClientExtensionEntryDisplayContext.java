@@ -65,9 +65,19 @@ public class EditClientExtensionEntryDisplayContext {
 			_clientExtensionEntry, _portletRequest, "externalReferenceCode");
 	}
 
+	public String getHelpLabel() {
+		return LanguageUtil.get(
+			_getHttpServletRequest(),
+			CETLabelUtil.getHelpLabel(_getHttpServletRequest(), getType()));
+	}
+
 	public String getName() {
 		return BeanParamUtil.getString(
 			_clientExtensionEntry, _portletRequest, "name");
+	}
+
+	public String getPortletTitle() {
+		return LanguageUtil.get(_getHttpServletRequest(), "new-remote-app");
 	}
 
 	public String getProperties() {

@@ -43,7 +43,14 @@ public interface CETImplFactory<T extends CET> {
 			UnicodeProperties toTypeSettingsUnicodeProperties)
 		throws PortalException;
 
-	public void validate(
+	/**
+	 * @param newTypeSettingsUnicodeProperties the new modified properties
+	 * @param oldTypeSettingsUnicodeProperties the previous properties
+	 * @return a {@link CET} instance that reflects the new properties
+	 * @throws PortalException
+	 * @review
+	 */
+	public T validate(
 			UnicodeProperties newTypeSettingsUnicodeProperties,
 			UnicodeProperties oldTypeSettingsUnicodeProperties)
 		throws PortalException;

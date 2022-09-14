@@ -16,6 +16,7 @@ package com.liferay.client.extension.type.internal.factory;
 
 import com.liferay.client.extension.constants.ClientExtensionEntryConstants;
 import com.liferay.client.extension.exception.ClientExtensionEntryTypeException;
+import com.liferay.client.extension.exception.ClientExtensionEntryTypeSettingsException;
 import com.liferay.client.extension.model.ClientExtensionEntry;
 import com.liferay.client.extension.type.CET;
 import com.liferay.client.extension.type.configuration.CETConfiguration;
@@ -25,10 +26,12 @@ import com.liferay.petra.string.StringPool;
 import com.liferay.petra.string.StringUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.HashMapBuilder;
+import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.UnicodePropertiesBuilder;
+import com.liferay.portal.kernel.util.Validator;
 
 import java.io.IOException;
 
@@ -148,8 +151,13 @@ public class CETFactoryImpl implements CETFactory {
 
 		CETImplFactory cetImplFactory = _getCETImplFactory(type);
 
-		cetImplFactory.validate(
+		CET cet = cetImplFactory.validate(
 			newTypeSettingsUnicodeProperties, oldTypeSettingsUnicodeProperties);
+
+		if (Validator.isBlank(cet.getName(LocaleUtil.getDefault()))) {
+			throw new ClientExtensionEntryTypeSettingsException(
+				"name-is-required");
+		}
 	}
 
 	private CETImplFactory _getCETImplFactory(String type)

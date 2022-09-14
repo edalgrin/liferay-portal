@@ -62,7 +62,7 @@ public class IFrameCETImplFactoryImpl implements CETImplFactory<IFrameCET> {
 	}
 
 	@Override
-	public void validate(
+	public IFrameCET validate(
 			UnicodeProperties newTypeSettingsUnicodeProperties,
 			UnicodeProperties oldTypeSettingsUnicodeProperties)
 		throws PortalException {
@@ -94,6 +94,8 @@ public class IFrameCETImplFactoryImpl implements CETImplFactory<IFrameCET> {
 					"the-instanceable-value-cannot-be-changed");
 			}
 		}
+
+		return newIFrameCET;
 	}
 
 	private static final Pattern _friendlyURLMappingPattern = Pattern.compile(
