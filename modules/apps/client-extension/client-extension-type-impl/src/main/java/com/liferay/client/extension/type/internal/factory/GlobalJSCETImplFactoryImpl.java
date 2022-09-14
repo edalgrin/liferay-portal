@@ -60,7 +60,7 @@ public class GlobalJSCETImplFactoryImpl implements CETImplFactory<GlobalJSCET> {
 	}
 
 	@Override
-	public void validate(
+	public GlobalJSCET validate(
 			UnicodeProperties newTypeSettingsUnicodeProperties,
 			UnicodeProperties oldTypeSettingsUnicodeProperties)
 		throws PortalException {
@@ -72,6 +72,8 @@ public class GlobalJSCETImplFactoryImpl implements CETImplFactory<GlobalJSCET> {
 			throw new ClientExtensionEntryTypeSettingsException(
 				"please-enter-a-valid-url");
 		}
+
+		return newGlobalJSCET;
 	}
 
 }

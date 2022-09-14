@@ -61,7 +61,7 @@ public class GlobalCSSCETImplFactoryImpl
 	}
 
 	@Override
-	public void validate(
+	public GlobalCSSCET validate(
 			UnicodeProperties newTypeSettingsUnicodeProperties,
 			UnicodeProperties oldTypeSettingsUnicodeProperties)
 		throws PortalException {
@@ -73,6 +73,8 @@ public class GlobalCSSCETImplFactoryImpl
 			throw new ClientExtensionEntryTypeSettingsException(
 				"please-enter-a-valid-url");
 		}
+
+		return newGlobalCSSCET;
 	}
 
 }

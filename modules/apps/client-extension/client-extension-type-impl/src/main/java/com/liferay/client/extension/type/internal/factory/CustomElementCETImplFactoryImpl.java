@@ -66,7 +66,7 @@ public class CustomElementCETImplFactoryImpl
 	}
 
 	@Override
-	public void validate(
+	public CustomElementCET validate(
 			UnicodeProperties newTypeSettingsUnicodeProperties,
 			UnicodeProperties oldTypeSettingsUnicodeProperties)
 		throws PortalException {
@@ -161,6 +161,8 @@ public class CustomElementCETImplFactoryImpl
 					"the-instanceable-value-cannot-be-changed");
 			}
 		}
+
+		return newCustomElementCET;
 	}
 
 	private static final Pattern _friendlyURLMappingPattern = Pattern.compile(
