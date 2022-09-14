@@ -32,7 +32,7 @@ public class CETLabelUtil {
 		return _getLabel(httpServletRequest, "add-", type);
 	}
 
-	public static String getHelpNameLabel(
+	public static String getHelpLabel(
 		HttpServletRequest httpServletRequest, String type) {
 
 		return _getLabel(httpServletRequest, "help-", type);
