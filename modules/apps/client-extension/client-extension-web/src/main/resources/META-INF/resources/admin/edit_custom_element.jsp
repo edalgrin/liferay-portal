@@ -33,7 +33,7 @@ CustomElementCET customElementCET = editClientExtensionEntryPartDisplayContext.g
 	%>
 
 		<div class="lfr-form-row">
-			<aui:input required="true" ignoreRequestValue="<%= true %>" label="url" name="urls" type="text" value="<%= url %>" />
+			<aui:input required="true" ignoreRequestValue="<%= true %>" label="url" name="urls0" type="text" value="<%= url %>" />
 		</div>
 
 	<%
