@@ -136,20 +136,6 @@ public class CustomElementCETImplFactoryImpl
 				"x-is-a-reserved-html-element-name", htmlElementName);
 		}
 
-		String urls = newCustomElementCET.getURLs();
-
-		if (Validator.isNull(urls)) {
-			throw new ClientExtensionEntryTypeSettingsException(
-				"please-enter-at-least-one-url");
-		}
-
-		for (String url : urls.split(StringPool.NEW_LINE)) {
-			if (!Validator.isUrl(url, true)) {
-				throw new ClientExtensionEntryTypeSettingsException(
-					"url-x-is-invalid", url);
-			}
-		}
-
 		if (oldTypeSettingsUnicodeProperties != null) {
 			CustomElementCET oldCustomElementCET = new CustomElementCETImpl(
 				StringPool.NEW_LINE, oldTypeSettingsUnicodeProperties);
