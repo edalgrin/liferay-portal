@@ -79,7 +79,7 @@ public class EditClientExtensionEntryDisplayContext {
 	}
 
 	public String getPortletTitle() {
-		return LanguageUtil.get(_getHttpServletRequest(), "new-remote-app");
+		return LanguageUtil.get(_getHttpServletRequest(), "new-client-extension");
 	}
 
 	public String getProperties() {
