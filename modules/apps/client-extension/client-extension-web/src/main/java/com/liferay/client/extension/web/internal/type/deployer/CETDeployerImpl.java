@@ -95,7 +95,7 @@ public class CETDeployerImpl implements CETDeployer {
 		}
 
 		if (Validator.isNull(portletCategoryName)) {
-			portletCategoryName = "category.remote-apps";
+			portletCategoryName = "category.client-extensions";
 		}
 
 		if (!instanceable && Validator.isNotNull(friendlyURLMapping)) {

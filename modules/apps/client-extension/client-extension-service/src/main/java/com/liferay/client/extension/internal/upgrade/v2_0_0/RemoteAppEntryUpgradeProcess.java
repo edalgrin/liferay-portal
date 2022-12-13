@@ -39,7 +39,7 @@ public class RemoteAppEntryUpgradeProcess extends UpgradeProcess {
 
 			runSQL(
 				"update RemoteAppEntry set portletCategoryName = " +
-					"'category.remote-apps'");
+					"'category.client-extensions'");
 		}
 
 		alterTableAddColumn("RemoteAppEntry", "properties", "TEXT");
