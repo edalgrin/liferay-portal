@@ -14,7 +14,32 @@
 
 import ClayButton from '@clayui/button';
 import {openCookieConfigurationModal} from '@liferay/cookies-banner-web';
+import {getCookie} from 'frontend-js-web';
 import React from 'react';
+
+const CompareButtonClick = (openModal) => {
+	const requiredCookies = getCookie('CONSENT_TYPE_FUNCTIONAL');
+
+	if (requiredCookies === 'true') {
+		console.log('Comparing!');
+	}
+	else if (openModal) {
+		openCookieConfigurationModal({
+			alertDisplayType: 'info',
+			alertMessage:
+				'the-compare-function-requires-acceptance-of-functional-cookies',
+			customTitle: Liferay.Language.get(
+				'product-comparison-uses-non-essential-cookies'
+			),
+			onCloseFunction: () => {
+				CompareButtonClick();
+			},
+		});
+	}
+	else {
+		console.log('Required cookies not accepted yet');
+	}
+};
 
 const Cookie = () => {
 	return (
@@ -30,17 +55,10 @@ const Cookie = () => {
 
 			<ClayButton
 				onClick={() => {
-					openCookieConfigurationModal({
-						alertDisplayType: 'info',
-						alertMessage:
-							'the-compare-function-requires-acceptance-of-functional-cookies',
-						customTitle: Liferay.Language.get(
-							'product-comparison-uses-non-essential-cookies'
-						),
-					});
+					CompareButtonClick(true);
 				}}
 			>
-				Modified Modal
+				Compare Button
 			</ClayButton>
 		</>
 	);
