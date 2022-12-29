@@ -23,7 +23,10 @@ import {
 	userConfigCookieName,
 } from '../../js/CookiesUtil';
 
+let openCookieConfigurationModal;
+
 export default function ({
+	configurationNamespace,
 	configurationURL,
 	includeDeclineAllButton,
 	namespace,
@@ -70,7 +73,22 @@ export default function ({
 			setUserConfigCookie();
 		});
 
-		configurationButton.addEventListener('click', () => {
+		openCookieConfigurationModal = ({
+			alertDisplayType,
+			alertMessage,
+			customTitle,
+			onCloseFunction,
+		}) => {
+			let url = configurationURL;
+
+			if (alertDisplayType) {
+				url = `${url}&_${configurationNamespace}_alertDisplayType=${alertDisplayType}`;
+			}
+
+			if (alertMessage) {
+				url = `${url}&_${configurationNamespace}_alertMessage=${alertMessage}`;
+			}
+
 			openModal({
 				buttons: [
 					{
@@ -136,10 +154,15 @@ export default function ({
 				displayType: 'primary',
 				height: '70vh',
 				id: 'cookiesBannerConfiguration',
+				onClose: onCloseFunction || undefined,
 				size: 'lg',
-				title,
-				url: configurationURL,
+				title: customTitle || title,
+				url,
 			});
+		};
+
+		configurationButton.addEventListener('click', () => {
+			openCookieConfigurationModal({});
 		});
 
 		declineAllButton.addEventListener('click', () => {
@@ -163,3 +186,5 @@ function setBannerVisibility(cookieBanner) {
 		cookieBanner.style.display = 'block';
 	}
 }
+
+export {openCookieConfigurationModal};
