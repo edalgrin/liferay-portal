@@ -26,6 +26,6 @@
 	cssClass="mb-3"
 >
 	<clay:col>
-		<clay:panel />
+		<clay:panel><p class="mt-3">Panel Content 1</p></clay:panel>
 	</clay:col>
 </clay:row>

@@ -16,6 +16,7 @@ package com.liferay.frontend.taglib.clay.servlet.taglib;
 
 import com.liferay.frontend.taglib.clay.internal.servlet.taglib.BaseContainerTag;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.TabsItem;
+import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.util.TagResourceBundleUtil;
@@ -35,102 +36,25 @@ public class PanelTag extends BaseContainerTag {
 	@Override
 	public int doStartTag() throws JspException {
 		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+		setDynamicAttribute(StringPool.BLANK, "role", "tablist");
 
 		return super.doStartTag();
 	}
 
-/*
-	public String getActivation() {
-		return _activation;
-	}
-
-	public String getDisplayType() {
-		return _displayType;
-	}
-
-	public int getPanelsCount() {
-		return _panelsCount;
-	}
-
-	public List<TabsItem> getTabsItems() {
-		return _tabsItems;
-	}
-
-	public boolean isFade() {
-		return _fade;
-	}
-
-	public boolean isJustified() {
-		return _justified;
-	}
-
-	public void setActivation(String activation) {
-		_activation = activation;
-	}
-
-	public void setDisplayType(String displayType) {
-		_displayType = displayType;
-	}
-
-	public void setFade(boolean fade) {
-		_fade = fade;
-	}
-
-	public void setJustified(boolean justified) {
-		_justified = justified;
-	}
-
-	public void setPanelsCount(int panelsCount) {
-		_panelsCount = panelsCount;
-	}
-
-	public void setTabsItems(List<TabsItem> tabsItems) {
-		_tabsItems = tabsItems;
-	}
-
-	@Override
-	protected void cleanUp() {
-		super.cleanUp();
-
-		_activation = "manual";
-		_displayType = null;
-		_fade = false;
-		_justified = false;
-		_panelsCount = 0;
-		_tabsItems = null;
-	}
-
-	@Override
-	protected String getHydratedModuleName() {
-		return "{Tabs} from frontend-taglib-clay";
-	}
-
-	@Override
-	protected Map<String, Object> prepareProps(Map<String, Object> props) {
-		props.put("activation", _activation);
-		props.put("displayType", _displayType);
-		props.put("fade", _fade);
-		props.put("justified", _justified);
-		props.put("tabsItems", _tabsItems);
-
-		return super.prepareProps(props);
-	}
-
 	@Override
 	protected String processBodyCssClasses(Set<String> cssClasses) {
-		cssClasses.add("tab-content");
+		cssClasses.add("panel");
 
 		return super.processBodyCssClasses(cssClasses);
 	}
-*/
+
 	@Override
 	protected int processStartTag() throws Exception {
 		super.processStartTag();
-
 		JspWriter jspWriter = pageContext.getOut();
 
-		jspWriter.write("<div class=\"panel\" role=\"tablist\">");
-			jspWriter.write("<button");
+		/*
+		jspWriter.write("<button");
 				jspWriter.write(" aria-controls=\"collapsePanel\"");
 				jspWriter.write(" aria-expanded=\"false\"");
 				jspWriter.write(" class=\"btn btn-unstyled panel-header panel-header-link collapse-icon collapse-icon-middle collapsed\"");
@@ -140,72 +64,40 @@ public class PanelTag extends BaseContainerTag {
 			jspWriter.write(">");
 				jspWriter.write("<span class=\"panel-title\">Toggle me for expanding!</span>");
 
-				IconTag iconTag = new IconTag();
-				jspWriter.write("<span class=\"collapse-icon-closed\">");
-					iconTag.setSymbol("angle-right");
-					iconTag.doTag(pageContext);
-				jspWriter.write("</span>");
+			IconTag iconTag = new IconTag();
+			jspWriter.write("<span class=\"collapse-icon-closed\">");
+				iconTag.setSymbol("angle-right");
+				iconTag.doTag(pageContext);
+			jspWriter.write("</span>");
 
-				jspWriter.write("<span class=\"collapse-icon-open\">");
-					iconTag.setSymbol("angle-down");
-					iconTag.doTag(pageContext);
-				jspWriter.write("</span>");
-			jspWriter.write("</button>");
-			jspWriter.write("<div class=\"panel-collapse collapse\" id=\"collapsablePanel\" role=\"tabpanel\">");
-				jspWriter.write("<div class=\"panel-header\">Header!</div>");
-				jspWriter.write("<div class=\"panel-body\">Body!</div>");
-				jspWriter.write("<div class=\"panel-footer\">Footer!</div>");
-			jspWriter.write("</div>");
-		jspWriter.write("</div>");
-
-		/*
-		for (TabsItem tabsItem : _tabsItems) {
-			jspWriter.write("<li class=\"nav-item\" role=\"none\">");
-
-			String itemCssClass = "nav-link";
-
-			Boolean active = (Boolean)tabsItem.get("active");
-
-			if ((active != null) && active) {
-				itemCssClass = itemCssClass + " active";
-			}
-
-			if (Validator.isNotNull(tabsItem.get("disabled"))) {
-				itemCssClass = itemCssClass + " disabled";
-			}
-
-			String label = (String)tabsItem.get("label");
-
-			if (Validator.isNotNull(tabsItem.get("href"))) {
-				LinkTag linkTag = new LinkTag();
-
-				linkTag.setCssClass(itemCssClass);
-				linkTag.setHref((String)tabsItem.get("href"));
-				linkTag.setLabel(
-					LanguageUtil.get(
-						TagResourceBundleUtil.getResourceBundle(pageContext),
-						label));
-
-				linkTag.doTag(pageContext);
-			}
-			else {
-				ButtonTag buttonTag = new ButtonTag();
-
-				buttonTag.setCssClass(itemCssClass);
-				buttonTag.setDisplayType("unstyled");
-				buttonTag.setLabel(
-					LanguageUtil.get(
-						TagResourceBundleUtil.getResourceBundle(pageContext),
-						label));
-
-				buttonTag.doTag(pageContext);
-			}
-
-			jspWriter.write("</li>");
-		}
+			jspWriter.write("<span class=\"collapse-icon-open\">");
+				iconTag.setSymbol("angle-down");
+				iconTag.doTag(pageContext);
+			jspWriter.write("</span>");
+		jspWriter.write("</button>");
 		*/
 
-		return EVAL_BODY_INCLUDE;
+		ButtonTag buttonTag = new ButtonTag();
+
+		buttonTag.setCssClass("panel-header");
+		buttonTag.setCssClass("panel-header-link"); //review
+		buttonTag.setCssClass("collapse-icon"); //review
+		buttonTag.setCssClass("collapse-icon-middle"); //review
+		buttonTag.setCssClass("collapsed"); //auto
+		buttonTag.setDisplayType("unstyled");
+		//buttonTag.setIcon("angle-right");
+		buttonTag.setDynamicAttribute(StringPool.BLANK, "aria-controls", "collapsePanel"); //auto
+		buttonTag.setDynamicAttribute(StringPool.BLANK, "data-target", "#collapsablePanel"); //auto
+		buttonTag.setDynamicAttribute(StringPool.BLANK, "data-toggle", "liferay-collapse");
+		buttonTag.setDynamicAttribute(StringPool.BLANK, "role", "tab");
+		buttonTag.setLabel("<span class=\"panel-title\">Toggle me for expanding!</span>"); //dynamic
+
+		buttonTag.doTag(pageContext);
+
+		PanelBodyTag panelBodyTag = new PanelBodyTag();
+		panelBodyTag.doTag(pageContext);
+
+		return SKIP_BODY;
 	}
 
 	private static final String _ATTRIBUTE_NAMESPACE = "clay:panel:";
