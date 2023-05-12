@@ -26,6 +26,31 @@
 	cssClass="mb-3"
 >
 	<clay:col>
-		<clay:panel><p class="mt-3">Panel Content 1</p></clay:panel>
+		<clay:panel-group>
+			<clay:panel title="Open the panel">
+				<p class="mt-3">Panel Content 1</p>
+			</clay:panel>
+			...
+		</clay:panel-group>
+	</clay:col>
+</clay:row>
+
+<h3>DEFAULT PANEL</h3>
+
+<clay:row
+	cssClass="mb-3"
+>
+	<clay:col>
+		<clay:panel-group>
+			<clay:panel>
+				<clay:panel-title>
+					<h3>Open the panel</h3>
+				</clay:panel-title>
+				<clay:panel-content>
+					<p class="mt-3">Panel Content 1</p>
+				</clay:panel-content>
+			</clay:panel>
+			...
+		</clay:panel-group>
 	</clay:col>
 </clay:row>

@@ -32,7 +32,7 @@ import javax.servlet.jsp.tagext.BodyTag;
 /**
  * @author Eduardo Allegrini
  */
-public class PanelBodyTag extends BaseContainerTag implements BodyTag {
+public class PanelContentTag extends BaseContainerTag implements BodyTag {
 
 	@Override
 	public int doStartTag() throws JspException {
@@ -59,5 +59,5 @@ public class PanelBodyTag extends BaseContainerTag implements BodyTag {
 		return EVAL_BODY_INCLUDE;
 	}
 
-	private static final String _ATTRIBUTE_NAMESPACE = "clay:panel:body:";
+	private static final String _ATTRIBUTE_NAMESPACE = "clay:panel-content:";
 }

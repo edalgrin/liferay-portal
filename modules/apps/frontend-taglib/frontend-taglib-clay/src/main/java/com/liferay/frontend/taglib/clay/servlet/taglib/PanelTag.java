@@ -49,6 +49,15 @@ public class PanelTag extends BaseContainerTag {
 	}
 
 	@Override
+	protected void processEndBodyTag() throws Exception {
+		JspWriter jspWriter = pageContext.getOut();
+
+		jspWriter.write("</div>");
+		jspWriter.write("</div>");
+		jspWriter.write("</div>");
+	}
+
+	@Override
 	protected int processStartTag() throws Exception {
 		super.processStartTag();
 		JspWriter jspWriter = pageContext.getOut();
@@ -94,9 +103,16 @@ public class PanelTag extends BaseContainerTag {
 
 		buttonTag.doTag(pageContext);
 
-		PanelBodyTag panelBodyTag = new PanelBodyTag();
-		panelBodyTag.doTag(pageContext);
+		PanelContentTag panelContentTag = new PanelContentTag();
+		//panelContentTag.doTag(pageContext)
+		panelContentTag.setPageContext(pageContext);
+		panelContentTag.doStartTag()
+			//something to output EVAL_BODY_INCLUDE
+		panelContentTag.doEndTag();
 
+		//jspWriter.write("<div class=\"panel-collapse collapse show\" id=\"collapsablePanel\" role=\"tabpanel\">");
+
+		//return EVAL_BODY_INCLUDE;
 		return SKIP_BODY;
 	}
 
