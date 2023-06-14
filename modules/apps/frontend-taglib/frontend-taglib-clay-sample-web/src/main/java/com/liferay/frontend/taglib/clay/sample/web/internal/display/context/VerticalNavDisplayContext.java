@@ -14,51 +14,72 @@
 
 package com.liferay.frontend.taglib.clay.sample.web.internal.display.context;
 
-import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
-import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItemList;
-import com.liferay.portal.kernel.util.IntegerWrapper;
+import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItem;
+import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItemListBuilder;
 
 import java.util.List;
 
+// import com.liferay.portal.kernel.util.HashMapBuilder;
+// import java.util.ArrayList;
+// import java.util.Map;
+
 /**
- * @author Chema Balsas
+ * @author Eduardo Allegrini
  */
 public class VerticalNavDisplayContext {
 
-	public List<NavigationItem> getNavigationItems() {
-		if (_navigationItems != null) {
-			return _navigationItems;
+	public List<VerticalNavItem> getDefaultVerticalNavItems() {
+		if (_defaultVerticalNavItems != null) {
+			return _defaultVerticalNavItems;
 		}
 
-		_navigationItems = new NavigationItemList() {
-			{
-				IntegerWrapper integerWrapper = new IntegerWrapper(1);
-
-				while (true) {
-					if (integerWrapper.getValue() == 8) {
-						break;
-					}
-
-					add(
-						navigationItem -> {
-							if (integerWrapper.getValue() == 4) {
-								navigationItem.setActive(true);
-							}
-
-							navigationItem.setHref(
-								"#" + integerWrapper.getValue());
-							navigationItem.setLabel(
-								"Page " + integerWrapper.getValue());
-						});
-
-					integerWrapper.increment();
-				}
+		_defaultVerticalNavItems = VerticalNavItemListBuilder.add(
+			verticalNavItem -> {
+				verticalNavItem.setHref("#1");
+				verticalNavItem.setLabel("Option 1");
 			}
-		};
+		).add(
+			verticalNavItem -> {
+				verticalNavItem.setHref("#2");
+				verticalNavItem.setLabel("Option 2");
+			}
+		).add(
+			verticalNavItem -> {
+				verticalNavItem.setHref("#3");
+				verticalNavItem.setLabel("Option 3");
+			}
+		).add(
+			verticalNavItem -> {
+				verticalNavItem.setHref("#4");
+				verticalNavItem.setLabel("Option 4");
+			}
+		).build();
 
-		return _navigationItems;
+		return _defaultVerticalNavItems;
 	}
 
-	private List<NavigationItem> _navigationItems;
+	private List<VerticalNavItem> _defaultVerticalNavItems;
+
+	// public List<Map<String, Object>> getDefaultVerticalNavItems() {
+
+	// 	List<Map<String, Object>> _results = new ArrayList<>();
+
+	// 	_results.add(
+	// 		HashMapBuilder.<String, Object>put(
+	// 			"href", "#page-1"
+	// 		).put(
+	// 			"label", "Page 1"
+	// 		).put(
+	// 			"items",
+	// 			HashMapBuilder.<String, Object>put(
+	// 				"href", "#page-1-a"
+	// 			).put(
+	// 				"label", "Page 1A"
+	// 			).build()
+	// 		).build();
+	// 	);
+
+	// 	return _results
+	// }
 
 }

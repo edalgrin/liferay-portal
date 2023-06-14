@@ -15,7 +15,7 @@
 package com.liferay.frontend.taglib.clay.servlet.taglib;
 
 import com.liferay.frontend.taglib.clay.internal.servlet.taglib.BaseContainerTag;
-import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
+import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItem;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.util.TagResourceBundleUtil;
@@ -38,6 +38,73 @@ public class VerticalNavTag extends BaseContainerTag {
 		setContainerElement("nav");
 
 		return super.doStartTag();
+	}
+
+	public String getActive() {
+		return _active;
+	}
+	public String getActivation() {
+		return _activation;
+	}
+	public boolean getDecorated() {
+		return _decorated;
+	}
+	public boolean getLarge() {
+		return _large;
+	}
+	public List<VerticalNavItem> getItems() {
+		return _items;
+	}
+	public String getTriggerLabel() {
+		return _triggerLabel;
+	}
+
+	public void setActive(String active) {
+		_active = active;
+	}
+
+	public void setActivation(String activation) {
+		_activation = activation;
+	}
+
+	public void setDecorated(boolean decorated) {
+		_decorated = decorated;
+	}
+
+	public void setLarge(boolean large) {
+		_large = large;
+	}
+
+	public void setItems(List<VerticalNavItem> items) {
+		_items = items;
+	}
+
+	public void setTriggerLabel(String triggerLabel) {
+		_triggerLabel = triggerLabel;
+	}
+
+	@Override
+	protected void cleanUp() {
+		super.cleanUp();
+
+		_active = null;
+		_activation = "manual";
+		_decorated = false;
+		_large = false;
+		_items = null;
+		_triggerLabel = null;
+	}
+
+	@Override
+	protected Map<String, Object> prepareProps(Map<String, Object> props) {
+		props.put("active", _active);
+		props.put("activation", _activation);
+		props.put("decorated", _decorated);
+		props.put("large", _large);
+		props.put("items", _items);
+		props.put("triggerLabel", _triggerLabel);
+
+		return super.prepareProps(props);
 	}
 
 	@Override
@@ -69,45 +136,17 @@ public class VerticalNavTag extends BaseContainerTag {
 
 		jspWriter.write("<ul aria-orientation=\"vertical\" role=\"menubar\" class=\"nav nav-nested\">");
 
-
-		for (int i = 0; i < _items.size(); i++) {
-				NavigationItem navigationItem = _items.get(i);
-
-				jspWriter.write("<li class=\"nav-item\"");
-				jspWriter.write(" data-nav-item-index=\"");
-				jspWriter.write(String.valueOf(i));
-				jspWriter.write("\"><a class=\"nav-link");
-
-				if ((navigationItem.get("active") != null) &&
-					(Boolean)navigationItem.get("active")) {
-
-					jspWriter.write(" active");
-				}
-
-				jspWriter.write("\"");
-
-				if (Validator.isNotNull((String)navigationItem.get("href"))) {
-					jspWriter.write(" href=\"");
-					jspWriter.write((String)navigationItem.get("href"));
-					jspWriter.write("\"");
-				}
-
-				jspWriter.write("><span class=\"navbar-text-truncate\">");
-				jspWriter.write((String)navigationItem.get("label"));
-				jspWriter.write("</span></a></li>");
-			}
-
-		// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
-		// jspWriter.write("<button class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\">");
-		// jspWriter.write("Home");
-		// jspWriter.write("<span class=\"collapse-icon-closed\">");
-		// jspWriter.write("ICON");
-		// jspWriter.write("</span>");
-		// jspWriter.write("<span class=\"collapse-icon-open\">");
-		// jspWriter.write("ICON");
-		// jspWriter.write("</span>");
-		// jspWriter.write("</button>");
-		// jspWriter.write("</li>");
+		jspWriter.write("<li role=\"none\" class=\"nav-item\">");
+		jspWriter.write("<button class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\">");
+		jspWriter.write("Home");
+		jspWriter.write("<span class=\"collapse-icon-closed\">");
+		jspWriter.write("ICON");
+		jspWriter.write("</span>");
+		jspWriter.write("<span class=\"collapse-icon-open\">");
+		jspWriter.write("ICON");
+		jspWriter.write("</span>");
+		jspWriter.write("</button>");
+		jspWriter.write("</li>");
 
 		// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
 		// jspWriter.write("<button class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\">");
@@ -121,6 +160,27 @@ public class VerticalNavTag extends BaseContainerTag {
 		// jspWriter.write("</button>");
 		// jspWriter.write("</li>");
 
+		// for (List<Map<String, Object>> item: _items.values()) {
+		for (VerticalNavItem verticalNavItem : _items) {
+
+			String label = (String)verticalNavItem.get("label");
+
+			jspWriter.write("<li role=\"none\" class=\"nav-item\">");
+			jspWriter.write("<a class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\" href=\"");
+			jspWriter.write("#edu");
+			jspWriter.write("\">");
+			jspWriter.write(label);
+			// jspWriter.write("Home");
+			jspWriter.write("<span class=\"collapse-icon-closed\">");
+			jspWriter.write("ICON");
+			jspWriter.write("</span>");
+			jspWriter.write("<span class=\"collapse-icon-open\">");
+			jspWriter.write("ICON");
+			jspWriter.write("</span>");
+			jspWriter.write("</a>");
+			jspWriter.write("</li>");
+		}
+
 		jspWriter.write("</ul>");
 
 		jspWriter.write("</div>");
@@ -131,8 +191,11 @@ public class VerticalNavTag extends BaseContainerTag {
 	private static final String _ATTRIBUTE_NAMESPACE = "clay:vertical-nav:";
 
 	private String _active;
+	private String _activation = "manual";
 	private boolean _decorated;
 	private boolean _large;
-	private List<NavigationItem> _items;
+	// private List<Map<String, Object>> _items;
+	private List<VerticalNavItem> _items;
+	private String _triggerLabel;
 
 }

@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -12,22 +11,18 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
---%>
 
-<%@ include file="/init.jsp" %>
+package com.liferay.frontend.taglib.clay.servlet.taglib.util;
 
-<blockquote>
-	<p>An alternative patterns that displays navigation items in a vertical menu.</p>
-</blockquote>
+/**
+ * @author Eduardo Allegrini
+ */
+public class VerticalNavItem extends NavigationItem {
 
-<h3>DEFAULT VERTICAL NAV</h3>
+	// public void setItems(VerticalNavItem items) {
+	// public void setItems(Map<String, Object> items) {
+	public void setItems(String items) {
+		put("items", items);
+	}
 
-<clay:row
-	cssClass="mb-3"
->
-	<clay:col>
-		<clay:vertical-nav
-			items="<%= verticalNavDisplayContext.getDefaultVerticalNavItems() %>"
-		></clay:vertical-nav>
-	</clay:col>
-</clay:row>
+}
