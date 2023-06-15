@@ -21,7 +21,7 @@ import java.util.Map;
 import javax.portlet.PortletURL;
 
 /**
- * @author Carlos Lancha
+ * @author Eduardo Allegrini
  */
 public class VerticalNavItemBuilder {
 

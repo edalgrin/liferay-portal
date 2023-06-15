@@ -16,9 +16,6 @@ package com.liferay.frontend.taglib.clay.servlet.taglib;
 
 import com.liferay.frontend.taglib.clay.internal.servlet.taglib.BaseContainerTag;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItem;
-import com.liferay.portal.kernel.language.LanguageUtil;
-import com.liferay.portal.kernel.util.Validator;
-import com.liferay.taglib.util.TagResourceBundleUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -35,48 +32,54 @@ public class VerticalNavTag extends BaseContainerTag {
 	@Override
 	public int doStartTag() throws JspException {
 		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
+
 		setContainerElement("nav");
 
 		return super.doStartTag();
 	}
 
-	public String getActive() {
-		return _active;
-	}
 	public String getActivation() {
 		return _activation;
 	}
+
+	public String getActive() {
+		return _active;
+	}
+
 	public boolean getDecorated() {
 		return _decorated;
 	}
-	public boolean getLarge() {
-		return _large;
-	}
+
 	public List<VerticalNavItem> getItems() {
 		return _items;
 	}
-	public String getTriggerLabel() {
-		return _triggerLabel;
+
+	public boolean getLarge() {
+		return _large;
 	}
 
-	public void setActive(String active) {
-		_active = active;
+	public String getTriggerLabel() {
+		return _triggerLabel;
 	}
 
 	public void setActivation(String activation) {
 		_activation = activation;
 	}
 
+	public void setActive(String active) {
+		_active = active;
+	}
+
 	public void setDecorated(boolean decorated) {
 		_decorated = decorated;
 	}
 
-	public void setLarge(boolean large) {
-		_large = large;
-	}
-
 	public void setItems(List<VerticalNavItem> items) {
 		_items = items;
+	}
+
+	public void setLarge(boolean large) {
+		_large = large;
 	}
 
 	public void setTriggerLabel(String triggerLabel) {
@@ -87,11 +90,11 @@ public class VerticalNavTag extends BaseContainerTag {
 	protected void cleanUp() {
 		super.cleanUp();
 
-		_active = null;
 		_activation = "manual";
+		_active = null;
 		_decorated = false;
-		_large = false;
 		_items = null;
+		_large = false;
 		_triggerLabel = null;
 	}
 
@@ -116,7 +119,8 @@ public class VerticalNavTag extends BaseContainerTag {
 		}
 
 		cssClasses.add(
-			_large ? "menubar-vertical-expand-lg" : "menubar-vertical-expand-md");
+			_large ? "menubar-vertical-expand-lg" :
+				"menubar-vertical-expand-md");
 
 		return super.processCssClasses(cssClasses);
 	}
@@ -125,28 +129,32 @@ public class VerticalNavTag extends BaseContainerTag {
 	protected int processStartTag() throws Exception {
 		super.processStartTag();
 
-		JspWriter jspWriter = pageContext.getOut();
+		// JspWriter jspWriter = pageContext.getOut();
 
-		jspWriter.write("<button class=\"menubar-toggler btn btn-unstyled\" type=\"button\">");
-		jspWriter.write("<span class=\"inline-item inline-item-before\">Menu</span>");
-		jspWriter.write("ICON");
-		jspWriter.write("</button>");
+		// jspWriter.write(
+		// 	"<button class=\"menubar-toggler btn btn-unstyled\" type=\"button\">");
+		// jspWriter.write(
+		// 	"<span class=\"inline-item inline-item-before\">Menu</span>");
+		// jspWriter.write("ICON");
+		// jspWriter.write("</button>");
 
-		jspWriter.write("<div class=\"collapse menubar-collapse\">");
+		// jspWriter.write("<div class=\"collapse menubar-collapse\">");
 
-		jspWriter.write("<ul aria-orientation=\"vertical\" role=\"menubar\" class=\"nav nav-nested\">");
+		// jspWriter.write(
+		// 	"<ul aria-orientation=\"vertical\" role=\"menubar\" class=\"nav nav-nested\">");
 
-		jspWriter.write("<li role=\"none\" class=\"nav-item\">");
-		jspWriter.write("<button class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\">");
-		jspWriter.write("Home");
-		jspWriter.write("<span class=\"collapse-icon-closed\">");
-		jspWriter.write("ICON");
-		jspWriter.write("</span>");
-		jspWriter.write("<span class=\"collapse-icon-open\">");
-		jspWriter.write("ICON");
-		jspWriter.write("</span>");
-		jspWriter.write("</button>");
-		jspWriter.write("</li>");
+		// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
+		// jspWriter.write(
+		// 	"<button class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\">");
+		// jspWriter.write("Home");
+		// jspWriter.write("<span class=\"collapse-icon-closed\">");
+		// jspWriter.write("ICON");
+		// jspWriter.write("</span>");
+		// jspWriter.write("<span class=\"collapse-icon-open\">");
+		// jspWriter.write("ICON");
+		// jspWriter.write("</span>");
+		// jspWriter.write("</button>");
+		// jspWriter.write("</li>");
 
 		// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
 		// jspWriter.write("<button class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\">");
@@ -161,41 +169,44 @@ public class VerticalNavTag extends BaseContainerTag {
 		// jspWriter.write("</li>");
 
 		// for (List<Map<String, Object>> item: _items.values()) {
-		for (VerticalNavItem verticalNavItem : _items) {
 
-			String label = (String)verticalNavItem.get("label");
+		// for (VerticalNavItem verticalNavItem : _items) {
+		// 	String label = (String)verticalNavItem.get("label");
 
-			jspWriter.write("<li role=\"none\" class=\"nav-item\">");
-			jspWriter.write("<a class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\" href=\"");
-			jspWriter.write("#edu");
-			jspWriter.write("\">");
-			jspWriter.write(label);
-			// jspWriter.write("Home");
-			jspWriter.write("<span class=\"collapse-icon-closed\">");
-			jspWriter.write("ICON");
-			jspWriter.write("</span>");
-			jspWriter.write("<span class=\"collapse-icon-open\">");
-			jspWriter.write("ICON");
-			jspWriter.write("</span>");
-			jspWriter.write("</a>");
-			jspWriter.write("</li>");
-		}
+		// 	// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
+		// 	// jspWriter.write(
+		// 	// 	"<a class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\" href=\"");
+		// 	// jspWriter.write("#edu");
+		// 	// jspWriter.write("\">");
+		// 	jspWriter.write(label);
 
-		jspWriter.write("</ul>");
+		// 	// jspWriter.write("Home");
 
-		jspWriter.write("</div>");
+		// 	// jspWriter.write("<span class=\"collapse-icon-closed\">");
+		// 	// jspWriter.write("ICON");
+		// 	// jspWriter.write("</span>");
+		// 	// jspWriter.write("<span class=\"collapse-icon-open\">");
+		// 	// jspWriter.write("ICON");
+		// 	// jspWriter.write("</span>");
+		// 	// jspWriter.write("</a>");
+		// 	// jspWriter.write("</li>");
+		// }
 
-		return EVAL_BODY_INCLUDE;
+		// jspWriter.write("</ul>");
+
+		// jspWriter.write("</div>");
+
+		// return EVAL_BODY_INCLUDE;
+		return SKIP_BODY;
 	}
 
 	private static final String _ATTRIBUTE_NAMESPACE = "clay:vertical-nav:";
 
-	private String _active;
 	private String _activation = "manual";
+	private String _active;
 	private boolean _decorated;
-	private boolean _large;
-	// private List<Map<String, Object>> _items;
 	private List<VerticalNavItem> _items;
+	private boolean _large;
 	private String _triggerLabel;
 
 }

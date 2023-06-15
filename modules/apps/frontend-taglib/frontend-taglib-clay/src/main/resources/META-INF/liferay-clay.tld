@@ -2977,7 +2977,7 @@
 		<description></description>
 		<name>vertical-nav</name>
 		<tag-class>com.liferay.frontend.taglib.clay.servlet.taglib.VerticalNavTag</tag-class>
-		<body-content>JSP</body-content>
+		<body-content>empty</body-content>
 		<attribute>
 			<description></description>
 			<name>active</name>
@@ -2986,7 +2986,7 @@
 		</attribute>
 		<attribute>
 			<description></description>
-			<name>decodated</name>
+			<name>decorated</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>

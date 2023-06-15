@@ -24,18 +24,6 @@ import java.util.ArrayList;
  */
 public class VerticalNavItemList extends ArrayList<VerticalNavItem> {
 
-	public static VerticalNavItemList of(VerticalNavItem... verticalNavItems) {
-		VerticalNavItemList verticalNavItemList = new VerticalNavItemList();
-
-		for (VerticalNavItem verticalNavItem : verticalNavItems) {
-			if (verticalNavItem != null) {
-				verticalNavItemList.add(verticalNavItem);
-			}
-		}
-
-		return verticalNavItemList;
-	}
-
 	public static VerticalNavItemList of(
 		UnsafeSupplier<VerticalNavItem, Exception>... unsafeSuppliers) {
 
@@ -53,6 +41,18 @@ public class VerticalNavItemList extends ArrayList<VerticalNavItem> {
 			}
 			catch (Exception exception) {
 				throw new RuntimeException(exception);
+			}
+		}
+
+		return verticalNavItemList;
+	}
+
+	public static VerticalNavItemList of(VerticalNavItem... verticalNavItems) {
+		VerticalNavItemList verticalNavItemList = new VerticalNavItemList();
+
+		for (VerticalNavItem verticalNavItem : verticalNavItems) {
+			if (verticalNavItem != null) {
+				verticalNavItemList.add(verticalNavItem);
 			}
 		}
 
