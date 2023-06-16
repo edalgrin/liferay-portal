@@ -16,6 +16,7 @@ package com.liferay.frontend.taglib.clay.servlet.taglib;
 
 import com.liferay.frontend.taglib.clay.internal.servlet.taglib.BaseContainerTag;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItem;
+import com.liferay.portal.kernel.util.Validator;
 
 import java.util.List;
 import java.util.Map;
@@ -131,72 +132,66 @@ public class VerticalNavTag extends BaseContainerTag {
 
 		JspWriter jspWriter = pageContext.getOut();
 
-		// jspWriter.write(
-		// 	"<button class=\"menubar-toggler btn btn-unstyled\" type=\"button\">");
-		// jspWriter.write(
-		// 	"<span class=\"inline-item inline-item-before\">Menu</span>");
-		// jspWriter.write("ICON");
-		// jspWriter.write("</button>");
+		jspWriter.write(
+			"<button class=\"menubar-toggler btn btn-unstyled\" type=\"button\">");
+		jspWriter.write(
+			"<span class=\"inline-item inline-item-before\">Menu</span>");
+		jspWriter.write("ICON");
+		jspWriter.write("</button>");
 
-		// jspWriter.write("<div class=\"collapse menubar-collapse\">");
+		jspWriter.write("<div class=\"collapse menubar-collapse\">");
 
-		// jspWriter.write(
-		// 	"<ul aria-orientation=\"vertical\" role=\"menubar\" class=\"nav nav-nested\">");
+		jspWriter.write(
+			"<ul aria-orientation=\"vertical\" role=\"menubar\" class=\"nav nav-nested\">");
 
-		// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
-		// jspWriter.write(
-		// 	"<button class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\">");
-		// jspWriter.write("Home");
-		// jspWriter.write("<span class=\"collapse-icon-closed\">");
-		// jspWriter.write("ICON");
-		// jspWriter.write("</span>");
-		// jspWriter.write("<span class=\"collapse-icon-open\">");
-		// jspWriter.write("ICON");
-		// jspWriter.write("</span>");
-		// jspWriter.write("</button>");
-		// jspWriter.write("</li>");
+		IconTag iconTag = new IconTag();
 
-		// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
-		// jspWriter.write("<button class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\">");
-		// jspWriter.write("Second");
-		// jspWriter.write("<span class=\"collapse-icon-closed\">");
-		// jspWriter.write("ICON");
-		// jspWriter.write("</span>");
-		// jspWriter.write("<span class=\"collapse-icon-open\">");
-		// jspWriter.write("ICON");
-		// jspWriter.write("</span>");
-		// jspWriter.write("</button>");
-		// jspWriter.write("</li>");
+		for (VerticalNavItem item : _items) {
+			String itemLabel = (String)item.get("label");
+			String itemHref = (String)item.get("href");
+			List<VerticalNavItem> itemChildren = (List<VerticalNavItem>)item.get("items");
 
-		// for (List<Map<String, Object>> item: _items.values()) {
+			jspWriter.write("<li role=\"none\" class=\"nav-item\">");
+			// if (itemChildren) {tag = button} else {
+			jspWriter.write(
+				"<a class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\" href=\"");
+			jspWriter.write(itemHref);
+			jspWriter.write("\">");
+			jspWriter.write(itemLabel);
 
-		for (VerticalNavItem verticalNavItem : _items) {
-			String label = (String)verticalNavItem.get("label");
+			jspWriter.write("<span class=\"collapse-icon-closed\">");
+			iconTag.setSymbol("angle-right");
+			iconTag.doTag(pageContext);
+			jspWriter.write("</span>");
 
-		// 	// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
-		// 	// jspWriter.write(
-		// 	// 	"<a class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\" href=\"");
-		// 	// jspWriter.write("#edu");
-		// 	// jspWriter.write("\">");
-			jspWriter.write(label);
+			jspWriter.write("<span class=\"collapse-icon-open\">");
+			iconTag.setSymbol("angle-down");
+			iconTag.doTag(pageContext);
+			jspWriter.write("</span></a>");
 
-		// 	// jspWriter.write("Home");
+			if (Validator.isNotNull(itemChildren)) {
+				jspWriter.write("<ul role=\"menu\" class=\"nav nav-stacked\">");
+				for (VerticalNavItem itemChild : itemChildren) {
+					String itemChildLabel = (String)itemChild.get("label");
+					String itemChildHref = (String)itemChild.get("href");
 
-		// 	// jspWriter.write("<span class=\"collapse-icon-closed\">");
-		// 	// jspWriter.write("ICON");
-		// 	// jspWriter.write("</span>");
-		// 	// jspWriter.write("<span class=\"collapse-icon-open\">");
-		// 	// jspWriter.write("ICON");
-		// 	// jspWriter.write("</span>");
-		// 	// jspWriter.write("</a>");
-		// 	// jspWriter.write("</li>");
+					jspWriter.write("<li role=\"none\" class=\"nav-item\">");
+					jspWriter.write("<a class=\"nav-link active collapsed\" role=\"menuitem\" href=\"");
+					jspWriter.write(itemChildHref);
+					jspWriter.write("\" aria-current=\"page\">");
+					jspWriter.write(itemChildLabel);
+					jspWriter.write("</a></li>");
+				}
+				jspWriter.write("</ul>");
+			}
+
+			jspWriter.write("</li>");
 		}
 
-		// jspWriter.write("</ul>");
+		jspWriter.write("</ul>");
 
-		// jspWriter.write("</div>");
+		jspWriter.write("</div>");
 
-		// return EVAL_BODY_INCLUDE;
 		return SKIP_BODY;
 	}
 

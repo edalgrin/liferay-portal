@@ -102,13 +102,13 @@ public class ClaySampleDisplayContext {
 			}
 		).add(
 			tabsItem -> {
-				tabsItem.setLabel("Vertical Nav");
-				tabsItem.setPanelId("vertical_nav");
+				tabsItem.setLabel("Tabs");
+				tabsItem.setPanelId("tabs");
 			}
 		).add(
 			tabsItem -> {
-				tabsItem.setLabel("Tabs");
-				tabsItem.setPanelId("tabs");
+				tabsItem.setLabel("Vertical Nav");
+				tabsItem.setPanelId("vertical_nav");
 			}
 		).build();
 

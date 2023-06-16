@@ -19,10 +19,6 @@ import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItemListB
 
 import java.util.List;
 
-// import com.liferay.portal.kernel.util.HashMapBuilder;
-// import java.util.ArrayList;
-// import java.util.Map;
-
 /**
  * @author Eduardo Allegrini
  */
@@ -33,10 +29,18 @@ public class VerticalNavDisplayContext {
 			return _defaultVerticalNavItems;
 		}
 
+		_tempTest = VerticalNavItemListBuilder.add(
+			verticalNavItem -> {
+				verticalNavItem.setHref("#1a");
+				verticalNavItem.setLabel("Option 1A");
+			}
+		).build();
+
 		_defaultVerticalNavItems = VerticalNavItemListBuilder.add(
 			verticalNavItem -> {
 				verticalNavItem.setHref("#1");
 				verticalNavItem.setLabel("Option 1");
+				verticalNavItem.setItems(_tempTest);
 			}
 		).add(
 			verticalNavItem -> {
@@ -59,27 +63,5 @@ public class VerticalNavDisplayContext {
 	}
 
 	private List<VerticalNavItem> _defaultVerticalNavItems;
-
-	// public List<Map<String, Object>> getDefaultVerticalNavItems() {
-
-	// 	List<Map<String, Object>> _results = new ArrayList<>();
-
-	// 	_results.add(
-	// 		HashMapBuilder.<String, Object>put(
-	// 			"href", "#page-1"
-	// 		).put(
-	// 			"label", "Page 1"
-	// 		).put(
-	// 			"items",
-	// 			HashMapBuilder.<String, Object>put(
-	// 				"href", "#page-1-a"
-	// 			).put(
-	// 				"label", "Page 1A"
-	// 			).build()
-	// 		).build();
-	// 	);
-
-	// 	return _results
-	// }
-
+	private List<VerticalNavItem> _tempTest;
 }

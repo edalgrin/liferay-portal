@@ -19,10 +19,9 @@ package com.liferay.frontend.taglib.clay.servlet.taglib.util;
  */
 public class VerticalNavItem extends NavigationItem {
 
-	// public void setItems(VerticalNavItem items) {
-	// public void setItems(Map<String, Object> items) {
-	// public void setItemsx(String itemsx) {
-	// 	put("itemsx", itemsx);
-	// }
+	// public void setItems(String items) {
+	public void setItems(List<VerticalNavItem> items) {
+		put("items", items);
+	}
 
 }
