@@ -21,8 +21,8 @@ public class VerticalNavItem extends NavigationItem {
 
 	// public void setItems(VerticalNavItem items) {
 	// public void setItems(Map<String, Object> items) {
-	public void setItemsx(String itemsx) {
-		put("itemsx", itemsx);
-	}
+	// public void setItemsx(String itemsx) {
+	// 	put("itemsx", itemsx);
+	// }
 
 }

@@ -129,7 +129,7 @@ public class VerticalNavTag extends BaseContainerTag {
 	protected int processStartTag() throws Exception {
 		super.processStartTag();
 
-		// JspWriter jspWriter = pageContext.getOut();
+		JspWriter jspWriter = pageContext.getOut();
 
 		// jspWriter.write(
 		// 	"<button class=\"menubar-toggler btn btn-unstyled\" type=\"button\">");
@@ -170,15 +170,15 @@ public class VerticalNavTag extends BaseContainerTag {
 
 		// for (List<Map<String, Object>> item: _items.values()) {
 
-		// for (VerticalNavItem verticalNavItem : _items) {
-		// 	String label = (String)verticalNavItem.get("label");
+		for (VerticalNavItem verticalNavItem : _items) {
+			String label = (String)verticalNavItem.get("label");
 
 		// 	// jspWriter.write("<li role=\"none\" class=\"nav-item\">");
 		// 	// jspWriter.write(
 		// 	// 	"<a class=\"nav-link collapse-icon collapsed btn btn-unstyled\" type=\"button\" aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"-1\" href=\"");
 		// 	// jspWriter.write("#edu");
 		// 	// jspWriter.write("\">");
-		// 	jspWriter.write(label);
+			jspWriter.write(label);
 
 		// 	// jspWriter.write("Home");
 
@@ -190,7 +190,7 @@ public class VerticalNavTag extends BaseContainerTag {
 		// 	// jspWriter.write("</span>");
 		// 	// jspWriter.write("</a>");
 		// 	// jspWriter.write("</li>");
-		// }
+		}
 
 		// jspWriter.write("</ul>");
 
