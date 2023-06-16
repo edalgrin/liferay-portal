@@ -26,4 +26,5 @@ export {default as HorizontalCard} from './cards/HorizontalCard';
 export {default as NavigationCard} from './cards/NavigationCard';
 export {default as UserCard} from './cards/UserCard';
 export {default as VerticalCard} from './cards/VerticalCard';
+export {default as VerticalNav} from './VerticalNav';
 export {default as ManagementToolbar} from './management_toolbar/ManagementToolbar';

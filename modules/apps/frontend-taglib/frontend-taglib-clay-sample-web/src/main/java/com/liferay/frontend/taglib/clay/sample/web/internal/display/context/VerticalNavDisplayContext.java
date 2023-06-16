@@ -38,22 +38,26 @@ public class VerticalNavDisplayContext {
 
 		_defaultVerticalNavItems = VerticalNavItemListBuilder.add(
 			verticalNavItem -> {
+				verticalNavItem.setId("1");
 				verticalNavItem.setHref("#1");
 				verticalNavItem.setLabel("Option 1");
-				verticalNavItem.setItems(_tempTest);
+				// verticalNavItem.setItems(_tempTest);
 			}
 		).add(
 			verticalNavItem -> {
+				verticalNavItem.setId("2");
 				verticalNavItem.setHref("#2");
 				verticalNavItem.setLabel("Option 2");
 			}
 		).add(
 			verticalNavItem -> {
+				verticalNavItem.setId("3");
 				verticalNavItem.setHref("#3");
 				verticalNavItem.setLabel("Option 3");
 			}
 		).add(
 			verticalNavItem -> {
+				verticalNavItem.setId("4");
 				verticalNavItem.setHref("#4");
 				verticalNavItem.setLabel("Option 4");
 			}
