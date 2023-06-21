@@ -41,6 +41,10 @@ public class VerticalNavTag extends BaseContainerTag {
 		return super.doStartTag();
 	}
 
+	public String getActive() {
+		return _active;
+	}
+
 	public boolean getDecorated() {
 		return _decorated;
 	}
@@ -51,6 +55,10 @@ public class VerticalNavTag extends BaseContainerTag {
 
 	public List<VerticalNavItem> getVerticalNavItems() {
 		return _verticalNavItems;
+	}
+
+	public void setActive(String active) {
+		_active = active;
 	}
 
 	public void setDecorated(boolean decorated) {
@@ -69,6 +77,7 @@ public class VerticalNavTag extends BaseContainerTag {
 	protected void cleanUp() {
 		super.cleanUp();
 
+		_active = null;
 		_decorated = false;
 		_large = false;
 		_verticalNavItems = null;
@@ -81,6 +90,7 @@ public class VerticalNavTag extends BaseContainerTag {
 
 	@Override
 	protected Map<String, Object> prepareProps(Map<String, Object> props) {
+		props.put("active", _active);
 		props.put("decorated", _decorated);
 		props.put("large", _large);
 		props.put("items", _verticalNavItems);
@@ -142,6 +152,9 @@ public class VerticalNavTag extends BaseContainerTag {
 
 			if (active == null) {
 				active = Boolean.FALSE;
+			}
+			else if (_active == null) {
+				setActive((String)verticalNavItem.get("id"));
 			}
 
 			Boolean expanded = (Boolean)verticalNavItem.get("expanded");
@@ -226,6 +239,7 @@ public class VerticalNavTag extends BaseContainerTag {
 
 	private static final String _ATTRIBUTE_NAMESPACE = "clay:vertical_nav:";
 
+	private String _active;
 	private boolean _decorated;
 	private boolean _large;
 	private List<VerticalNavItem> _verticalNavItems;

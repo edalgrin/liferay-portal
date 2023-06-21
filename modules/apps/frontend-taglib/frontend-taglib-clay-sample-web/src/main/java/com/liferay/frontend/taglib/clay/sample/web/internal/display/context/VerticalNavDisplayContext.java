@@ -47,7 +47,7 @@ public class VerticalNavDisplayContext {
 							verticalNavItem.setLabel(
 								"Item " + integerWrapper.getValue());
 							verticalNavItem.setId(
-								"id-" + integerWrapper.getValue());
+								integerWrapper.getValue());
 
 							if ((integerWrapper.getValue() % 2) == 0) {
 								verticalNavItem.setItems(
@@ -91,6 +91,8 @@ public class VerticalNavDisplayContext {
 								parent.get("href") + suffix);
 							verticalNavItem.setLabel(
 								parent.get("label") + suffix);
+							verticalNavItem.setId(
+								parent.get("id") + suffix);
 
 							if (size == 4) {
 								verticalNavItem.setItems(
