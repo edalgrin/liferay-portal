@@ -31,3 +31,29 @@
 		/>
 	</clay:col>
 </clay:row>
+
+<h3>LARGE VERTICAL NAV</h3>
+
+<clay:row
+	cssClass="mb-3"
+>
+	<clay:col>
+		<clay:vertical-nav
+			large="<%= true %>"
+			verticalNavItems="<%= verticalNavDisplayContext.getVerticalNavItems() %>"
+		/>
+	</clay:col>
+</clay:row>
+
+<h3>DECORATED VERTICAL NAV</h3>
+
+<clay:row
+	cssClass="mb-3"
+>
+	<clay:col>
+		<clay:vertical-nav
+			decorated="<%= true %>"
+			verticalNavItems="<%= verticalNavDisplayContext.getVerticalNavItems() %>"
+		/>
+	</clay:col>
+</clay:row>
