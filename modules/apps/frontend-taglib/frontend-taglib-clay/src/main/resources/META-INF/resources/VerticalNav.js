@@ -43,6 +43,10 @@ export default function VerticalNav({
 		>
 			{(item) => (
 				<ClayVerticalNav.Item
+
+					// To remove active={active === item.id} when it is fixed on Clay https://github.com/liferay/clay/issues/5595
+
+					active={active === item.id}
 					href={item.href}
 					items={item.items}
 					key={item.id}
