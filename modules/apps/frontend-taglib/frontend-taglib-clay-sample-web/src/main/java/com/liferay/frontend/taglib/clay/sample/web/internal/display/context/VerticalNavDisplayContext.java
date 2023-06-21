@@ -47,7 +47,7 @@ public class VerticalNavDisplayContext {
 							verticalNavItem.setLabel(
 								"Item " + integerWrapper.getValue());
 							verticalNavItem.setId(
-								integerWrapper.getValue());
+								String.valueOf(integerWrapper.getValue()));
 
 							if ((integerWrapper.getValue() % 2) == 0) {
 								verticalNavItem.setItems(
@@ -92,7 +92,7 @@ public class VerticalNavDisplayContext {
 							verticalNavItem.setLabel(
 								parent.get("label") + suffix);
 							verticalNavItem.setId(
-								parent.get("id") + suffix);
+								String.valueOf(parent.get("id") + suffix));
 
 							if (size == 4) {
 								verticalNavItem.setItems(
