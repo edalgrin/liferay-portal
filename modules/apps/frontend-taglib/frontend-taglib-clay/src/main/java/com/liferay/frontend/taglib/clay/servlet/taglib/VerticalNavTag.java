@@ -49,6 +49,10 @@ public class VerticalNavTag extends BaseContainerTag {
 		return _decorated;
 	}
 
+	public List<String> getDefaultExpandedKeys() {
+		return _defaultExpandedKeys;
+	}
+
 	public boolean getLarge() {
 		return _large;
 	}
@@ -65,6 +69,10 @@ public class VerticalNavTag extends BaseContainerTag {
 		_decorated = decorated;
 	}
 
+	public void setDefaultExpandedKeys(String expandedKey) {
+		_defaultExpandedKeys.add(expandedKey);
+	}
+
 	public void setLarge(boolean large) {
 		_large = large;
 	}
@@ -79,6 +87,7 @@ public class VerticalNavTag extends BaseContainerTag {
 
 		_active = null;
 		_decorated = false;
+		_defaultExpandedKeys = null;
 		_large = false;
 		_verticalNavItems = null;
 	}
@@ -92,6 +101,7 @@ public class VerticalNavTag extends BaseContainerTag {
 	protected Map<String, Object> prepareProps(Map<String, Object> props) {
 		props.put("active", _active);
 		props.put("decorated", _decorated);
+		props.put("defaultExpandedKeys", _defaultExpandedKeys);
 		props.put("large", _large);
 		props.put("items", _verticalNavItems);
 
@@ -161,6 +171,9 @@ public class VerticalNavTag extends BaseContainerTag {
 
 			if (expanded == null) {
 				expanded = Boolean.FALSE;
+			}
+			else {
+				setDefaultExpandedKeys((String)verticalNavItem.get("id"));
 			}
 
 			String href = (String)verticalNavItem.get("href");
@@ -241,6 +254,7 @@ public class VerticalNavTag extends BaseContainerTag {
 
 	private String _active;
 	private boolean _decorated;
+	private List<String> _defaultExpandedKeys;
 	private boolean _large;
 	private List<VerticalNavItem> _verticalNavItems;
 
