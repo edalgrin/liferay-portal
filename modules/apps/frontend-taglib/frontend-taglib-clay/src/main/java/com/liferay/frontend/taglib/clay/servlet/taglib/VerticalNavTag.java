@@ -93,7 +93,7 @@ public class VerticalNavTag extends BaseContainerTag {
 		_active = null;
 		_decorated = false;
 		_defaultExpandedKeys = null;
-		_expandedKeys = null;
+		_expandedKeys = new ArrayList<>();
 		_large = false;
 		_verticalNavItems = null;
 	}

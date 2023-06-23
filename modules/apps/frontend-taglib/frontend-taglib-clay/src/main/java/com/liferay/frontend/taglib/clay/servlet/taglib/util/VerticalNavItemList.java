@@ -72,4 +72,19 @@ public class VerticalNavItemList extends ArrayList<VerticalNavItem> {
 		add(verticalNavItem);
 	}
 
+	public void addGroup(
+		UnsafeConsumer<VerticalNavGroupItem, Exception> unsafeConsumer) {
+
+		VerticalNavGroupItem verticalNavGroupItem = new VerticalNavGroupItem();
+
+		try {
+			unsafeConsumer.accept(verticalNavGroupItem);
+		}
+		catch (Exception exception) {
+			throw new RuntimeException(exception);
+		}
+
+		add(verticalNavGroupItem);
+	}
+
 }

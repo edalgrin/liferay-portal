@@ -15,10 +15,9 @@
 package com.liferay.frontend.taglib.clay.sample.web.internal.display.context;
 
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItem;
-import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItemList;
-import com.liferay.portal.kernel.util.IntegerWrapper;
+import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItemListBuilder;
+import com.liferay.portal.kernel.util.ListUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,94 +27,61 @@ import java.util.List;
 public class VerticalNavDisplayContext {
 
 	public List<String> getVerticalNavExpandedKeys() {
-		List<String> _expandedKeys = new ArrayList<>();
-
-		_expandedKeys.add("6");
-
-		return _expandedKeys;
+		return ListUtil.fromArray("1");
 	}
 
 	public List<VerticalNavItem> getVerticalNavItems() {
-		if (_verticalNavItems != null) {
-			return _verticalNavItems;
+		if (_verticalNavGroupItems != null) {
+			return _verticalNavGroupItems;
 		}
 
-		_verticalNavItems = new VerticalNavItemList() {
-			{
-				IntegerWrapper integerWrapper = new IntegerWrapper(1);
-
-				while (true) {
-					if (integerWrapper.getValue() == 8) {
-						break;
-					}
-
-					add(
+		_verticalNavGroupItems = VerticalNavItemListBuilder.addGroup(
+			verticalNavGroupItem -> {
+				verticalNavGroupItem.setVerticalNavItems(
+					VerticalNavItemListBuilder.add(
 						verticalNavItem -> {
-							verticalNavItem.setHref(
-								"#" + integerWrapper.getValue());
-							verticalNavItem.setLabel(
-								"Item " + integerWrapper.getValue());
-							verticalNavItem.setId(
-								String.valueOf(integerWrapper.getValue()));
+							verticalNavItem.setHref("#1.1");
+							verticalNavItem.setId("1.1");
+							verticalNavItem.setLabel("Item 1.1");
+						}
+					).add(
+						verticalNavItem -> {
+							verticalNavItem.setHref("#1.2");
+							verticalNavItem.setId("1.2");
+							verticalNavItem.setLabel("Item 1.2");
+						}
+					).build());
 
-							if ((integerWrapper.getValue() % 2) == 0) {
-								verticalNavItem.setItems(
-									_createVerticalNavItemsList(
-										integerWrapper.getValue(),
-										verticalNavItem));
-							}
-
-							if (integerWrapper.getValue() == 4) {
-								verticalNavItem.setExpanded(true);
-							}
-
-							if (integerWrapper.getValue() == 3) {
-								verticalNavItem.setActive(true);
-							}
-						});
-
-					integerWrapper.increment();
-				}
+				verticalNavGroupItem.setId("1");
+				verticalNavGroupItem.setLabel("Item 1");
 			}
-		};
+		).addGroup(
+			verticalNavGroupItem -> {
+				verticalNavGroupItem.setVerticalNavItems(
+					VerticalNavItemListBuilder.add(
+						verticalNavItem -> {
+							verticalNavItem.setActive(true);
+							verticalNavItem.setHref("#2.1");
+							verticalNavItem.setId("2.1");
+							verticalNavItem.setLabel("Item 2.1");
+						}
+					).add(
+						verticalNavItem -> {
+							verticalNavItem.setHref("#2.2");
+							verticalNavItem.setId("2.2");
+							verticalNavItem.setLabel("Item 2.2");
+						}
+					).build());
 
-		return _verticalNavItems;
+				verticalNavGroupItem.setExpanded(true);
+				verticalNavGroupItem.setId("2");
+				verticalNavGroupItem.setLabel("Item 2");
+			}
+		).build();
+
+		return _verticalNavGroupItems;
 	}
 
-	private VerticalNavItemList _createVerticalNavItemsList(
-		int size, VerticalNavItem parent) {
-
-		return new VerticalNavItemList() {
-			{
-				int i = 0;
-
-				while (i < size) {
-					int position = i;
-
-					String suffix = "." + position;
-
-					add(
-						verticalNavItem -> {
-							verticalNavItem.setHref(
-								parent.get("href") + suffix);
-							verticalNavItem.setLabel(
-								parent.get("label") + suffix);
-							verticalNavItem.setId(parent.get("id") + suffix);
-
-							if (size == 4) {
-								verticalNavItem.setItems(
-									_createVerticalNavItemsList(
-										5, verticalNavItem));
-								verticalNavItem.setExpanded(position == 2);
-							}
-						});
-
-					i++;
-				}
-			}
-		};
-	}
-
-	private List<VerticalNavItem> _verticalNavItems;
+	private List<VerticalNavItem> _verticalNavGroupItems;
 
 }
