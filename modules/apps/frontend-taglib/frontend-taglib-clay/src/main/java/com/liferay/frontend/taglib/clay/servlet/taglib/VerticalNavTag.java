@@ -33,6 +33,10 @@ import javax.servlet.jsp.JspWriter;
  */
 public class VerticalNavTag extends BaseContainerTag {
 
+	public void addExpandedKey(String expandedKey) {
+		_expandedKeys.add(expandedKey);
+	}
+
 	@Override
 	public int doStartTag() throws JspException {
 		setAttributeNamespace(_ATTRIBUTE_NAMESPACE);
@@ -70,8 +74,8 @@ public class VerticalNavTag extends BaseContainerTag {
 		_decorated = decorated;
 	}
 
-	public void setDefaultExpandedKeys(String expandedKey) {
-		_defaultExpandedKeys.add(expandedKey);
+	public void setDefaultExpandedKeys(List<String> defaultExpandedKeys) {
+		_defaultExpandedKeys = defaultExpandedKeys;
 	}
 
 	public void setLarge(boolean large) {
@@ -89,6 +93,7 @@ public class VerticalNavTag extends BaseContainerTag {
 		_active = null;
 		_decorated = false;
 		_defaultExpandedKeys = null;
+		_expandedKeys = null;
 		_large = false;
 		_verticalNavItems = null;
 	}
@@ -134,6 +139,10 @@ public class VerticalNavTag extends BaseContainerTag {
 
 		_renderVerticalNavItems(jspWriter, _verticalNavItems, 0);
 
+		if (_defaultExpandedKeys == null) {
+			setDefaultExpandedKeys(_expandedKeys);
+		}
+
 		jspWriter.write("</div>");
 
 		return EVAL_BODY_INCLUDE;
@@ -165,7 +174,7 @@ public class VerticalNavTag extends BaseContainerTag {
 			if (active == null) {
 				active = Boolean.FALSE;
 			}
-			else if (_active == null && id != null) {
+			else if ((_active == null) && (id != null)) {
 				setActive(id);
 			}
 
@@ -174,8 +183,8 @@ public class VerticalNavTag extends BaseContainerTag {
 			if (expanded == null) {
 				expanded = Boolean.FALSE;
 			}
-			else if (id != null) {
-				setDefaultExpandedKeys(id);
+			else if ((_defaultExpandedKeys == null) && (id != null)) {
+				addExpandedKey(id);
 			}
 
 			String href = (String)verticalNavItem.get("href");
@@ -256,7 +265,8 @@ public class VerticalNavTag extends BaseContainerTag {
 
 	private String _active;
 	private boolean _decorated;
-	private List<String> _defaultExpandedKeys = new ArrayList<>();;
+	private List<String> _defaultExpandedKeys;
+	private List<String> _expandedKeys = new ArrayList<>();
 	private boolean _large;
 	private List<VerticalNavItem> _verticalNavItems;
 

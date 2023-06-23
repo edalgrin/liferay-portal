@@ -18,6 +18,7 @@ import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItem;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItemList;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,6 +26,14 @@ import java.util.List;
  * @author Daniel Sanz
  */
 public class VerticalNavDisplayContext {
+
+	public List<String> getVerticalNavExpandedKeys() {
+		List<String> _expandedKeys = new ArrayList<>();
+
+		_expandedKeys.add("6");
+
+		return _expandedKeys;
+	}
 
 	public List<VerticalNavItem> getVerticalNavItems() {
 		if (_verticalNavItems != null) {
@@ -91,8 +100,7 @@ public class VerticalNavDisplayContext {
 								parent.get("href") + suffix);
 							verticalNavItem.setLabel(
 								parent.get("label") + suffix);
-							verticalNavItem.setId(
-								parent.get("id") + suffix);
+							verticalNavItem.setId(parent.get("id") + suffix);
 
 							if (size == 4) {
 								verticalNavItem.setItems(

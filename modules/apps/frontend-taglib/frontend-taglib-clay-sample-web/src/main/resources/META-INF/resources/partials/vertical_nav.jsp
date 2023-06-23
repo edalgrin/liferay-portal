@@ -57,3 +57,29 @@
 		/>
 	</clay:col>
 </clay:row>
+
+<h3>PREDEFINED ACTIVE VERTICAL NAV</h3>
+
+<clay:row
+	cssClass="mb-3"
+>
+	<clay:col>
+		<clay:vertical-nav
+			active="1"
+			verticalNavItems="<%= verticalNavDisplayContext.getVerticalNavItems() %>"
+		/>
+	</clay:col>
+</clay:row>
+
+<h3>PREDEFINED EXPANDED VERTICAL NAV</h3>
+
+<clay:row
+	cssClass="mb-3"
+>
+	<clay:col>
+		<clay:vertical-nav
+			defaultExpandedKeys="<%= verticalNavDisplayContext.getVerticalNavExpandedKeys() %>"
+			verticalNavItems="<%= verticalNavDisplayContext.getVerticalNavItems() %>"
+		/>
+	</clay:col>
+</clay:row>
