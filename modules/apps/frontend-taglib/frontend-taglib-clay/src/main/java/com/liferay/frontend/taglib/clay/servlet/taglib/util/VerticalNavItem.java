@@ -29,8 +29,4 @@ public class VerticalNavItem extends NavigationItem {
 		put("id", id);
 	}
 
-	public void setItems(List<VerticalNavItem> verticalNavItems) {
-		put("items", verticalNavItems);
-	}
-
 }
