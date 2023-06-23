@@ -19,6 +19,7 @@ import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItem;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.VerticalNavItemList;
 import com.liferay.portal.kernel.util.Validator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -159,12 +160,13 @@ public class VerticalNavTag extends BaseContainerTag {
 				(VerticalNavItemList)verticalNavItem.get("items");
 
 			Boolean active = (Boolean)verticalNavItem.get("active");
+			String id = (String)verticalNavItem.get("id");
 
 			if (active == null) {
 				active = Boolean.FALSE;
 			}
-			else if (_active == null) {
-				setActive((String)verticalNavItem.get("id"));
+			else if (_active == null && id != null) {
+				setActive(id);
 			}
 
 			Boolean expanded = (Boolean)verticalNavItem.get("expanded");
@@ -172,8 +174,8 @@ public class VerticalNavTag extends BaseContainerTag {
 			if (expanded == null) {
 				expanded = Boolean.FALSE;
 			}
-			else {
-				setDefaultExpandedKeys((String)verticalNavItem.get("id"));
+			else if (id != null) {
+				setDefaultExpandedKeys(id);
 			}
 
 			String href = (String)verticalNavItem.get("href");
@@ -254,7 +256,7 @@ public class VerticalNavTag extends BaseContainerTag {
 
 	private String _active;
 	private boolean _decorated;
-	private List<String> _defaultExpandedKeys;
+	private List<String> _defaultExpandedKeys = new ArrayList<>();;
 	private boolean _large;
 	private List<VerticalNavItem> _verticalNavItems;
 

@@ -37,7 +37,7 @@ export default function VerticalNav({
 			active={active}
 			className={cssClass}
 			decorated={decorated}
-			defaultExpandedKeys={defaultExpandedKeys}
+			defaultExpandedKeys={new Set(defaultExpandedKeys)}
 			items={items}
 			large={large}
 			triggerLabel={triggerLabel}
