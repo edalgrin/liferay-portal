@@ -183,7 +183,7 @@ public class VerticalNavTag extends BaseContainerTag {
 			if (expanded == null) {
 				expanded = Boolean.FALSE;
 			}
-			else if ((_defaultExpandedKeys == null) && (id != null)) {
+			else if ((expanded != false) && (_defaultExpandedKeys == null) && (id != null)) {
 				addExpandedKey(id);
 			}
 
