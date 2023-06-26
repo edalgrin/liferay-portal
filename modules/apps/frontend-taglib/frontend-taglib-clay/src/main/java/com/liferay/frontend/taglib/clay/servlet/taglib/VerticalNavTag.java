@@ -168,61 +168,63 @@ public class VerticalNavTag extends BaseContainerTag {
 			VerticalNavItemList items =
 				(VerticalNavItemList)verticalNavItem.get("items");
 
-			Boolean active = (Boolean)verticalNavItem.get("active");
-			String id = (String)verticalNavItem.get("id");
+			Boolean itemActive = (Boolean)verticalNavItem.get("active");
+			String itemId = (String)verticalNavItem.get("id");
 
-			if (active == null) {
-				active = Boolean.FALSE;
+			if (itemActive == null) {
+				itemActive = Boolean.FALSE;
 			}
-			else if ((_active == null) && (id != null)) {
-				setActive(id);
-			}
-
-			Boolean expanded = (Boolean)verticalNavItem.get("expanded");
-
-			if (expanded == null) {
-				expanded = Boolean.FALSE;
-			}
-			else if ((expanded != false) && (_defaultExpandedKeys == null) && (id != null)) {
-				addExpandedKey(id);
+			else if ((_active == null) && (itemId != null)) {
+				setActive(itemId);
 			}
 
-			String href = (String)verticalNavItem.get("href");
+			Boolean itemExpanded = (Boolean)verticalNavItem.get("expanded");
 
-			boolean button = false;
+			if (itemExpanded == null) {
+				itemExpanded = Boolean.FALSE;
+			}
+			else if (!itemExpanded && (_defaultExpandedKeys == null) &&
+					 (itemId != null)) {
 
-			if ((items != null) || Validator.isNull(href)) {
-				button = true;
+				addExpandedKey(itemId);
+			}
+
+			String itemHref = (String)verticalNavItem.get("href");
+
+			boolean itemButton = false;
+
+			if ((items != null) || Validator.isNull(itemHref)) {
+				itemButton = true;
 			}
 
 			jspWriter.write("<li role=\"none\" class=\"nav-item\">");
 
-			if (button) {
+			if (itemButton) {
 				jspWriter.write("<button class=\"nav-link collapse-icon");
 
-				if (!expanded) {
+				if (!itemExpanded) {
 					jspWriter.write(" collapsed");
 				}
 
-				if (active) {
+				if (itemActive) {
 					jspWriter.write(" active");
 				}
 
 				jspWriter.write(" btn btn-unstyled\" type=\"button\"");
 				jspWriter.write(" aria-expanded=\"");
-				jspWriter.write(expanded.toString());
+				jspWriter.write(itemExpanded.toString());
 				jspWriter.write("\" aria-haspopup=\"true\"");
 				jspWriter.write(" role=\"button\" tabindex=\"-1\">");
 			}
 			else {
 				jspWriter.write("<a class=\"nav-link");
 
-				if (active) {
+				if (itemActive) {
 					jspWriter.write(" active");
 				}
 
 				jspWriter.write("\" role=\"menuitem\" tabindex=\"-1\" href=\"");
-				jspWriter.write((String)verticalNavItem.get("href"));
+				jspWriter.write(itemHref);
 				jspWriter.write("\">");
 			}
 
@@ -231,7 +233,7 @@ public class VerticalNavTag extends BaseContainerTag {
 			if (items != null) {
 				IconTag iconTag = new IconTag();
 
-				if (expanded) {
+				if (itemExpanded) {
 					jspWriter.write("<span class=\"collapse-icon-open\">");
 					iconTag.setSymbol("caret-bottom");
 				}
@@ -244,14 +246,14 @@ public class VerticalNavTag extends BaseContainerTag {
 				jspWriter.write("</span>");
 			}
 
-			if (button) {
+			if (itemButton) {
 				jspWriter.write("</button>");
 			}
 			else {
 				jspWriter.write("</a>");
 			}
 
-			if ((items != null) && expanded) {
+			if ((items != null) && itemExpanded) {
 				_renderVerticalNavItems(jspWriter, items, depth++);
 			}
 
