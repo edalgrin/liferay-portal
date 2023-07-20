@@ -37,13 +37,11 @@
 			}
 		}
 
-		.modal-content {
-			--modal-bottom-spacing: 120px;
-
-			.modal-body {
-				max-height: calc(100vh - var(--modal-bottom-spacing));
-				overflow-y: auto;
-			}
+		&.modal-dialog-scrollable
+			.modal-content
+			> :not(.modal-header, .modal-body, .modal-footer) {
+			display: flex;
+			flex-direction: column;
 		}
 
 		.modal-body .loading-animation {

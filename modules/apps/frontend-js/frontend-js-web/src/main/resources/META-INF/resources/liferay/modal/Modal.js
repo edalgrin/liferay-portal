@@ -217,6 +217,7 @@ const Modal = ({
 					id={id}
 					observer={observer}
 					role={role}
+					scrollable
 					size={url && !size ? 'full-screen' : size}
 					status={status}
 					zIndex={zIndex}
