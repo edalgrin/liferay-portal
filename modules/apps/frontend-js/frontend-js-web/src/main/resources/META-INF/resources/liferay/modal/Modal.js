@@ -211,7 +211,7 @@ const Modal = ({
 			{open && (
 				<ClayModal
 					center={center}
-					className={classNames('liferay-modal', className)}
+					className={classNames('liferay-modal', 'modal-edu', className)}
 					containerProps={{...containerProps}}
 					disableAutoClose={disableAutoClose}
 					id={id}

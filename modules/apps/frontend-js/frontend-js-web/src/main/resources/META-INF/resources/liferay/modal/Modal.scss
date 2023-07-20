@@ -1,5 +1,34 @@
 @import 'cadmin-variables';
 
+%modal-dialog-scrollable {
+	display: flex;
+	max-height: calc(100% - #{$cadmin-modal-dialog-margin * 2});
+
+	@include media-breakpoint-up(sm) {
+		max-height: calc(100% - #{$cadmin-modal-dialog-margin-y-sm-up * 2});
+	}
+
+	.modal-content {
+		// IE10/11
+
+		max-height: calc(100vh - #{$cadmin-modal-dialog-margin * 2});
+		overflow: hidden;
+
+		@include media-breakpoint-up(sm) {
+			max-height: calc(100vh - #{$cadmin-modal-dialog-margin-y-sm-up * 2});
+		}
+	}
+
+	.modal-header,
+	.modal-footer {
+		flex-shrink: 0;
+	}
+
+	.modal-body {
+		overflow-y: auto;
+	}
+}
+
 .liferay-modal {
 	.modal-dialog {
 		position: relative;
@@ -47,10 +76,19 @@
 			transform: translateY(-50%);
 		}
 	}
+
+	&.modal-edu .modal-dialog {
+		@extend %modal-dialog-scrollable;
+
+		.modal-content > :not(.modal-header, .modal-body, .modal-footer) {
+			display: flex;
+			flex-direction: column;
+		}
+	}
 }
 
 html#{$cadmin-selector} {
-	.cadmin {
+	.cadmin .modal {
 		@extend .liferay-modal;
 	}
 }
