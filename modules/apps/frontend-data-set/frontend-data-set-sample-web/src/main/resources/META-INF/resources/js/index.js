@@ -8,6 +8,7 @@ import GreenCheckDataRenderer from './GreenCheckDataRenderer';
 import SampleCustomDataRenderer from './SampleCustomDataRenderer';
 import SampleFDSPropsTransformer from './SampleFDSPropsTransformer';
 import SampleReactFrontendDataSet from './SampleReactFrontendDataSet';
+import SampleEmptyStateFrontendDataSet from './SampleEmptyStateFrontendDataSet'
 
 export {
 	ControlledFrontendDataSet,
@@ -15,4 +16,5 @@ export {
 	SampleCustomDataRenderer,
 	SampleFDSPropsTransformer,
 	SampleReactFrontendDataSet,
+	SampleEmptyStateFrontendDataSet,
 };

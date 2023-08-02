@@ -25,4 +25,7 @@ public class FDSSampleFDSNames {
 	public static final String REACT =
 		FDSSamplePortletKeys.FDS_SAMPLE + "-react";
 
+	public static final String EMPTYSTATE =
+		FDSSamplePortletKeys.FDS_SAMPLE + "-emptystate";
+
 }
