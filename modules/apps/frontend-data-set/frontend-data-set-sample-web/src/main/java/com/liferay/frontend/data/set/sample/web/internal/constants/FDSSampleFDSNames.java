@@ -19,13 +19,13 @@ public class FDSSampleFDSNames {
 	public static final String CUSTOMIZED =
 		FDSSamplePortletKeys.FDS_SAMPLE + "-customized";
 
+	public static final String EMPTYSTATE =
+		FDSSamplePortletKeys.FDS_SAMPLE + "-emptystate";
+
 	public static final String MINIMUM =
 		FDSSamplePortletKeys.FDS_SAMPLE + "-minimum";
 
 	public static final String REACT =
 		FDSSamplePortletKeys.FDS_SAMPLE + "-react";
-
-	public static final String EMPTYSTATE =
-		FDSSamplePortletKeys.FDS_SAMPLE + "-emptystate";
 
 }

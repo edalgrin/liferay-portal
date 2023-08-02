@@ -6,15 +6,9 @@
 package com.liferay.frontend.data.set.sample.web.internal.display.context;
 
 import com.liferay.frontend.data.set.sample.web.internal.constants.FDSSampleFDSNames;
-import com.liferay.frontend.data.set.sample.web.internal.model.UserEntry;
 import com.liferay.frontend.data.set.sample.web.internal.view.util.FDSViewSerializerUtil;
 import com.liferay.frontend.data.set.view.FDSViewSerializer;
-import com.liferay.petra.function.transform.TransformUtil;
-import com.liferay.portal.kernel.service.UserLocalServiceUtil;
-import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.PortalUtil;
-import com.liferay.portal.kernel.util.WebKeys;
-import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,7 +26,8 @@ public class EmptyStateFDSDisplayContext {
 			FDSViewSerializerUtil.getFDSViewSerializer();
 
 		return fdsViewSerializer.serialize(
-			FDSSampleFDSNames.EMPTYSTATE, PortalUtil.getLocale(_httpServletRequest));
+			FDSSampleFDSNames.EMPTYSTATE,
+			PortalUtil.getLocale(_httpServletRequest));
 	}
 
 	private final HttpServletRequest _httpServletRequest;

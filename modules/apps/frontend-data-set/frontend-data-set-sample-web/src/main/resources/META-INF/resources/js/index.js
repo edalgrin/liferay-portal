@@ -6,9 +6,9 @@
 import ControlledFrontendDataSet from './ControlledFrontendDataSet';
 import GreenCheckDataRenderer from './GreenCheckDataRenderer';
 import SampleCustomDataRenderer from './SampleCustomDataRenderer';
+import SampleEmptyStateFrontendDataSet from './SampleEmptyStateFrontendDataSet';
 import SampleFDSPropsTransformer from './SampleFDSPropsTransformer';
 import SampleReactFrontendDataSet from './SampleReactFrontendDataSet';
-import SampleEmptyStateFrontendDataSet from './SampleEmptyStateFrontendDataSet'
 
 export {
 	ControlledFrontendDataSet,

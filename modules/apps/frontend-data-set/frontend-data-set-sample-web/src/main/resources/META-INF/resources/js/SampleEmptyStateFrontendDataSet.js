@@ -6,7 +6,7 @@
 import {FrontendDataSet} from '@liferay/frontend-data-set-web';
 import React from 'react';
 
-const SampleEmptyStateFrontendDataSet = ({items, ...otherProps}) => {
+const SampleEmptyStateFrontendDataSet = ({...otherProps}) => {
 	return (
 		<FrontendDataSet
 			creationMenu={{
