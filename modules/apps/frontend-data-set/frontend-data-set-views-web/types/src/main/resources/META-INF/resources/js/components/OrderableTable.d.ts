@@ -32,10 +32,10 @@ interface IOrderableTableProps {
 	noItemsButtonLabel: string;
 	noItemsDescription: string;
 	noItemsTitle: string;
-	onCancelButtonClick: Function;
+	onCancelButtonClick?: Function;
 	onCreationButtonClick: Function;
 	onOrderChange: (args: {orderedItems: any[]}) => void;
-	onSaveButtonClick: Function;
+	onSaveButtonClick?: Function;
 	title: string;
 }
 declare const OrderableTable: ({
