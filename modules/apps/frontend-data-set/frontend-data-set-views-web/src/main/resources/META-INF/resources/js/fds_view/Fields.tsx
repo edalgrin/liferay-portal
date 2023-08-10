@@ -749,6 +749,8 @@ const Fields = ({
 								(fdsField: IFDSField) => fdsField.id !== item.id
 							) || []
 						);
+
+						updateFDSFieldsOrder();
 					},
 				},
 			],
@@ -842,6 +844,8 @@ const Fields = ({
 						});
 
 						setFDSFields(newFDSFields);
+
+						updateFDSFieldsOrder();
 					}}
 					saveFDSFieldsURL={saveFDSFieldsURL}
 				/>
@@ -949,6 +953,8 @@ const Fields = ({
 						fdsFieldsOrderRef.current = orderedItems
 							.map((item) => item.id)
 							.join(',');
+
+						updateFDSFieldsOrder();
 					}}
 					onSaveButtonClick={() => updateFDSFieldsOrder()}
 					title={Liferay.Language.get('fields')}
