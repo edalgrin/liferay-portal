@@ -604,7 +604,6 @@ const Sorting = ({
 						noItemsTitle={Liferay.Language.get(
 							'no-default-sort-created-yet'
 						)}
-						onCancelButtonClick={() => navigate(fdsViewsURL)}
 						onCreationButtonClick={handleCreation}
 						onOrderChange={({
 							orderedItems,
@@ -617,7 +616,6 @@ const Sorting = ({
 									.join(',')
 							);
 						}}
-						onSaveButtonClick={handleSave}
 						title={Liferay.Language.get('sorting')}
 					/>
 				</>
