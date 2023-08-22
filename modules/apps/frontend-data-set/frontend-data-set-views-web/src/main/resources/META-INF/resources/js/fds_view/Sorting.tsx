@@ -371,7 +371,6 @@ const Sorting = ({
 	const [fields, setFields] = React.useState<IField[]>([]);
 	const [fdsSorts, setFDSSorts] = useState<Array<IFDSSort>>([]);
 	const [loading, setLoading] = useState(true);
-	const [newFDSSortsOrder, setNewFDSSortsOrder] = React.useState<string>('');
 
 	useEffect(() => {
 		const getFDSSort = async () => {
@@ -422,12 +421,6 @@ const Sorting = ({
 			}
 		});
 	}, [fdsView]);
-
-	useEffect(() => {
-		if (newFDSSortsOrder.length) {
-			handleSave();
-		}
-	}, [newFDSSortsOrder]);
 
 	const handleCreation = () =>
 		openModal({
@@ -524,12 +517,12 @@ const Sorting = ({
 		});
 	};
 
-	const handleSave = async () => {
+	const handleOrderChange = async ({items}: {items: string}) => {
 		const response = await fetch(
 			`${API_URL.FDS_VIEWS}/by-external-reference-code/${fdsView.externalReferenceCode}`,
 			{
 				body: JSON.stringify({
-					fdsSortsOrder: newFDSSortsOrder,
+					fdsSortsOrder: items,
 				}),
 				headers: {
 					'Accept': 'application/json',
@@ -549,12 +542,9 @@ const Sorting = ({
 
 		const fdsSortsOrder = responseJSON?.fdsSortsOrder;
 
-		if (fdsSortsOrder && fdsSortsOrder === newFDSSortsOrder) {
+		if (fdsSortsOrder && fdsSortsOrder === items) {
 			alertSuccess();
-
-			setNewFDSSortsOrder('');
-		}
-		else {
+		} else {
 			alertFailed();
 		}
 	};
@@ -584,7 +574,6 @@ const Sorting = ({
 								onClick: handleDelete,
 							},
 						]}
-						disableSave={!newFDSSortsOrder.length}
 						fields={[
 							{
 								headingTitle: true,
@@ -615,13 +604,13 @@ const Sorting = ({
 							orderedItems,
 						}: {
 							orderedItems: IFDSSort[];
-						}) => {
-							setNewFDSSortsOrder(
-								orderedItems
+						}) =>
+							handleOrderChange({
+								items: orderedItems
 									.map((fdsSort) => fdsSort.id)
-									.join(',')
-							);
-						}}
+									.join(','),
+							})
+						}
 						title={Liferay.Language.get('sorting')}
 					/>
 				</>
