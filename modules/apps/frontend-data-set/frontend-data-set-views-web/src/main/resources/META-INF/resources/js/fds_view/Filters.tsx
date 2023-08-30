@@ -18,7 +18,7 @@ import classNames from 'classnames';
 import {format, getYear, isBefore, isEqual} from 'date-fns';
 import {fetch, navigate, openModal, openToast, sub} from 'frontend-js-web';
 import fuzzy from 'fuzzy';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 import {API_URL, OBJECT_RELATIONSHIP} from '../Constants';
 import {FDSViewType} from '../FDSViews';
@@ -179,8 +179,7 @@ function AddFDSFilterModalContent({
 			};
 
 			displayType = Liferay.Language.get('date-filter');
-		}
-		else {
+		} else {
 			url = API_URL.FDS_DYNAMIC_FILTERS;
 
 			body = {
@@ -616,7 +615,7 @@ interface IProps {
 function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 	const [fields, setFields] = useState<IField[]>([]);
 	const [filters, setFilters] = useState<IFilter[]>([]);
-	const [newFiltersOrder, setNewFiltersOrder] = useState<string>('');
+	const fdsFiltersOrderRef = useRef('');
 
 	useEffect(() => {
 		const getFilters = async () => {
@@ -679,18 +678,12 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 		getFilters();
 	}, [fdsView]);
 
-	useEffect(() => {
-		if (newFiltersOrder.length) {
-			updateFDSFiltersOrder();
-		}
-	}, [newFiltersOrder]);
-
 	const updateFDSFiltersOrder = async () => {
 		const response = await fetch(
 			`${API_URL.FDS_VIEWS}/by-external-reference-code/${fdsView.externalReferenceCode}`,
 			{
 				body: JSON.stringify({
-					fdsFiltersOrder: newFiltersOrder,
+					fdsFiltersOrder: fdsFiltersOrderRef.current,
 				}),
 				headers: {
 					'Accept': 'application/json',
@@ -710,12 +703,9 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 
 		const fdsFiltersOrder = responseJSON?.fdsFiltersOrder;
 
-		if (fdsFiltersOrder && fdsFiltersOrder === newFiltersOrder) {
+		if (fdsFiltersOrder && fdsFiltersOrder === fdsFiltersOrderRef.current) {
 			alertSuccess();
-
-			setNewFiltersOrder('');
-		}
-		else {
+		} else {
 			alertFailed();
 		}
 	};
@@ -824,7 +814,6 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 						onClick: handleDelete,
 					},
 				]}
-				disableSave={!newFiltersOrder.length}
 				fields={[
 					{
 						label: Liferay.Language.get('name'),
@@ -849,9 +838,11 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 				)}
 				onCreationButtonClick={onCreationButtonClick}
 				onOrderChange={({orderedItems}: {orderedItems: IFilter[]}) => {
-					setNewFiltersOrder(
-						orderedItems.map((filter) => filter.id).join(',')
-					);
+					fdsFiltersOrderRef.current = orderedItems
+						.map((item) => item.id)
+						.join(',');
+
+					updateFDSFiltersOrder();
 				}}
 				title={Liferay.Language.get('filters')}
 			/>
