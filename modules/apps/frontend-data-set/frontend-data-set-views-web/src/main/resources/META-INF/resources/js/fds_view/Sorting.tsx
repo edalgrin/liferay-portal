@@ -371,7 +371,6 @@ const Sorting = ({
 	const [fields, setFields] = React.useState<IField[]>([]);
 	const [fdsSorts, setFDSSorts] = useState<Array<IFDSSort>>([]);
 	const [loading, setLoading] = useState(true);
-	const [newFDSSortsOrder, setNewFDSSortsOrder] = React.useState<string>('');
 
 	useEffect(() => {
 		const getFDSSort = async () => {
@@ -518,12 +517,16 @@ const Sorting = ({
 		});
 	};
 
-	const handleSave = async () => {
+	const handleOrderChange = async ({items}: {items: IFDSSort[]}) => {
+		setFDSSorts(items);
+
+		const itemsId = items.map((item) => item.id).join(',');
+
 		const response = await fetch(
 			`${API_URL.FDS_VIEWS}/by-external-reference-code/${fdsView.externalReferenceCode}`,
 			{
 				body: JSON.stringify({
-					fdsSortsOrder: newFDSSortsOrder,
+					fdsSortsOrder: itemsId,
 				}),
 				headers: {
 					'Accept': 'application/json',
@@ -543,10 +546,8 @@ const Sorting = ({
 
 		const fdsSortsOrder = responseJSON?.fdsSortsOrder;
 
-		if (fdsSortsOrder && fdsSortsOrder === newFDSSortsOrder) {
+		if (fdsSortsOrder && fdsSortsOrder === itemsId) {
 			alertSuccess();
-
-			setNewFDSSortsOrder('');
 		}
 		else {
 			alertFailed();
@@ -613,13 +614,7 @@ const Sorting = ({
 							orderedItems,
 						}: {
 							orderedItems: IFDSSort[];
-						}) => {
-							setNewFDSSortsOrder(
-								orderedItems
-									.map((fdsSort) => fdsSort.id)
-									.join(',')
-							);
-						}}
+						}) => handleOrderChange({items: orderedItems})}
 						title={Liferay.Language.get('sorting')}
 					/>
 				</>

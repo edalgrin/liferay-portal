@@ -619,7 +619,6 @@ interface IProps {
 function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 	const [fields, setFields] = useState<IField[]>([]);
 	const [filters, setFilters] = useState<IFilter[]>([]);
-	const [newFiltersOrder, setNewFiltersOrder] = useState<string>('');
 
 	useEffect(() => {
 		const getFilters = async () => {
@@ -682,12 +681,16 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 		getFilters();
 	}, [fdsView]);
 
-	const updateFDSFiltersOrder = async () => {
+	const handleOrderChange = async ({items}: {items: IFilter[]}) => {
+		setFilters(items);
+
+		const itemsId = items.map((item) => item.id).join(',');
+
 		const response = await fetch(
 			`${API_URL.FDS_VIEWS}/by-external-reference-code/${fdsView.externalReferenceCode}`,
 			{
 				body: JSON.stringify({
-					fdsFiltersOrder: newFiltersOrder,
+					fdsFiltersOrder: itemsId,
 				}),
 				headers: {
 					'Accept': 'application/json',
@@ -707,10 +710,8 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 
 		const fdsFiltersOrder = responseJSON?.fdsFiltersOrder;
 
-		if (fdsFiltersOrder && fdsFiltersOrder === newFiltersOrder) {
+		if (fdsFiltersOrder && fdsFiltersOrder === itemsId) {
 			alertSuccess();
-
-			setNewFiltersOrder('');
 		}
 		else {
 			alertFailed();
@@ -849,11 +850,9 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 				noItemsTitle={Liferay.Language.get(
 					'no-default-filters-were-created'
 				)}
-				onOrderChange={({orderedItems}: {orderedItems: IFilter[]}) => {
-					setNewFiltersOrder(
-						orderedItems.map((filter) => filter.id).join(',')
-					);
-				}}
+				onOrderChange={({orderedItems}: {orderedItems: IFilter[]}) =>
+					handleOrderChange({items: orderedItems})
+				}
 				title={Liferay.Language.get('filters')}
 			/>
 		</ClayLayout.ContainerFluid>

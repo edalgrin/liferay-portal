@@ -803,15 +803,17 @@ const Fields = ({
 		});
 	};
 
-	const updateFDSFieldsOrder = async () => {
-		const body = {
-			fdsFieldsOrder: fdsFieldsOrderRef.current,
-		};
+	const handleOrderChange = async ({items}: {items: Array<IFDSField>}) => {
+		setFDSFields(items);
+
+		const itemsId = items.map((item) => item.id).join(',');
 
 		const response = await fetch(
 			`${API_URL.FDS_VIEWS}/by-external-reference-code/${fdsView.externalReferenceCode}`,
 			{
-				body: JSON.stringify(body),
+				body: JSON.stringify({
+					fdsFieldsOrder: itemsId,
+				}),
 				headers: {
 					'Accept': 'application/json',
 					'Content-Type': 'application/json',
@@ -835,7 +837,7 @@ const Fields = ({
 
 		const fdsFieldsOrder = responseJSON?.fdsFieldsOrder;
 
-		if (fdsFieldsOrder && fdsFieldsOrder === fdsFieldsOrderRef.current) {
+		if (fdsFieldsOrder && fdsFieldsOrder === itemsId) {
 			openToast({
 				message: Liferay.Language.get(
 					'your-request-completed-successfully'
@@ -1007,11 +1009,7 @@ const Fields = ({
 						orderedItems,
 					}: {
 						orderedItems: Array<IFDSField>;
-					}) => {
-						fdsFieldsOrderRef.current = orderedItems
-							.map((item) => item.id)
-							.join(',');
-					}}
+					}) => handleOrderChange({items: orderedItems})}
 					title={Liferay.Language.get('fields')}
 				/>
 			) : (
