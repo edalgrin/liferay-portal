@@ -827,7 +827,6 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 						onClick: onCreationButtonClick,
 					},
 				]}
-				disableSave={!newFiltersOrder.length}
 				fields={[
 					{
 						label: Liferay.Language.get('name'),
@@ -850,13 +849,11 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 				noItemsTitle={Liferay.Language.get(
 					'no-default-filters-were-created'
 				)}
-				onCancelButtonClick={() => navigate(fdsViewsURL)}
 				onOrderChange={({orderedItems}: {orderedItems: IFilter[]}) => {
 					setNewFiltersOrder(
 						orderedItems.map((filter) => filter.id).join(',')
 					);
 				}}
-				onSaveButtonClick={updateFDSFiltersOrder}
 				title={Liferay.Language.get('filters')}
 			/>
 		</ClayLayout.ContainerFluid>

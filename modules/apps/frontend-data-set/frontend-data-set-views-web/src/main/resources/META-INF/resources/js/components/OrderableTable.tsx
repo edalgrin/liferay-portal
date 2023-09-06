@@ -224,15 +224,14 @@ interface IOrderableTableProps {
 		typeof ClayDropDownWithItems
 	>['items'];
 	creationMenuLabel?: string;
-	disableSave?: boolean;
 	fields: Array<IField>;
 	items: Array<any>;
 	noItemsButtonLabel: string;
 	noItemsDescription: string;
 	noItemsTitle: string;
-	onCancelButtonClick: Function;
+	onCancelButtonClick?: Function;
 	onOrderChange: (args: {orderedItems: any[]}) => void;
-	onSaveButtonClick: Function;
+	onSaveButtonClick?: Function;
 	title?: string;
 }
 
@@ -241,7 +240,6 @@ const OrderableTable = ({
 	className,
 	creationMenuItems,
 	creationMenuLabel = Liferay.Language.get('add'),
-	disableSave,
 	fields,
 	items: initialItems,
 	noItemsButtonLabel,
@@ -425,22 +423,23 @@ const OrderableTable = ({
 				)}
 			</ClayLayout.SheetSection>
 
-			{!!items.length && (
+			{!!items.length && (onSaveButtonClick || onCancelButtonClick) && (
 				<ClayLayout.SheetFooter>
 					<ClayButton.Group spaced>
-						<ClayButton
-							disabled={disableSave}
-							onClick={() => onSaveButtonClick()}
-						>
-							{Liferay.Language.get('save')}
-						</ClayButton>
+						{onSaveButtonClick && (
+							<ClayButton onClick={() => onSaveButtonClick()}>
+								{Liferay.Language.get('save')}
+							</ClayButton>
+						)}
 
-						<ClayButton
-							displayType="secondary"
-							onClick={() => onCancelButtonClick()}
-						>
-							{Liferay.Language.get('cancel')}
-						</ClayButton>
+						{onCancelButtonClick && (
+							<ClayButton
+								displayType="secondary"
+								onClick={() => onCancelButtonClick()}
+							>
+								{Liferay.Language.get('cancel')}
+							</ClayButton>
+						)}
 					</ClayButton.Group>
 				</ClayLayout.SheetFooter>
 			)}

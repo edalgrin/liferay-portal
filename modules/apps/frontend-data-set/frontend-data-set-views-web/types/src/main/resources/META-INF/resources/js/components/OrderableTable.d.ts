@@ -32,15 +32,14 @@ interface IOrderableTableProps {
 		typeof ClayDropDownWithItems
 	>['items'];
 	creationMenuLabel?: string;
-	disableSave?: boolean;
 	fields: Array<IField>;
 	items: Array<any>;
 	noItemsButtonLabel: string;
 	noItemsDescription: string;
 	noItemsTitle: string;
-	onCancelButtonClick: Function;
+	onCancelButtonClick?: Function;
 	onOrderChange: (args: {orderedItems: any[]}) => void;
-	onSaveButtonClick: Function;
+	onSaveButtonClick?: Function;
 	title?: string;
 }
 declare const OrderableTable: ({
@@ -48,7 +47,6 @@ declare const OrderableTable: ({
 	className,
 	creationMenuItems,
 	creationMenuLabel,
-	disableSave,
 	fields,
 	items: initialItems,
 	noItemsButtonLabel,
