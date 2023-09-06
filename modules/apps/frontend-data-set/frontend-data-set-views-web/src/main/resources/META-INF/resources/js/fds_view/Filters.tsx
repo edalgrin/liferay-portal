@@ -16,7 +16,7 @@ import ClayLayout from '@clayui/layout';
 import ClayModal from '@clayui/modal';
 import classNames from 'classnames';
 import {format, getYear, isBefore, isEqual} from 'date-fns';
-import {fetch, navigate, openModal, openToast, sub} from 'frontend-js-web';
+import {fetch, openModal, openToast, sub} from 'frontend-js-web';
 import fuzzy from 'fuzzy';
 import React, {useEffect, useState} from 'react';
 
@@ -616,7 +616,7 @@ interface IProps {
 	namespace: string;
 }
 
-function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
+function Filters({fdsView, namespace}: IProps) {
 	const [fields, setFields] = useState<IField[]>([]);
 	const [filters, setFilters] = useState<IFilter[]>([]);
 
@@ -681,44 +681,7 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 		getFilters();
 	}, [fdsView]);
 
-	const handleOrderChange = async ({items}: {items: IFilter[]}) => {
-		setFilters(items);
-
-		const itemsId = items.map((item) => item.id).join(',');
-
-		const response = await fetch(
-			`${API_URL.FDS_VIEWS}/by-external-reference-code/${fdsView.externalReferenceCode}`,
-			{
-				body: JSON.stringify({
-					fdsFiltersOrder: itemsId,
-				}),
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json',
-				},
-				method: 'PATCH',
-			}
-		);
-
-		if (!response.ok) {
-			alertFailed();
-
-			return null;
-		}
-
-		const responseJSON = await response.json();
-
-		const fdsFiltersOrder = responseJSON?.fdsFiltersOrder;
-
-		if (fdsFiltersOrder && fdsFiltersOrder === itemsId) {
-			alertSuccess();
-		}
-		else {
-			alertFailed();
-		}
-	};
-
-	const onCreationButtonClick = () =>
+	const handleCreation = () =>
 		openModal({
 			className: 'overflow-auto',
 			contentComponent: ({closeModal}: {closeModal: Function}) => (
@@ -807,6 +770,43 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 		});
 	};
 
+	const handleOrderChange = async ({items}: {items: IFilter[]}) => {
+		setFilters(items);
+
+		const itemsId = items.map((item) => item.id).join(',');
+
+		const response = await fetch(
+			`${API_URL.FDS_VIEWS}/by-external-reference-code/${fdsView.externalReferenceCode}`,
+			{
+				body: JSON.stringify({
+					fdsFiltersOrder: itemsId,
+				}),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				},
+				method: 'PATCH',
+			}
+		);
+
+		if (!response.ok) {
+			alertFailed();
+
+			return null;
+		}
+
+		const responseJSON = await response.json();
+
+		const fdsFiltersOrder = responseJSON?.fdsFiltersOrder;
+
+		if (fdsFiltersOrder && fdsFiltersOrder === itemsId) {
+			alertSuccess();
+		}
+		else {
+			alertFailed();
+		}
+	};
+
 	return (
 		<ClayLayout.ContainerFluid>
 			<OrderableTable
@@ -825,7 +825,7 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 				creationMenuItems={[
 					{
 						label: Liferay.Language.get('new-filter'),
-						onClick: onCreationButtonClick,
+						onClick: handleCreation,
 					},
 				]}
 				fields={[

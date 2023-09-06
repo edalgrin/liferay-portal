@@ -11,9 +11,5 @@ interface IProps {
 	fdsViewsURL: string;
 	namespace: string;
 }
-declare function Filters({
-	fdsView,
-	fdsViewsURL,
-	namespace,
-}: IProps): JSX.Element;
+declare function Filters({fdsView, namespace}: IProps): JSX.Element;
 export default Filters;

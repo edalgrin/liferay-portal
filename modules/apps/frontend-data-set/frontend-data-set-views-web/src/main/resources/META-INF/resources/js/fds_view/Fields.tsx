@@ -16,7 +16,6 @@ import {
 	IClientExtensionRenderer,
 	IInternalRenderer,
 	fetch,
-	navigate,
 	openModal,
 	openToast,
 } from 'frontend-js-web';
@@ -659,7 +658,6 @@ const EditFDSFieldModalContent = ({
 const Fields = ({
 	fdsClientExtensionCellRenderers,
 	fdsView,
-	fdsViewsURL,
 	namespace,
 	saveFDSFieldsURL,
 }: IFDSViewSectionInterface) => {
@@ -746,6 +744,47 @@ const Fields = ({
 		}
 	};
 
+	useEffect(() => {
+		getFDSFields();
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	const handleCreation = () =>
+		openModal({
+			className: 'overflow-auto',
+			contentComponent: ({closeModal}: {closeModal: Function}) => (
+				<SaveFDSFieldsModalContent
+					closeModal={closeModal}
+					fdsFields={fdsFields || []}
+					fdsView={fdsView}
+					namespace={namespace}
+					onSave={({
+						createdFDSFields,
+						deletedFDSFieldsIds,
+					}: {
+						createdFDSFields: Array<IFDSField>;
+						deletedFDSFieldsIds: Array<number>;
+					}) => {
+						const newFDSFields: Array<IFDSField> = [];
+
+						fdsFields?.forEach((fdsField) => {
+							if (!deletedFDSFieldsIds.includes(fdsField.id)) {
+								newFDSFields.push(fdsField);
+							}
+						});
+
+						createdFDSFields.forEach((fdsField) => {
+							newFDSFields.push(fdsField);
+						});
+
+						setFDSFields(newFDSFields);
+					}}
+					saveFDSFieldsURL={saveFDSFieldsURL}
+				/>
+			),
+		});
+
 	const handleDelete = ({item}: {item: IFDSField}) => {
 		openModal({
 			bodyHTML: Liferay.Language.get(
@@ -803,6 +842,30 @@ const Fields = ({
 		});
 	};
 
+	const handleEdit = ({editedFDSField}: {editedFDSField: IFDSField}) => {
+		let updatedFDSField: IFDSField;
+
+		if (!editedFDSField.label) {
+			updatedFDSField = {
+				...editedFDSField,
+				label: editedFDSField.name,
+			};
+		}
+		else {
+			updatedFDSField = {...editedFDSField};
+		}
+
+		setFDSFields(
+			fdsFields?.map((fdsField) => {
+				if (fdsField.id === updatedFDSField.id) {
+					return updatedFDSField;
+				}
+
+				return fdsField;
+			}) || null
+		);
+	};
+
 	const handleOrderChange = async ({items}: {items: Array<IFDSField>}) => {
 		setFDSFields(items);
 
@@ -855,71 +918,6 @@ const Fields = ({
 		}
 	};
 
-	useEffect(() => {
-		getFDSFields();
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
-
-	const onCreationButtonClick = () =>
-		openModal({
-			className: 'overflow-auto',
-			contentComponent: ({closeModal}: {closeModal: Function}) => (
-				<SaveFDSFieldsModalContent
-					closeModal={closeModal}
-					fdsFields={fdsFields || []}
-					fdsView={fdsView}
-					namespace={namespace}
-					onSave={({
-						createdFDSFields,
-						deletedFDSFieldsIds,
-					}: {
-						createdFDSFields: Array<IFDSField>;
-						deletedFDSFieldsIds: Array<number>;
-					}) => {
-						const newFDSFields: Array<IFDSField> = [];
-
-						fdsFields?.forEach((fdsField) => {
-							if (!deletedFDSFieldsIds.includes(fdsField.id)) {
-								newFDSFields.push(fdsField);
-							}
-						});
-
-						createdFDSFields.forEach((fdsField) => {
-							newFDSFields.push(fdsField);
-						});
-
-						setFDSFields(newFDSFields);
-					}}
-					saveFDSFieldsURL={saveFDSFieldsURL}
-				/>
-			),
-		});
-
-	const onEditFDSField = ({editedFDSField}: {editedFDSField: IFDSField}) => {
-		let updatedFDSField: IFDSField;
-
-		if (!editedFDSField.label) {
-			updatedFDSField = {
-				...editedFDSField,
-				label: editedFDSField.name,
-			};
-		}
-		else {
-			updatedFDSField = {...editedFDSField};
-		}
-
-		setFDSFields(
-			fdsFields?.map((fdsField) => {
-				if (fdsField.id === updatedFDSField.id) {
-					return updatedFDSField;
-				}
-
-				return fdsField;
-			}) || null
-		);
-	};
-
 	return (
 		<ClayLayout.ContainerFluid>
 			{fdsFields ? (
@@ -943,7 +941,7 @@ const Fields = ({
 											}
 											fdsField={item}
 											namespace={namespace}
-											onSave={onEditFDSField}
+											onSave={handleEdit}
 										/>
 									),
 								});
@@ -958,7 +956,7 @@ const Fields = ({
 					creationMenuItems={[
 						{
 							label: Liferay.Language.get('add-fields'),
-							onClick: onCreationButtonClick,
+							onClick: handleCreation,
 						},
 					]}
 					fields={[

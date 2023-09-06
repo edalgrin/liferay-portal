@@ -9,7 +9,7 @@ import ClayForm, {ClayInput, ClaySelectWithOption} from '@clayui/form';
 import ClayLayout from '@clayui/layout';
 import ClayLoadingIndicator from '@clayui/loading-indicator';
 import ClayModal from '@clayui/modal';
-import {fetch, navigate, openModal, openToast} from 'frontend-js-web';
+import {fetch, openModal, openToast} from 'frontend-js-web';
 import fuzzy from 'fuzzy';
 import React, {useEffect, useState} from 'react';
 
@@ -363,11 +363,7 @@ const EditFDSSortModalContent = ({
 	);
 };
 
-const Sorting = ({
-	fdsView,
-	fdsViewsURL,
-	namespace,
-}: IFDSViewSectionInterface) => {
+const Sorting = ({fdsView, namespace}: IFDSViewSectionInterface) => {
 	const [fields, setFields] = React.useState<IField[]>([]);
 	const [fdsSorts, setFDSSorts] = useState<Array<IFDSSort>>([]);
 	const [loading, setLoading] = useState(true);
