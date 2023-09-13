@@ -16,6 +16,7 @@ import ClayLayout from '@clayui/layout';
 import ClayModal from '@clayui/modal';
 import classNames from 'classnames';
 import {format, getYear, isBefore, isEqual} from 'date-fns';
+import {InputLocalized} from 'frontend-js-components-web';
 import {fetch, navigate, openModal, openToast, sub} from 'frontend-js-web';
 import fuzzy from 'fuzzy';
 import React, {useEffect, useState} from 'react';
@@ -25,6 +26,9 @@ import {FDSViewType} from '../FDSViews';
 import {IPickList, getAllPicklists, getFields} from '../api';
 import CheckboxMultiSelect from '../components/CheckboxMultiSelect';
 import OrderableTable from '../components/OrderableTable';
+
+const defaultLanguageId = Liferay.ThemeDisplay.getDefaultLanguageId();
+type LocalizedValue<T> = Liferay.Language.LocalizedValue<T>;
 
 interface IField {
 	format: string;
@@ -38,6 +42,7 @@ interface IFilter {
 	id: number;
 	label: string;
 	name: string;
+	name_i18n: LocalizedValue<string>;
 	type: string;
 }
 
@@ -73,7 +78,7 @@ interface IPropsAddFDSFilterModalContent {
 	closeModal: Function;
 	fdsView: FDSViewType;
 	fields: IField[];
-	filter?: IDateFilter | IDynamicFilter;
+	filter?: IFilter | IDateFilter | IDynamicFilter;
 	namespace: string;
 	onSave: (newFilter: IFilter) => void;
 }
@@ -111,6 +116,21 @@ function AddFDSFilterModalContent({
 	const [selectedPicklist, setSelectedPicklist] = useState<IPickList>();
 	const [to, setTo] = useState<string>(
 		(filter as IDateFilter)?.to ?? format(new Date(), 'yyyy-MM-dd')
+	);
+
+	const fdsFilter = filter as IFilter;
+	const fdsFilterTranslations = fdsFilter.name_i18n;
+
+	if (Liferay.FeatureFlags['LPS-172017']) {
+		const filterName = fdsFilter.name_i18n[defaultLanguageId];
+
+		if (filterName) {
+			setName(filterName);
+		}
+	}
+
+	const [i18nFilterNames, setI18nFilterNames] = useState(
+		fdsFilterTranslations
 	);
 
 	useEffect(() => {
@@ -182,8 +202,7 @@ function AddFDSFilterModalContent({
 			};
 
 			displayType = Liferay.Language.get('date-filter');
-		}
-		else {
+		} else {
 			url = API_URL.FDS_DYNAMIC_FILTERS;
 
 			body = {
@@ -204,6 +223,15 @@ function AddFDSFilterModalContent({
 		if (filter) {
 			method = 'PUT';
 			url = `${url}/${filter.id}`;
+		}
+
+		let bodyNew;
+
+		if (Liferay.FeatureFlags['LPS-172017']) {
+			bodyNew = {...body, name_i18n: i18nFilterNames};
+		}
+		else {
+			bodyNew = {...body, name: name};
 		}
 
 		const response = await fetch(url, {
@@ -262,28 +290,48 @@ function AddFDSFilterModalContent({
 
 			<ClayModal.Body>
 				<ClayForm.Group>
-					<label htmlFor={nameFormElementId}>
-						{Liferay.Language.get('name')}
+					{Liferay.FeatureFlags['LPS-172017'] ? (
+						<InputLocalized
+							id={nameFormElementId}
+							label={Liferay.Language.get('name')}
+							name="name"
+							onChange={(newFilterName) => {
+								setI18nFilterNames({
+									...i18nFilterNames,
+									...newFilterName,
+								});
+							}}
+							translations={i18nFilterNames}
+						/>
+					) : (
+						<>
+							<label htmlFor={nameFormElementId}>
+								{Liferay.Language.get('name')}
 
-						<span
-							className="label-icon lfr-portal-tooltip ml-2"
-							title={Liferay.Language.get(
-								'if-this-value-is-not-provided,-the-name-will-default-to-the-field-name'
-							)}
-						>
-							<ClayIcon symbol="question-circle-full" />
-						</span>
-					</label>
+								<span
+									className="label-icon lfr-portal-tooltip ml-2"
+									title={Liferay.Language.get(
+										'if-this-value-is-not-provided,-the-name-will-default-to-the-field-name'
+									)}
+								>
+									<ClayIcon symbol="question-circle-full" />
+								</span>
+							</label>
 
-					<ClayInput
-						aria-label={Liferay.Language.get('name')}
-						name={nameFormElementId}
-						onChange={(event) => setName(event.target.value)}
-						placeholder={
-							selectedField?.label || Liferay.Language.get('name')
-						}
-						value={name}
-					/>
+							<ClayInput
+								aria-label={Liferay.Language.get('name')}
+								name={nameFormElementId}
+								onChange={(event) =>
+									setName(event.target.value)
+								}
+								placeholder={
+									selectedField?.label ||
+									Liferay.Language.get('name')
+								}
+								value={name}
+							/>
+						</>
+					)}
 				</ClayForm.Group>
 
 				<ClayForm.Group>
@@ -711,8 +759,7 @@ function Filters({fdsView, fdsViewsURL, namespace}: IProps) {
 			alertSuccess();
 
 			setNewFiltersOrder('');
-		}
-		else {
+		} else {
 			alertFailed();
 		}
 	};
