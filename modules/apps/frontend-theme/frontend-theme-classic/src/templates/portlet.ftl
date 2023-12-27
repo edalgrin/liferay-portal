@@ -89,7 +89,7 @@
 
 				<#if portlet_display.isShowPortletTitle()>
 					<div class="autofit-col autofit-col-expand">
-						<h2 class="portlet-title-text">${portlet_title}</h2>
+						<h2 class="font-weight-semi-bold h5 portlet-title-text text-secondary text-uppercase">${portlet_title}</h2>
 					</div>
 				</#if>
 

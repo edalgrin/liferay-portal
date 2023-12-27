@@ -15,7 +15,7 @@ if (Validator.isNull(backLabel)) {
 String headerTitle = localizeTitle ? LanguageUtil.get(resourceBundle, title) : title;
 %>
 
-<div class="taglib-header <%= cssClass %>">
+<div class="border-bottom mb-2 pb-2 taglib-header text-secondary <%= cssClass %>">
 	<c:if test="<%= showBackURL && Validator.isNotNull(backURL) %>">
 		<liferay-ui:icon
 			cssClass="header-back-to"

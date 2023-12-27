@@ -52,7 +52,7 @@
 					</div>
 				</div>
 
-				<div class="navbar navbar-classic navbar-expand-md navbar-light pb-3">
+				<div class="border-bottom navbar navbar-classic navbar-expand-md navbar-light pb-3">
 					<div class="container-fluid container-fluid-max-xl">
 						<a class="${logo_css_class} align-items-center d-inline-flex d-md-none logo-xs" href="${site_default_url}" rel="nofollow">
 							<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
@@ -85,7 +85,7 @@
 		</section>
 
 		<#if show_footer>
-			<footer id="footer" role="contentinfo">
+			<footer class="bg-dark py-5 text-white" id="footer" role="contentinfo">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 text-center text-md-left">

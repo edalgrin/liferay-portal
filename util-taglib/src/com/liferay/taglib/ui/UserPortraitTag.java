@@ -37,7 +37,7 @@ public class UserPortraitTag extends IncludeTag {
 		if (Validator.isNull(portraitURL)) {
 			StringBundler sb = new StringBundler(13);
 
-			sb.append("<span class=\"sticker sticker-circle sticker-light ");
+			sb.append("<span class=\"border sticker sticker-circle sticker-secondary ");
 
 			if (Validator.isNotNull(size)) {
 				sb.append(_getSizeCssClass(size));

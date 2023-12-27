@@ -40,7 +40,7 @@
 	<c:when test="<%= themeDisplay.isShowSignInIcon() %>">
 		<span class="sign-in text-default" role="presentation">
 			<aui:icon
-				cssClass="sign-in text-default"
+				cssClass="font-weight-semi-bold sign-in text-default text-secondary"
 				data='<%=
 					HashMapBuilder.<String, Object>put(
 						"redirect", String.valueOf(PortalUtil.isLoginRedirectRequired(request))
