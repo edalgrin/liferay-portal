@@ -153,3 +153,5 @@ Format dateFormatDate = FastDateFormatFactoryUtil.getDate(locale, timeZone);
 %>
 
 <%@ include file="/init-ext.jsp" %>
+
+<liferay-frontend:stylesheet bundle="com.liferay.frontend.theme.classic.style.guide.sample.web" css="css/edu.css" />
