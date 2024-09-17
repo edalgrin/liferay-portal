@@ -63,6 +63,9 @@ if (!linkCssClass.contains("keep-aria-attributes") && (useDialog || (urlIsNotNul
 			<c:if test="<%= !label && Validator.isNotNull(message) %>">
 				title="<%= HtmlUtil.escapeAttribute(LanguageUtil.get(resourceBundle, HtmlUtil.stripHtml(message))) %>"
 			</c:if>
+			<c:if test="<%= toolTip %>">
+				tabindex="0"
+			</c:if>
 		>
 			<c:choose>
 				<c:when test="<%= urlIsNotNull %>">
