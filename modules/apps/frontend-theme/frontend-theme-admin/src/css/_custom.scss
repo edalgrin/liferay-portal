@@ -46,3 +46,30 @@ body {
 .card-page-item-asset {
 	min-width: 193px;
 }
+
+/**/
+
+#wrapper {
+	.portlet-layout {
+		margin-bottom: 0;
+	}
+
+	.portlet-boundary {
+		min-height: 100vh;
+	}
+
+	.portlet-boundary,
+	.portlet,
+	.portlet-content-container,
+	.portlet-body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.portlet,
+	.portlet-content-container,
+	.portlet-body,
+	.sidenav-container {
+		flex-grow: 1;
+	}
+}
